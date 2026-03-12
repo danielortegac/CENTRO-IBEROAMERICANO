@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IBERO Academy - Tu Futuro Académico Empieza Aquí</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #1f2937;
+            overflow-x: hidden;
+        }
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(255, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url('https://images.pexels.com/photos/3183183/pexels-photo-3183183.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-blend-mode: multiply;
+        }
+        .cta-button {
+            transition: all 0.3s ease;
+            background: linear-gradient(90deg, #ff0000, #cc0000);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        .cta-button:hover {
+            transform: scale(1.1);
+            background: linear-gradient(90deg, #cc0000, #ff0000);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+        .service-card {
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            background-color: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        .service-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+        }
+        .section-title {
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            background: linear-gradient(180deg, #ff0000, #cc0000);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-text {
+            font-weight: 800;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .service-img {
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px 8px 0 0;
+        }
+        @media (max-width: 640px) {
+            .hero-text {
+                font-size: 2.25rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .service-img {
+                height: 120px;
+            }
+            .service-card {
+                margin-bottom: 2.5rem;
+            }
+        }
+        @media (min-width: 768px) {
+            .hero-text {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero-bg text-white py-24 px-4 sm:px-6 text-center">
+        <div class="max-w-7xl mx-auto">
+            <h1 class="hero-text text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6">IBERO Academy</h1>
+            <p class="text-lg sm:text-xl md:text-2xl font-semibold mb-8 max-w-3xl mx-auto">Transforma tu futuro con programas académicos y vocacionales 100% virtuales.</p>
+            <p class="text-base sm:text-lg md:text-xl mb-10 max-w-4xl mx-auto">Mentores especializados, certificados digitales y una experiencia personalizada para tu éxito.</p>
+            <a href="#servicios" class="cta-button inline-block text-white font-semibold py-3 px-10 rounded-full text-lg sm:text-xl">Descubre Nuestros Programas</a>
+        </div>
+    </section>
+
+    <!-- Servicios Section -->
+    <section id="servicios" class="py-24 px-4 sm:px-6 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="section-title text-3xl sm:text-4xl md:text-5xl font-extrabold text-center mb-16">Programas Exclusivos</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                <!-- IBERO Clases Dirigidas -->
+                <div class="service-card rounded-xl shadow-2xl overflow-hidden">
+                    <img src="https://images.pexels.com/photos/267885/pexels-photo-267885.jpeg" alt="Clases Dirigidas" class="service-img w-full">
+                    <div class="p-6">
+                        <h3 class="text-2xl sm:text-3xl font-bold text-black mb-3">Clases Dirigidas</h3>
+                        <p class="text-gray-600 mb-4">Clases en vivo vía Teams para resolver tareas, aclarar dudas y prepararte para exámenes.</p>
+                        <p class="text-black font-semibold mb-4">USD 10/hora</p>
+                        <a href="#" class="cta-button inline-block text-white font-semibold py-2 px-6 rounded-full">Reserva Ahora</a>
+                    </div>
+                </div>
+                <!-- IBERO Mentoría de Tesis -->
+                <div class="service-card rounded-xl shadow-2xl overflow-hidden">
+                    <img src="https://images.pexels.com/photos/1595385/pexels-photo-1595385.jpeg" alt="Mentoría de Tesis" class="service-img w-full">
+                    <div class="p-6">
+                        <h3 class="text-2xl sm:text-3xl font-bold text-black mb-3">Mentoría de Tesis</h3>
+                        <p class="text-gray-600 mb-4">Asesoría 1 a 1 para tesis y proyectos de investigación con mentoría personalizada.</p>
+                        <p class="text-black font-semibold mb-4">USD 30/hora</p>
+                        <a href="#" class="cta-button inline-block text-white font-semibold py-2 px-6 rounded-full">Agenda tu Sesión</a>
+                    </div>
+                </div>
+                <!-- IBERO Orientación Vocacional -->
+                <div class="service-card rounded-xl shadow-2xl overflow-hidden">
+                    <img src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg" alt="Orientación Vocacional" class="service-img w-full">
+                    <div class="p-6">
+                        <h3 class="text-2xl sm:text-3xl font-bold text-black mb-3">Orientación Vocacional</h3>
+                        <p class="text-gray-600 mb-4">Test certificados y plan de carrera personalizado en sesiones individuales.</p>
+                        <p class="text-black font-semibold mb-4">USD 30/sesión</p>
+                        <a href="#" class="cta-button inline-block text-white font-semibold py-2 px-6 rounded-full">Solicita Ahora</a>
+                    </div>
+                </div>
+                <!-- Preuniversitario IBERO -->
+                <div class="service-card rounded-xl shadow-2xl overflow-hidden">
+                    <img src="https://images.pexels.com/photos/1591061/pexels-photo-1591061.jpeg" alt="Preuniversitario" class="service-img w-full">
+                    <div class="p-6">
+                        <h3 class="text-2xl sm:text-3xl font-bold text-black mb-3">Preuniversitario</h3>
+                        <p class="text-gray-600 mb-4">Curso intensivo de 4 semanas con simulacros y mentoría para ingreso universitario.</p>
+                        <p class="text-black font-semibold mb-4">USD 149/curso</p>
+                        <a href="#" class="cta-button inline-block text-white font-semibold py-2 px-6 rounded-full">Inscríbete Hoy</a>
+                    </div>
+                </div>
+                <!-- Taller de Técnicas de Estudio -->
+                <div class="service-card rounded-xl shadow-2xl overflow-hidden">
+                    <img src="https://images.pexels.com/photos/1181676/pexels-photo-1181676.jpeg" alt="Taller de Estudio" class="service-img w-full">
+                    <div class="p-6">
+                        <h3 class="text-2xl sm:text-3xl font-bold text-black mb-3">Taller de Estudio con IA</h3>
+                        <p class="text-gray-600 mb-4">Taller de 6 horas para dominar técnicas de estudio con IA y productividad.</p>
+                        <p class="text-black font-semibold mb-4">USD 49</p>
+                        <a href="#" class="cta-button inline-block text-white font-semibold py-2 px-6 rounded-full">Reserva tu Cupo</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proceso de Inscripción -->
+    <section class="py-24 px-4 sm:px-6 bg-gray-50">
+        <div class="max-w-7xl mx-auto text-center">
+            <h2 class="section-title text-3xl sm:text-4xl md:text-5xl font-extrabold mb-16">Inscribe en 4 Pasos</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
+                <div class="p-6 bg-white rounded-xl shadow-lg">
+                    <h3 class="text-xl sm:text-2xl font-bold text-red-600 mb-3">1. Selecciona</h3>
+                    <p class="text-gray-600">Elige el programa que mejor se adapte a ti.</p>
+                </div>
+                <div class="p-6 bg-white rounded-xl shadow-lg">
+                    <h3 class="text-xl sm:text-2xl font-bold text-red-600 mb-3">2. Reserva</h3>
+                    <p class="text-gray-600">Paga de forma segura desde cualquier dispositivo.</p>
+                </div>
+                <div class="p-6 bg-white rounded-xl shadow-lg">
+                    <h3 class="text-xl sm:text-2xl font-bold text-red-600 mb-3">3. Accede</h3>
+                    <p class="text-gray-600">Ingresa a IBERO Campus virtual al instante.</p>
+                </div>
+                <div class="p-6 bg-white rounded-xl shadow-lg">
+                    <h3 class="text-xl sm:text-2xl font-bold text-red-600 mb-3">4. Disfruta</h3>
+                    <p class="text-gray-600">Recibe mentoría y certificado digital QR.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Por Qué Elegirnos -->
+    <section class="py-24 px-4 sm:px-6 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="section-title text-3xl sm:text-4xl md:text-5xl font-extrabold text-center mb-16">¿Por Qué IBERO Academy?</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                <div class="flex items-start p-6 bg-gray-50 rounded-xl">
+                    <svg class="w-10 h-10 text-red-600 mr-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>
+                    <p class="text-gray-600 text-lg">Clases en vivo con interacción directa vía Microsoft Teams.</p>
+                </div>
+                <div class="flex items-start p-6 bg-gray-50 rounded-xl">
+                    <svg class="w-10 h-10 text-red-600 mr-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>
+                    <p class="text-gray-600 text-lg">Mentores expertos con experiencia comprobada.</p>
+                </div>
+                <div class="flex items-start p-6 bg-gray-50 rounded-xl">
+                    <svg class="w-10 h-10 text-red-600 mr-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>
+                    <p class="text-gray-600 text-lg">Atención personalizada en sesiones individuales o grupos pequeños.</p>
+                </div>
+                <div class="flex items-start p-6 bg-gray-50 rounded-xl">
+                    <svg class="w-10 h-10 text-red-600 mr-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>
+                    <p class="text-gray-600 text-lg">Plataforma intuitiva: IBERO Campus.</p>
+                </div>
+                <div class="flex items-start p-6 bg-gray-50 rounded-xl">
+                    <svg class="w-10 h-10 text-red-600 mr-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>
+                    <p class="text-gray-600 text-lg">Certificados digitales con validación QR.</p>
+                </div>
+                <div class="flex items-start p-6 bg-gray-50 rounded-xl">
+                    <svg class="w-10 h-10 text-red-600 mr-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>
+                    <p class="text-gray-600 text-lg">Comunidad estudiantil con soporte 24/7.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IBERO Labs - Tu Idea, Tu Negocio, Tu Éxito</title>
+  <!-- Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #0a0a0a;
+      color: #ffffff;
+      margin: 0;
+      overflow-x: hidden;
+    }
+    .hero-bg {
+      background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url('https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg') no-repeat center/cover;
+      animation: subtleZoom 20s infinite;
+      height: 60vh;
+      max-height: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-size: cover;
+    }
+    @keyframes subtleZoom {
+      0% { background-size: 100%; }
+      50% { background-size: 105%; }
+      100% { background-size: 100%; }
+    }
+    .cta-button {
+      background-color: #e30613;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(227,6,19,0.4);
+    }
+    .cta-button:hover {
+      background-color: #ff1a2e;
+      transform: scale(1.1) translateY(-3px);
+      box-shadow: 0 6px 20px rgba(227,6,19,0.6);
+    }
+    .program-card {
+      background: rgba(20,20,20,0.95);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(227,6,19,0.2);
+    }
+    .program-card:hover {
+      transform: translateY(-10px);
+      border-color: #e30613;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    }
+    .quote-bg {
+      background: linear-gradient(rgba(227,6,19,0.95), rgba(227,6,19,0.95)), url('https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg') no-repeat center/cover;
+      padding: 5rem 1rem;
+      background-size: cover;
+    }
+    .animate-slide-in {
+      opacity: 0;
+      transform: translateY(50px);
+      animation: slideIn 0.8s ease forwards;
+    }
+    @keyframes slideIn {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .scroll-reveal {
+      opacity: 0;
+      transition: opacity 0.6s ease, transform 0.6s ease;
+      transform: translateY(50px);
+    }
+    .scroll-reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <!-- Hero Section -->
+  <section class="hero-bg text-center">
+    <div class="max-w-5xl mx-auto px-4 animate-slide-in">
+      <h1 class="text-5xl md:text-6xl font-bold mb-4 tracking-tight">IBERO Labs: Tu Idea, Tu Negocio, Tu Éxito</h1>
+      <h2 class="text-2xl md:text-3xl font-medium mb-8 text-gray-200">De cero a facturar en 1 mes. ¡Lanza tu startup ahora!</h2>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="https://www.ibero.education" class="cta-button text-white font-bold py-3 px-8 rounded-full text-lg">Aplica a Crea tu Negocio</a>
+        <a href="https://www.ibero.education" class="border-2 border-white text-white font-bold py-3 px-8 rounded-full text-lg hover:bg-white hover:text-black transition-all">Explora Lanza tu Startup</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="py-16 scroll-reveal">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="text-4xl font-bold mb-8 text-center">¿Qué es IBERO Labs?</h2>
+      <p class="text-lg leading-relaxed text-gray-300 max-w-3xl mx-auto">
+        Somos tu <strong>atajo al éxito emprendedor</strong>. Un programa intensivo que te lleva desde una idea en papel hasta un <strong>negocio real</strong> con clientes, sin necesidad de abogados. Registra tu empresa, crea un MVP, diseña tu web con pagos, domina finanzas y lánzate con la mentalidad de un fundador imparable.
+      </p>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section class="py-16">
+    <div class="max-w-5xl mx-auto px-4 scroll-reveal">
+      <h2 class="text-4xl font-bold mb-10 text-center">Lo que obtienes con IBERO Labs</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-gray-900 p-6 rounded-xl">
+          <h3 class="text-xl font-semibold mb-3 text-red-500">Legalidad Sin Dolor</h3>
+          <p class="text-gray-300">Trámites, permisos y licencias sin abogados.</p>
+        </div>
+        <div class="bg-gray-900 p-6 rounded-xl">
+          <h3 class="text-xl font-semibold mb-3 text-red-500">MVP en Tiempo Récord</h3>
+          <p class="text-gray-300">Prototipa rápido, valida en el mercado y ajusta con feedback real.</p>
+        </div>
+        <div class="bg-gray-900 p-6 rounded-xl">
+          <h3 class="text-xl font-semibold mb-3 text-red-500">Dominio Digital</h3>
+          <p class="text-gray-300">Web profesional, pasarelas de pago y redes sociales optimizadas.</p>
+        </div>
+        <div class="bg-gray-900 p-6 rounded-xl">
+          <h3 class="text-xl font-semibold mb-3 text-red-500">Finanzas Claras</h3>
+          <p class="text-gray-300">Costos, flujo de caja y KPIs para tomar decisiones inteligentes.</p>
+        </div>
+        <div class="bg-gray-900 p-6 rounded-xl">
+          <h3 class="text-xl font-semibold mb-3 text-red-500">Mentalidad de Fundador</h3>
+          <p class="text-gray-300">Resiliencia, liderazgo y enfoque para superar cualquier reto.</p>
+        </div>
+        <div class="bg-gray-900 p-6 rounded-xl">
+          <h3 class="text-xl font-semibold mb-3 text-red-500">Oportunidades Reales</h3>
+          <p class="text-gray-300">Demo Day con inversores, concursos y convenios exclusivos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Programs Section -->
+  <section class="py-16 scroll-reveal">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="text-4xl font-bold mb-10 text-center">Nuestros Programas</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Program 1 -->
+        <div class="program-card p-8 rounded-xl">
+          <h3 class="text-3xl font-bold mb-4 text-red-500">Crea tu Negocio en 1 Mes</h3>
+          <p class="text-gray-300 mb-4"><strong>Duración:</strong> 1 mes<br><strong>Inversión:</strong> USD 199</p>
+          <ul class="text-gray-300 list-disc pl-5 mb-6 space-y-2">
+            <li>Constitución legal: Super de Cías, SRI, IESS, LUAE</li>
+            <li>Prototipado y validación de MVP</li>
+            <li>Web básica con pasarelas de pago</li>
+            <li>IA como asistente operativo</li>
+            <li>Diseño de marca y activos digitales</li>
+            <li>4h de mentoría 1:1</li>
+            <li>Acceso a coworking e IBERO+ Community</li>
+            <li>Certificado digital con QR</li>
+            <li>20% off en “Lanza tu Empresa”</li>
+          </ul>
+          <a href="https://www.ibero.education" class="cta-button text-white font-bold py-3 px-8 rounded-full block text-center">¡Crea tu Negocio!</a>
+        </div>
+        <!-- Program 2 -->
+        <div class="program-card p-8 rounded-xl">
+          <h3 class="text-3xl font-bold mb-4 text-red-500">Lanza tu Empresa de Alto Impacto</h3>
+          <p class="text-gray-300 mb-4"><strong>Duración:</strong> 3 meses<br><strong>Inversión:</strong> USD 599</p>
+          <ul class="text-gray-300 list-disc pl-5 mb-6 space-y-2">
+            <li>Constitución legal avanzada y permisos</li>
+            <li>IA para automatización: marketing, atención, datos</li>
+            <li>MVP con validación continua vía IA</li>
+            <li>Branding optimizado con IA</li>
+            <li>Web profesional con SEO y pagos avanzados</li>
+            <li>CRM y contabilidad automatizada con IA</li>
+            <li>Finanzas avanzadas: costos, proyecciones</li>
+            <li>Growth hacking y embudos de ventas</li>
+            <li>Marketing integral y remarketing</li>
+            <li>Mindset avanzado para founders</li>
+            <li>Gestión de equipos y cultura</li>
+            <li>Pitch deck ganador y práctica intensiva</li>
+            <li>Demo Day con posible inversión</li>
+            <li>Concursos y convenios exclusivos</li>
+            <li>Mentoría ilimitada</li>
+            <li>Certificado digital con QR</li>
+          </ul>
+          <a href="https://www.ibero.education" class="cta-button text-white font-bold py-3 px-8 rounded-full block text-center">¡Lanza tu Startup!</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Investment Opportunities -->
+  <section class="py-16 scroll-reveal">
+    <div class="max-w-5xl mx-auto px-4 text-center">
+      <h2 class="text-4xl font-bold mb-8">Inversión y Oportunidades Únicas</h2>
+      <p class="text-lg text-gray-300 mb-8 max-w-3xl mx-auto">
+        En IBERO Labs, no solo te formamos, <strong>invertimos en ti</strong>. Los mejores proyectos de cada cohorte reciben capital semilla y se conectan con <strong>alianzas corporativas</strong> para impulsar tu crecimiento.
+      </p>
+      <a href="https://www.ibero.education" class="cta-button text-white font-bold py-3 px-8 rounded-full text-lg">Asegura tu Lugar</a>
+    </div>
+  </section>
+
+  <!-- Testimonial Section -->
+  <section class="quote-bg scroll-reveal">
+    <div class="max-w-5xl mx-auto px-4 text-center">
+      <blockquote class="text-3xl italic text-white mb-6 font-light">
+        “De una idea a facturar en 30 días. IBERO Labs me dio las herramientas y la confianza para atraer inversores.”
+      </blockquote>
+      <p class="text-xl font-semibold text-white">– Sofía M., Fundadora de EcoVida</p>
+    </div>
+  </section>
+
+  <!-- Final CTA Section -->
+  <section class="py-16 scroll-reveal">
+    <div class="max-w-5xl mx-auto px-4 text-center">
+      <h2 class="text-4xl font-bold mb-8">¿Listo para ser el próximo gran founder?</h2>
+      <p class="text-lg text-gray-300 mb-8 max-w-3xl mx-auto">
+        <strong>Cupos limitados.</strong> Únete a IBERO Labs, transforma tu idea en un negocio real y conquista el mercado con nuestro respaldo.
+      </p>
+      <a href="https://www.ibero.education" class="cta-button text-white font-bold py-4 px-10 rounded-full text-lg">Aplica Ahora</a>
+    </div>
+  </section>
+
+  <script>
+    // Smooth scrolling (anchors not used for external links)
+    const reveals = document.querySelectorAll('.scroll-reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    reveals.forEach(reveal => observer.observe(reveal));
+  </script>
+</body>
+</html>

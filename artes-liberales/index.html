@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IBERO Liberal Arts - Transforma tu Futuro</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #000000;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
+        .hero-bg {
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=1920');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .cta-button {
+            transition: all 0.3s ease;
+            background-color: #dc2626;
+        }
+        .cta-button:hover {
+            transform: scale(1.05);
+            background-color: #b91c1c;
+            box-shadow: 0 4px 15px rgba(220, 38, 38, 0.5);
+        }
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50%;
+            height: 4px;
+            background-color: #dc2626;
+        }
+        .image-card {
+            transition: transform 0.3s ease;
+        }
+        .image-card:hover {
+            transform: translateY(-10px);
+        }
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+        }
+        .pillar-image {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+        }
+        @media (max-width: 768px) {
+            .hero-bg, .parallax {
+                background-attachment: scroll;
+            }
+            .section-title::after {
+                width: 30%;
+            }
+            .pillar-image {
+                width: 100%;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-black text-white py-4 sticky top-0 z-50 shadow-lg">
+        <div class="container mx-auto px-4">
+            <h1 class="text-3xl font-bold text-center">IBERO Liberal Arts</h1>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-bg py-32 text-center">
+        <div class="container mx-auto px-4">
+            <h2 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">Desata tu Potencial con Artes Liberales</h2>
+            <p class="text-2xl md:text-3xl mb-8 font-semibold">"Donde los Líderes del Futuro Nacen y Brillan"</p>
+            <p class="text-lg mb-10 max-w-2xl mx-auto">Forjamos mentes innovadoras que piensan con audacia, crean con propósito y lideran con impacto.</p>
+            <a href="https://www.ibero.education" target="_blank" class="cta-button text-white px-8 py-4 rounded-full text-xl font-semibold">Empieza tu Transformación</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-black">
+        <div class="container mx-auto px-4">
+            <h3 class="text-4xl font-bold mb-8 section-title">¿Qué es IBERO Liberal Arts?</h3>
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="md:w-1/2">
+                    <p class="text-lg mb-6">En IBERO Liberal Arts, transformamos tu talento con una educación única que combina humanidades, pensamiento crítico y habilidades digitales. Formamos líderes creativos listos para conquistar cualquier desafío profesional con visión y excelencia.</p>
+                    <a href="https://www.ibero.education" target="_blank" class="cta-button text-white px-6 py-3 rounded-full font-semibold">Descubre Más</a>
+                </div>
+                <div class="md:w-1/2">
+                    <img src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Estudiante en acción" class="rounded-lg shadow-lg image-card w-full">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose IBERO -->
+    <section id="why" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-4">
+            <h3 class="text-4xl font-bold mb-12 section-title">¿Por qué Elegir IBERO?</h3>
+            <p class="text-lg mb-10 text-center max-w-3xl mx-auto">En un mundo que cambia rápido, el éxito depende de pensar con claridad, comunicar con impacto y liderar con propósito. Nuestros cuatro pilares te preparan para destacar:</p>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div class="bg-black p-6 rounded-lg shadow-lg image-card text-center">
+                    <img src="https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Pensamiento crítico" class="rounded-lg mb-4 mx-auto pillar-image">
+                    <h4 class="text-xl font-semibold mb-2">Pensamiento Crítico</h4>
+                    <p>Cuestiona, analiza y resuelve problemas con creatividad e inteligencia.</p>
+                </div>
+                <div class="bg-black p-6 rounded-lg shadow-lg image-card text-center">
+                    <img src="https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Comunicación poderosa" class="rounded-lg mb-4 mx-auto pillar-image">
+                    <h4 class="text-xl font-semibold mb-2">Comunicación Poderosa</h4>
+                    <p>Expresa tus ideas con claridad, confianza y persuasión.</p>
+                </div>
+                <div class="bg-black p-6 rounded-lg shadow-lg image-card text-center">
+                    <img src="https://images.pexels.com/photos/3184317/pexels-photo-3184317.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Ética y liderazgo" class="rounded-lg mb-4 mx-auto pillar-image">
+                    <h4 class="text-xl font-semibold mb-2">Ética y Liderazgo</h4>
+                    <p>Decide con responsabilidad y lidera con valores sólidos.</p>
+                </div>
+                <div class="bg-black p-6 rounded-lg shadow-lg image-card text-center">
+                    <img src="https://images.pexels.com/photos/3184301/pexels-photo-3184301.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Visión global" class="rounded-lg mb-4 mx-auto pillar-image">
+                    <h4 class="text-xl font-semibold mb-2">Visión Global</h4>
+                    <p>Adapta y lidera en contextos diversos con una perspectiva interdisciplinaria.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 bg-black">
+        <div class="container mx-auto px-4">
+            <h3 class="text-4xl font-bold mb-8 section-title">Una Experiencia que Transforma</h3>
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="md:w-1/2">
+                    <img src="https://images.pexels.com/photos/3184311/pexels-photo-3184311.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Aula innovadora" class="rounded-lg shadow-lg image-card w-full">
+                </div>
+                <div class="md:w-1/2">
+                    <p class="text-lg mb-6">Nuestros cursos, diplomados y talleres van más allá de lo académico. Basados en la filosofía de las Artes Liberales, te equipan con habilidades prácticas para:</p>
+                    <ul class="list-disc list-inside text-lg space-y-2 mb-6">
+                        <li>Conectar ideas con impacto.</li>
+                        <li>Crear proyectos innovadores.</li>
+                        <li>Resolver desafíos con visión estratégica.</li>
+                    </ul>
+                    <p class="text-lg font-semibold">Certificación Digital:</p>
+                    <p class="text-lg">Obtén certificados digitales con código QR, perfectos para validar tus logros ante empleadores y destacar profesionalmente.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section id="community" class="py-20 parallax" style="background-image: url('https://images.pexels.com/photos/3184298/pexels-photo-3184298.jpeg?auto=compress&cs=tinysrgb&w=1920');">
+        <div class="container mx-auto px-4 text-center bg-black bg-opacity-80 py-12 rounded-lg">
+            <h3 class="text-4xl font-bold mb-8 section-title">Únete a una Comunidad de Líderes</h3>
+            <p class="text-lg mb-6 max-w-2xl mx-auto">Forma parte de una red vibrante de estudiantes, profesionales y expertos dedicados a la innovación y el aprendizaje continuo. En IBERO, tus ideas encuentran oportunidades reales.</p>
+            <a href="https://www.iberoodiode.com" target="_blank" class="cta-button text-white px-8 py-4 rounded-full text-xl font-semibold">Conecta Ahora</a>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section id="join" class="py-24 bg-red-600 text-white text-center">
+        <div class="container mx-auto px-4">
+            <h3 class="text-5xl font-bold mb-6">¿Listo para Cambiar tu Futuro?</h3>
+            <p class="text-2xl mb-10">"Desata tu Potencial con IBERO Liberal Arts."</p>
+            <a href="https://www.ibero.education" target="_blank" class="cta-button bg-black text-white px-10 py-5 rounded-full text-xl font-semibold">Únete Ahora</a>
+        </div>
+    </section>
+</body>
+</html>
