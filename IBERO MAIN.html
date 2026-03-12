@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="IBERO: Educación de élite. Domina la Inteligencia Artificial, crea negocios reales y aprende a monetizar con nuestras metodologías de vanguardia.">
+  <title>IBERO | Educación de Élite, Inteligencia Artificial y Negocios Reales</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ibero: {
+              red: '#C91010',
+              reddark: '#900000',
+              purple: '#7E22CE',
+              purplelight: '#A855F7',
+              dark: '#111827',
+              gray: '#F3F4F6'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Inter', 'sans-serif'],
+          },
+          backgroundImage: {
+            'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+            'hero-pattern': "url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop')",
+            'tech-pattern': "url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2000&auto=format&fit=crop')"
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .glass-card {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      box-shadow: 0 10px 40px -10px rgba(0,0,0,0.08);
+    }
+    .red-gradient-text {
+      background: linear-gradient(to right, #C91010, #900000);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .purple-gradient-text {
+      background: linear-gradient(to right, #7E22CE, #A855F7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.9s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+    .floating {
+      animation: float 4s ease-in-out infinite;
+    }
+    
+    @keyframes float-slow {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-6px); }
+      100% { transform: translateY(0px); }
+    }
+    .floating-slow {
+      animation: float-slow 5s ease-in-out infinite;
+    }
+
+    @keyframes purple-glow {
+      0%, 100% { box-shadow: 0 0 15px rgba(126, 34, 206, 0.1); border-color: rgba(126, 34, 206, 0.1); }
+      50% { box-shadow: 0 0 30px rgba(126, 34, 206, 0.3); border-color: rgba(126, 34, 206, 0.3); }
+    }
+    .ai-card-glow {
+      animation: purple-glow 4s infinite alternate;
+    }
+
+    @keyframes growUp {
+      from { transform: scaleY(0); }
+      to { transform: scaleY(1); }
+    }
+    .bar-grow {
+      transform-origin: bottom;
+      animation: growUp 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    }
+
+    .auto-hover-red {
+      border-color: rgba(201, 16, 16, 0.5) !important;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+      transform: translateY(-6px) !important;
+    }
+    .auto-hover-red .step-number {
+      color: #fef2f2 !important;
+    }
+    .auto-hover-red .step-title {
+      color: #C91010 !important;
+    }
+
+    .auto-active-practico {
+      transform: translateY(-8px) !important;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+    }
+    .auto-active-practico .vertical-bar {
+      transform: scaleY(1) !important;
+    }
+    .auto-active-practico .icon-container {
+      background-color: var(--hover-bg) !important;
+    }
+    .auto-active-practico .icon-container i {
+      color: #ffffff !important;
+    }
+
+    @media (max-width: 639px) {
+      h1, h2, h3, h4 {
+        word-break: normal;
+        overflow-wrap: anywhere;
+      }
+      .glass-card,
+      .method-card,
+      .practico-card {
+        height: 100%;
+      }
+      .glass-card {
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+      }
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-900 font-sans antialiased overflow-x-hidden">
+
+  <!-- Hero Section -->
+  <section class="relative pt-16 pb-14 lg:pt-32 lg:pb-24 overflow-hidden">
+    <div class="absolute inset-0 bg-hero-pattern bg-cover bg-center bg-no-repeat opacity-5"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-white/70 via-white/95 to-white"></div>
+    <div class="absolute inset-0 bg-gradient-radial from-ibero-red/5 to-transparent opacity-60"></div>
+    <div class="absolute top-0 right-0 w-1/2 h-1/2 bg-ibero-red/5 blur-[120px] rounded-full"></div>
+    
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left flex flex-col md:flex-row items-center gap-10 md:gap-12">
+      <div class="md:w-3/5 space-y-5 reveal active">
+        <div class="inline-block px-4 py-1.5 rounded-full border border-ibero-red/20 bg-ibero-red/5 text-ibero-red text-[10px] sm:text-xs font-bold tracking-widest uppercase shadow-sm shadow-ibero-red/10">
+          La Nueva Era de la Educación Executive
+        </div>
+        <h1 class="text-[2.15rem] sm:text-5xl md:text-6xl lg:text-7xl font-serif font-extrabold leading-[1.05] sm:leading-tight text-gray-900 tracking-tight max-w-full">
+          <span class="block">Construye tu Imperio.</span>
+          <span class="block red-gradient-text">Domina la IA.</span>
+          <span class="block">Crea Negocios Reales.</span>
+        </h1>
+        <p class="text-base sm:text-lg md:text-xl text-gray-600 font-medium leading-relaxed max-w-2xl mx-auto md:mx-0">
+          Educación de élite diseñada para creadores. Te equipamos con <strong class="text-ibero-purple">Inteligencia Artificial, software avanzado</strong> y <strong class="text-ibero-red">estrategias corporativas</strong> para que construyas, escales y monetices tu propia empresa.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 pt-3 justify-center md:justify-start">
+          <a href="https://www.ibero.education/oferta-acad%C3%A9mica" class="w-full sm:w-auto bg-ibero-red text-white px-6 py-3.5 rounded-full font-bold text-sm lg:text-base hover:bg-ibero-reddark transition-all duration-300 transform hover:-translate-y-1 shadow-[0_10px_25px_rgba(201,16,16,0.3)] text-center flex items-center justify-center gap-2">
+            <span>Oferta Académica</span>
+            <i class="fa-solid fa-graduation-cap"></i>
+          </a>
+          <a href="https://www.ibero.education/calendario-cursos" class="w-full sm:w-auto border border-gray-200 bg-white hover:border-ibero-red hover:text-ibero-red text-gray-700 px-6 py-3.5 rounded-full font-bold text-sm lg:text-base transition-all shadow-sm text-center flex items-center justify-center gap-2">
+            <span>Calendario 2026</span>
+            <i class="fa-regular fa-calendar-days"></i>
+          </a>
+          <a href="https://www.ibero.education/metodolog%C3%ADa" class="w-full sm:w-auto border border-gray-200 bg-white hover:border-ibero-red hover:text-ibero-red text-gray-700 px-6 py-3.5 rounded-full font-bold text-sm lg:text-base transition-all shadow-sm text-center flex items-center justify-center gap-2">
+            <span>Metodología</span>
+            <i class="fa-solid fa-book-open"></i>
+          </a>
+        </div>
+      </div>
+      
+      <div class="w-full max-w-[280px] sm:max-w-[340px] md:max-w-none md:w-2/5 reveal active flex justify-center" style="transition-delay: 0.2s;">
+        <div class="relative w-full aspect-square rounded-full border border-gray-100 flex items-center justify-center before:absolute before:inset-0 before:bg-ibero-red/5 before:rounded-full before:animate-ping">
+          <div class="w-3/4 h-3/4 bg-white rounded-full border border-gray-100 flex items-center justify-center relative overflow-hidden shadow-2xl shadow-ibero-red/10 z-10">
+             <div class="absolute inset-0 bg-gradient-to-tr from-ibero-red/10 to-transparent opacity-60 mix-blend-overlay z-0"></div>
+             <img src="https://raw.githubusercontent.com/danielortegac/GOATIA/3da5106c0b4208293b67981cdf116fb11045c5ff/portafolio/apps-logos/Logo%20nuevo.png" alt="Logo IBERO Animado" class="w-[58%] sm:w-[60%] scale-110 h-auto object-contain floating relative z-10">
+          </div>
+          <div class="absolute w-full h-full animate-[spin_10s_linear_infinite]">
+            <div class="absolute top-0 left-1/2 w-4 h-4 bg-gradient-to-br from-ibero-red to-ibero-reddark rounded-full shadow-[0_0_15px_#C91010]"></div>
+          </div>
+          <div class="absolute w-full h-full animate-[spin_15s_linear_infinite_reverse]">
+            <div class="absolute bottom-0 right-1/4 w-3 h-3 bg-gradient-to-br from-ibero-purple to-purple-800 rounded-full shadow-[0_0_12px_#7E22CE]"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vanguardia & Tech Section -->
+  <section id="vanguardia" class="py-16 lg:py-20 relative bg-purple-50/50 border-y border-purple-100/50 overflow-hidden">
+    <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03]"></div>
+    <div class="absolute top-10 left-10 w-64 h-64 bg-purple-300/20 blur-[80px] rounded-full mix-blend-multiply"></div>
+    <div class="absolute bottom-10 right-10 w-80 h-80 bg-ibero-purple/10 blur-[100px] rounded-full mix-blend-multiply"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center max-w-3xl mx-auto mb-14 reveal">
+        <h2 class="inline-block px-4 py-1.5 rounded-full bg-purple-100 text-sm font-bold tracking-widest text-ibero-purple uppercase mb-4 border border-purple-200 shadow-sm">Vanguardia Absoluta</h2>
+        <h3 class="text-3xl sm:text-4xl md:text-5xl font-serif font-extrabold mb-6 text-gray-900 tracking-tight">El Poder de la <span class="purple-gradient-text">Inteligencia Artificial</span></h3>
+        <p class="text-gray-600 text-base sm:text-lg font-medium leading-relaxed">
+          Entendemos que el mundo cambió. Nos capacitamos en las <strong class="text-ibero-purple">últimas tecnologías</strong> y <strong class="text-ibero-purple">herramientas de IA</strong> para enseñarte a <strong class="text-gray-900">automatizar procesos</strong>, analizar mercados y liderar la era digital.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+        <div class="glass-card bg-white p-5 sm:p-8 rounded-2xl sm:rounded-3xl transition-all duration-500 transform hover:-translate-y-3 reveal group ai-card-glow relative overflow-hidden" style="animation-delay: 0s;">
+          <div class="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-purple-100 to-transparent rounded-bl-full opacity-50"></div>
+          <div class="w-12 h-12 sm:w-16 sm:h-16 bg-purple-50 rounded-2xl flex items-center justify-center mb-4 sm:mb-6 border border-purple-100 group-hover:bg-ibero-purple transition-colors duration-500 shadow-sm floating-slow">
+            <i class="fa-solid fa-robot text-2xl sm:text-3xl text-ibero-purple group-hover:text-white transition-colors duration-500"></i>
+          </div>
+          <h4 class="text-base sm:text-xl font-bold mb-2 sm:mb-3 text-gray-900">Dominio de IA Generativa</h4>
+          <p class="text-gray-600 text-xs sm:text-sm leading-relaxed font-medium">No solo usamos la tecnología, la dominamos. Aprende a implementar <strong class="text-ibero-purple">agentes de IA</strong>, y <strong class="text-gray-900">automatizar operaciones</strong> para darle a tu negocio una <strong class="text-ibero-red">ventaja competitiva brutal</strong>.</p>
+        </div>
+        
+        <div class="glass-card bg-white p-5 sm:p-8 rounded-2xl sm:rounded-3xl transition-all duration-500 transform hover:-translate-y-3 reveal group ai-card-glow relative overflow-hidden" style="transition-delay: 0.1s; animation-delay: 1s;">
+          <div class="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-purple-100 to-transparent rounded-bl-full opacity-50"></div>
+          <div class="w-12 h-12 sm:w-16 sm:h-16 bg-purple-50 rounded-2xl flex items-center justify-center mb-4 sm:mb-6 border border-purple-100 group-hover:bg-ibero-purple transition-colors duration-500 shadow-sm floating-slow" style="animation-delay: 0.5s;">
+            <i class="fa-solid fa-code text-2xl sm:text-3xl text-ibero-purple group-hover:text-white transition-colors duration-500"></i>
+          </div>
+          <h4 class="text-base sm:text-xl font-bold mb-2 sm:mb-3 text-gray-900">Software y Automatización</h4>
+          <p class="text-gray-600 text-xs sm:text-sm leading-relaxed font-medium">Te capacitamos en el uso de los <strong class="text-ibero-purple">softwares empresariales</strong> más potentes. Desde CRMs hasta <strong class="text-ibero-purple">herramientas No-Code</strong> para construir tu producto en <strong class="text-ibero-red">semanas, no años</strong>.</p>
+        </div>
+
+        <div class="glass-card col-span-2 md:col-span-1 bg-white p-5 sm:p-8 rounded-2xl sm:rounded-3xl transition-all duration-500 transform hover:-translate-y-3 reveal group ai-card-glow relative overflow-hidden" style="transition-delay: 0.2s; animation-delay: 2s;">
+          <div class="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-purple-100 to-transparent rounded-bl-full opacity-50"></div>
+          <div class="w-12 h-12 sm:w-16 sm:h-16 bg-purple-50 rounded-2xl flex items-center justify-center mb-4 sm:mb-6 border border-purple-100 group-hover:bg-ibero-purple transition-colors duration-500 shadow-sm floating-slow" style="animation-delay: 1s;">
+            <i class="fa-solid fa-network-wired text-2xl sm:text-3xl text-ibero-purple group-hover:text-white transition-colors duration-500"></i>
+          </div>
+          <h4 class="text-base sm:text-xl font-bold mb-2 sm:mb-3 text-gray-900">Mentalidad Disruptiva</h4>
+          <p class="text-gray-600 text-xs sm:text-sm leading-relaxed font-medium">Nuestros mentores son <strong class="text-gray-900">expertos activos</strong> en la industria tecnológica. Te transferimos un <strong class="text-ibero-purple">conocimiento actualizado</strong> que las universidades tradicionales tardarían años en enseñar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Monetization Section -->
+  <section id="monetizacion" class="py-16 lg:py-20 relative overflow-hidden bg-white">
+    <div class="absolute right-0 top-0 w-1/3 h-full bg-gray-50 -skew-x-12 transform origin-top hidden lg:block"></div>
+    <div class="absolute -left-40 top-40 w-96 h-96 bg-red-100/40 blur-[100px] rounded-full"></div>
+    
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col lg:flex-row items-center gap-16">
+        <div class="lg:w-1/2 reveal">
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif font-extrabold mb-6 leading-tight text-gray-900 tracking-tight">
+            De la Idea a la <span class="red-gradient-text">Monetización Real.</span>
+          </h2>
+          <p class="text-base sm:text-lg text-gray-600 mb-8 font-medium leading-relaxed">
+            Olvídate de los casos de estudio ficticios y tesis que terminan en un cajón. En IBERO, nuestro objetivo es claro: <strong class="text-ibero-red text-lg sm:text-xl bg-red-50 px-2 py-1 rounded">queremos que crees una empresa y ganes dinero de verdad.</strong>
+          </p>
+          
+          <ul class="space-y-4">
+            <li class="flex items-start gap-4 p-5 rounded-2xl hover:bg-white hover:shadow-lg hover:shadow-gray-200/50 transition-all border border-transparent hover:border-gray-100 group cursor-default">
+              <div class="mt-1 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-red-50 flex items-center justify-center flex-shrink-0 shadow-sm border border-red-100 group-hover:bg-ibero-red transition-colors duration-300">
+                <i class="fa-solid fa-rocket text-ibero-red text-base sm:text-lg group-hover:text-white transition-colors"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-lg sm:text-xl text-gray-900">Incubación Acelerada</h4>
+                <p class="text-gray-600 text-sm mt-1 font-medium leading-relaxed">Transformamos tu visión en un <strong class="text-gray-900">modelo de negocio rentable</strong> utilizando metodologías ágiles y reales de Silicon Valley.</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-4 p-5 rounded-2xl hover:bg-white hover:shadow-lg hover:shadow-gray-200/50 transition-all border border-transparent hover:border-gray-100 group cursor-default">
+              <div class="mt-1 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-red-50 flex items-center justify-center flex-shrink-0 shadow-sm border border-red-100 group-hover:bg-ibero-red transition-colors duration-300">
+                <i class="fa-solid fa-chart-line text-ibero-red text-base sm:text-lg group-hover:text-white transition-colors"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-lg sm:text-xl text-gray-900">Estrategias de Monetización</h4>
+                <p class="text-gray-600 text-sm mt-1 font-medium leading-relaxed">Te enseñamos cómo adquirir clientes, estructurar precios, cerrar ventas B2B/B2C y crear <strong class="text-ibero-red">flujos de ingresos recurrentes</strong>.</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-4 p-5 rounded-2xl hover:bg-white hover:shadow-lg hover:shadow-gray-200/50 transition-all border border-transparent hover:border-gray-100 group cursor-default">
+              <div class="mt-1 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-red-50 flex items-center justify-center flex-shrink-0 shadow-sm border border-red-100 group-hover:bg-ibero-red transition-colors duration-300">
+                <i class="fa-solid fa-globe text-ibero-red text-base sm:text-lg group-hover:text-white transition-colors"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-lg sm:text-xl text-gray-900">Lanzamiento al Mercado</h4>
+                <p class="text-gray-600 text-sm mt-1 font-medium leading-relaxed">Con el respaldo de nuestra tecnología e IA, lanzarás tu producto o servicio de manera <strong class="text-ibero-purple">real y funcional</strong> antes de graduarte.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="lg:w-1/2 relative reveal" style="transition-delay: 0.2s;">
+          <div class="glass-card bg-white p-6 sm:p-8 rounded-3xl relative z-10 border border-gray-100 shadow-[0_20px_50px_rgba(0,0,0,0.1)]">
+            <div class="flex items-center justify-between mb-8 pb-6 border-b border-gray-100 gap-3">
+              <h3 class="font-bold text-lg sm:text-xl text-gray-800 flex items-center gap-2">
+                <i class="fa-solid fa-laptop-code text-gray-400"></i> Panel de Ingresos
+              </h3>
+              <span class="bg-green-100 text-green-700 px-3 sm:px-4 py-1.5 rounded-full text-[10px] sm:text-xs font-extrabold flex items-center gap-1 whitespace-nowrap">
+                <i class="fa-solid fa-caret-up"></i> +124% este mes
+              </span>
+            </div>
+            <div class="space-y-6">
+              <div class="flex justify-between items-end gap-4">
+                <div>
+                  <p class="text-gray-500 text-[10px] sm:text-xs mb-1 font-bold uppercase tracking-widest">Ingresos Recurrentes</p>
+                  <p class="text-4xl sm:text-5xl font-sans font-extrabold text-gray-900 tracking-tight">$14,250<span class="text-lg sm:text-xl text-gray-400 font-medium">.00</span></p>
+                </div>
+                <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-red-50 flex items-center justify-center text-ibero-red shadow-inner shrink-0">
+                   <i class="fa-solid fa-arrow-trend-up text-lg sm:text-xl"></i>
+                </div>
+              </div>
+              
+              <div class="h-32 flex items-end gap-3 pt-4 border-b border-gray-100 pb-2 overflow-hidden" id="chart-container">
+                <div class="w-1/6 bg-gray-100 rounded-t-lg h-[30%] hover:bg-ibero-red/20 transition-colors bar-grow" style="animation-delay: 0.1s"></div>
+                <div class="w-1/6 bg-gray-100 rounded-t-lg h-[45%] hover:bg-ibero-red/20 transition-colors bar-grow" style="animation-delay: 0.2s"></div>
+                <div class="w-1/6 bg-gray-100 rounded-t-lg h-[40%] hover:bg-ibero-red/20 transition-colors bar-grow" style="animation-delay: 0.3s"></div>
+                <div class="w-1/6 bg-gray-200 rounded-t-lg h-[65%] hover:bg-ibero-red/40 transition-colors bar-grow" style="animation-delay: 0.4s"></div>
+                <div class="w-1/6 bg-ibero-red/60 rounded-t-lg h-[85%] relative bar-grow group" style="animation-delay: 0.5s">
+                  <div class="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white text-xs font-bold py-1.5 px-3 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity">Proyección</div>
+                </div>
+                <div class="w-1/6 bg-gradient-to-t from-ibero-red to-ibero-reddark rounded-t-lg h-[100%] shadow-[0_5px_15px_rgba(201,16,16,0.4)] bar-grow relative" style="animation-delay: 0.6s">
+                  <div class="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-ibero-red text-white text-xs font-bold py-1.5 px-3 rounded shadow-lg whitespace-nowrap">Hoy</div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="mt-8 bg-red-50/50 border border-red-100 rounded-2xl p-5 flex gap-4 items-start">
+              <div class="bg-white w-8 h-8 flex items-center justify-center rounded-full shadow-sm text-ibero-red shrink-0">
+                <i class="fa-solid fa-check text-sm"></i>
+              </div>
+              <p class="text-sm text-gray-700 font-medium leading-relaxed mt-1">Este es el nivel de resultados para el que te preparamos. Negocios <strong class="text-ibero-red">estructurados, escalables y rentables</strong> en el mundo real.</p>
+            </div>
+          </div>
+          <div class="absolute -top-10 -right-10 w-48 h-48 bg-ibero-red/15 rounded-full blur-[50px] -z-10"></div>
+          <div class="absolute -bottom-10 -left-10 w-48 h-48 bg-purple-200/40 rounded-full blur-[50px] -z-10"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Metodologia Core -->
+  <section id="metodologia" class="py-16 lg:py-20 bg-gray-50 relative border-t border-gray-200 overflow-hidden">
+    <div class="absolute inset-0" style="background-image: radial-gradient(#e5e7eb 1px, transparent 1px); background-size: 30px 30px; opacity: 0.5;"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center max-w-3xl mx-auto mb-14 reveal">
+        <h2 class="inline-block px-4 py-1.5 rounded-full bg-white text-sm font-bold tracking-widest text-gray-600 uppercase mb-4 border border-gray-200 shadow-sm">Arquitectura Educativa</h2>
+        <h3 class="text-3xl sm:text-4xl md:text-5xl font-serif font-extrabold mb-6 text-gray-900 tracking-tight">Metodología <span class="red-gradient-text">Executive 360°</span></h3>
+        <p class="text-gray-600 text-base sm:text-lg font-medium">Diseñada meticulosamente para forjar a los líderes de la próxima década.</p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6" id="methodology-grid">
+        <div class="method-card bg-white border border-gray-100 shadow-md p-5 sm:p-8 rounded-2xl sm:rounded-3xl transition-all duration-300 reveal relative overflow-hidden">
+          <span class="step-number text-gray-100 font-sans text-5xl sm:text-7xl font-black absolute -top-2 sm:-top-4 right-0 sm:-right-2 transition-colors duration-300">01</span>
+          <div class="w-11 h-11 sm:w-12 sm:h-12 bg-gray-50 rounded-full flex items-center justify-center mb-4 border border-gray-100 relative z-10">
+            <i class="fa-solid fa-brain text-gray-400"></i>
+          </div>
+          <h4 class="step-title text-base sm:text-xl font-bold mb-3 relative z-10 text-gray-900 mt-2 transition-colors duration-300">Académica Disruptiva</h4>
+          <p class="text-gray-600 text-xs sm:text-sm font-medium relative z-10 leading-relaxed">Programas a medida integrando <strong class="text-ibero-purple">tecnología</strong> y pensamiento crítico para resolver <strong class="text-gray-900">problemas complejos</strong>.</p>
+        </div>
+        <div class="method-card bg-white border border-gray-100 shadow-md p-5 sm:p-8 rounded-2xl sm:rounded-3xl transition-all duration-300 reveal relative overflow-hidden" style="transition-delay: 0.1s;">
+          <span class="step-number text-gray-100 font-sans text-5xl sm:text-7xl font-black absolute -top-2 sm:-top-4 right-0 sm:-right-2 transition-colors duration-300">02</span>
+          <div class="w-11 h-11 sm:w-12 sm:h-12 bg-gray-50 rounded-full flex items-center justify-center mb-4 border border-gray-100 relative z-10">
+            <i class="fa-solid fa-users text-gray-400"></i>
+          </div>
+          <h4 class="step-title text-base sm:text-xl font-bold mb-3 relative z-10 text-gray-900 mt-2 transition-colors duration-300">Inteligencia Social</h4>
+          <p class="text-gray-600 text-xs sm:text-sm font-medium relative z-10 leading-relaxed">Cultivamos habilidades de <strong class="text-gray-900">negociación</strong>. Fomentamos <strong class="text-ibero-red">redes de contacto</strong> de alto nivel empresarial.</p>
+        </div>
+        <div class="method-card bg-white border border-gray-100 shadow-md p-5 sm:p-8 rounded-2xl sm:rounded-3xl transition-all duration-300 reveal relative overflow-hidden" style="transition-delay: 0.2s;">
+          <span class="step-number text-gray-100 font-sans text-5xl sm:text-7xl font-black absolute -top-2 sm:-top-4 right-0 sm:-right-2 transition-colors duration-300">03</span>
+          <div class="w-11 h-11 sm:w-12 sm:h-12 bg-gray-50 rounded-full flex items-center justify-center mb-4 border border-gray-100 relative z-10">
+            <i class="fa-solid fa-sack-dollar text-gray-400"></i>
+          </div>
+          <h4 class="step-title text-base sm:text-xl font-bold mb-3 relative z-10 text-gray-900 mt-2 transition-colors duration-300">Emprendimiento Real</h4>
+          <p class="text-gray-600 text-xs sm:text-sm font-medium relative z-10 leading-relaxed">Transforma ideas en empresas. Mentorías enfocadas puramente en <strong class="text-ibero-red">ventas y monetización</strong>.</p>
+        </div>
+        <div class="method-card bg-white border border-gray-100 shadow-md p-5 sm:p-8 rounded-2xl sm:rounded-3xl transition-all duration-300 reveal relative overflow-hidden" style="transition-delay: 0.3s;">
+          <span class="step-number text-gray-100 font-sans text-5xl sm:text-7xl font-black absolute -top-2 sm:-top-4 right-0 sm:-right-2 transition-colors duration-300">04</span>
+          <div class="w-11 h-11 sm:w-12 sm:h-12 bg-gray-50 rounded-full flex items-center justify-center mb-4 border border-gray-100 relative z-10">
+            <i class="fa-solid fa-microchip text-gray-400"></i>
+          </div>
+          <h4 class="step-title text-base sm:text-xl font-bold mb-3 relative z-10 text-gray-900 mt-2 transition-colors duration-300">Innovación & IA</h4>
+          <p class="text-gray-600 text-xs sm:text-sm font-medium relative z-10 leading-relaxed">Integración profunda de software avanzado e <strong class="text-ibero-purple">IA generativa</strong>. Lidera la <strong class="text-gray-900">transformación digital</strong>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nueva Sección: Práctico, Personalizado y Soft Skills -->
+  <section id="practico-real" class="py-16 lg:py-24 relative bg-white overflow-hidden">
+    <div class="absolute top-0 right-0 w-1/2 h-full bg-red-50/40 -skew-x-12 transform origin-top hidden lg:block -z-10"></div>
+    <div class="absolute -left-20 top-1/2 w-64 h-64 bg-purple-100/50 blur-[80px] rounded-full -z-10"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
+        <div class="lg:w-1/2 reveal">
+          <div class="inline-block px-4 py-1.5 rounded-full bg-red-50 text-sm font-bold tracking-widest text-ibero-red uppercase mb-4 border border-red-100 shadow-sm">
+            Forjamos Creadores
+          </div>
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif font-extrabold mb-6 leading-tight text-gray-900 tracking-tight">
+            100% Práctico, Real y <span class="red-gradient-text">Personalizado.</span>
+          </h2>
+          <p class="text-base sm:text-lg text-gray-600 mb-6 font-medium leading-relaxed">
+            Fomentamos la mentalidad de que <strong class="text-gray-900 text-lg sm:text-xl border-b-2 border-ibero-red">absolutamente todos pueden crear algo gigante</strong>. No te damos clases magistrales aburridas; te enseñamos el "cómo" paso a paso para que construyas tu propio camino.
+          </p>
+          <div class="bg-gray-50 border-l-4 border-ibero-red p-6 rounded-r-2xl shadow-sm relative overflow-hidden">
+            <i class="fa-solid fa-quote-right absolute -bottom-4 -right-2 text-6xl text-gray-200 opacity-50"></i>
+            <p class="text-gray-700 italic font-semibold relative z-10">"La tecnología y la Inteligencia Artificial son inútiles si no tienes a un líder con Habilidades Blandas excepcionales para dirigirlas."</p>
+          </div>
+        </div>
+
+        <div class="lg:w-1/2 w-full grid grid-cols-2 gap-4 sm:gap-6 reveal" style="transition-delay: 0.2s;">
+          <div class="practico-card glass-card bg-white p-5 sm:p-6 rounded-2xl hover:-translate-y-2 transition-transform duration-300 shadow-lg shadow-gray-200/50 group border border-gray-100 relative overflow-hidden" style="--hover-bg: #C91010;">
+            <div class="vertical-bar absolute top-0 left-0 w-1 h-full bg-ibero-red transform origin-bottom scale-y-0 group-hover:scale-y-100 transition-transform duration-300"></div>
+            <div class="icon-container w-11 h-11 sm:w-12 sm:h-12 bg-red-50 rounded-xl flex items-center justify-center mb-4 group-hover:bg-ibero-red transition-colors duration-300">
+              <i class="fa-solid fa-hammer text-ibero-red text-lg sm:text-xl group-hover:text-white transition-colors"></i>
+            </div>
+            <h4 class="font-bold text-base sm:text-lg text-gray-900 mb-2">Proyectos Reales</h4>
+            <p class="text-xs sm:text-sm text-gray-600 font-medium leading-relaxed">Olvídate de simulaciones. Todo el aprendizaje se aplica directamente sobre <strong class="text-ibero-red">tu propia empresa</strong> o producto desde el primer día.</p>
+          </div>
+
+          <div class="practico-card glass-card bg-white p-5 sm:p-6 rounded-2xl hover:-translate-y-2 transition-transform duration-300 shadow-lg shadow-gray-200/50 group border border-gray-100 sm:translate-y-8 relative overflow-hidden" style="--hover-bg: #7E22CE;">
+             <div class="vertical-bar absolute top-0 left-0 w-1 h-full bg-ibero-purple transform origin-bottom scale-y-0 group-hover:scale-y-100 transition-transform duration-300"></div>
+            <div class="icon-container w-11 h-11 sm:w-12 sm:h-12 bg-purple-50 rounded-xl flex items-center justify-center mb-4 group-hover:bg-ibero-purple transition-colors duration-300">
+              <i class="fa-solid fa-user-astronaut text-ibero-purple text-lg sm:text-xl group-hover:text-white transition-colors"></i>
+            </div>
+            <h4 class="font-bold text-base sm:text-lg text-gray-900 mb-2">Mentoría 1 a 1</h4>
+            <p class="text-xs sm:text-sm text-gray-600 font-medium leading-relaxed">Educación <strong class="text-ibero-purple">completamente personalizada</strong>. Nos adaptamos a tu visión, ritmo y objetivos específicos para asegurar tu éxito.</p>
+          </div>
+
+          <div class="practico-card glass-card bg-white p-5 sm:p-6 rounded-2xl hover:-translate-y-2 transition-transform duration-300 shadow-lg shadow-gray-200/50 group border border-gray-100 relative overflow-hidden" style="--hover-bg: #111827;">
+             <div class="vertical-bar absolute top-0 left-0 w-1 h-full bg-gray-900 transform origin-bottom scale-y-0 group-hover:scale-y-100 transition-transform duration-300"></div>
+            <div class="icon-container w-11 h-11 sm:w-12 sm:h-12 bg-gray-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-gray-900 transition-colors duration-300">
+              <i class="fa-solid fa-handshake text-gray-600 text-lg sm:text-xl group-hover:text-white transition-colors"></i>
+            </div>
+            <h4 class="font-bold text-base sm:text-lg text-gray-900 mb-2">Habilidades Blandas</h4>
+            <p class="text-xs sm:text-sm text-gray-600 font-medium leading-relaxed">Formamos líderes humanos. Profundizamos en <strong class="text-gray-900">liderazgo, negociación, inteligencia emocional</strong> y comunicación persuasiva.</p>
+          </div>
+
+          <div class="practico-card glass-card bg-white p-5 sm:p-6 rounded-2xl hover:-translate-y-2 transition-transform duration-300 shadow-lg shadow-gray-200/50 group border border-gray-100 sm:translate-y-8 relative overflow-hidden" style="--hover-bg: #C91010;">
+             <div class="vertical-bar absolute top-0 left-0 w-1 h-full bg-ibero-red transform origin-bottom scale-y-0 group-hover:scale-y-100 transition-transform duration-300"></div>
+            <div class="icon-container w-11 h-11 sm:w-12 sm:h-12 bg-red-50 rounded-xl flex items-center justify-center mb-4 group-hover:bg-ibero-red transition-colors duration-300">
+              <i class="fa-solid fa-lightbulb text-ibero-red text-lg sm:text-xl group-hover:text-white transition-colors"></i>
+            </div>
+            <h4 class="font-bold text-base sm:text-lg text-gray-900 mb-2">Poder de Creación</h4>
+            <p class="text-xs sm:text-sm text-gray-600 font-medium leading-relaxed">Te empoderamos. Fomentamos la certeza absoluta de que <strong class="text-ibero-red">tienes la capacidad de construir algo extraordinario</strong> desde cero.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner MEJORADO (Fondo Oscuro Elegante) -->
+  <section class="py-16 lg:py-24 relative overflow-hidden bg-gray-900">
+    <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-black"></div>
+    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-ibero-red/20 blur-[120px] rounded-full mix-blend-screen pointer-events-none"></div>
+    <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20 mix-blend-overlay"></div>
+    
+    <div class="relative z-10 max-w-4xl mx-auto px-4 text-center reveal">
+      <div class="w-40 sm:w-48 md:w-56 lg:w-64 aspect-video bg-white rounded-2xl flex items-center justify-center mx-auto mb-10 shadow-[0_15px_40px_rgba(201,16,16,0.2)] overflow-hidden">
+        <img src="https://raw.githubusercontent.com/danielortegac/GOATIA/3da5106c0b4208293b67981cdf116fb11045c5ff/portafolio/apps-logos/Logo%20nuevo.png" alt="Logo IBERO" class="w-full h-full object-contain scale-[1.15]">
+      </div>
+      
+      <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-extrabold mb-6 text-white tracking-tight">
+        Tu Imperio Empieza Aquí.
+      </h2>
+      <p class="text-base sm:text-lg lg:text-xl text-gray-300 mb-10 font-medium max-w-2xl mx-auto leading-relaxed">
+        No pierdas más tiempo estudiando teoría desactualizada. Únete a IBERO, domina la <strong class="text-white">IA</strong>, crea tu <strong class="text-white">empresa</strong> y comienza a <strong class="text-white">monetizar</strong> tu talento hoy mismo.
+      </p>
+      
+      <div class="flex flex-col sm:flex-row flex-wrap gap-4 sm:gap-5 justify-center">
+        <a href="https://www.ibero.education/oferta-acad%C3%A9mica" class="bg-ibero-red text-white px-8 py-4 rounded-full font-extrabold text-sm sm:text-base lg:text-lg uppercase tracking-wider hover:bg-ibero-reddark transition-all duration-300 transform hover:scale-105 shadow-[0_10px_30px_rgba(201,16,16,0.4)]">
+          Ver Oferta Académica
+        </a>
+        <a href="https://www.ibero.education/calendario-cursos" class="bg-white/5 backdrop-blur-md border border-white/20 text-white hover:bg-white/15 px-8 py-4 rounded-full font-extrabold text-sm sm:text-base lg:text-lg uppercase tracking-wider transition-all duration-300 transform hover:scale-105 shadow-lg">
+          Calendario 2026
+        </a>
+      </div>
+      
+      <div class="mt-8">
+        <a href="https://www.ibero.education/metodolog%C3%ADa" class="text-gray-400 hover:text-white border-b border-gray-400 hover:border-white pb-1 font-medium text-sm transition-colors duration-300">Descubre más sobre nuestra Metodología</a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function reveal() {
+      var reveals = document.querySelectorAll(".reveal");
+      for (var i = 0; i < reveals.length; i++) {
+        var windowHeight = window.innerHeight;
+        var elementTop = reveals[i].getBoundingClientRect().top;
+        var elementVisible = 100;
+        
+        if(reveals[i].classList.contains('active') && window.scrollY < 100) continue;
+
+        if (elementTop < windowHeight - elementVisible) {
+          reveals[i].classList.add("active");
+          
+          if (reveals[i].querySelector('#chart-container')) {
+             const bars = reveals[i].querySelectorAll('.bar-grow');
+             bars.forEach(bar => {
+                bar.style.animation = 'none';
+                bar.offsetHeight;
+                bar.style.animation = null;
+             });
+          }
+        }
+      }
+    }
+
+    window.addEventListener("scroll", reveal);
+    window.addEventListener("resize", reveal);
+    window.addEventListener("load", reveal);
+    setTimeout(reveal, 100);
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const methodCards = document.querySelectorAll('.method-card');
+      let currentCardIdx = 0;
+
+      setInterval(() => {
+        methodCards.forEach(card => {
+          card.classList.remove('auto-hover-red');
+        });
+        
+        if(methodCards.length > 0) {
+           methodCards[currentCardIdx].classList.add('auto-hover-red');
+           currentCardIdx = (currentCardIdx + 1) % methodCards.length;
+        }
+      }, 1200);
+
+      const practicoCards = document.querySelectorAll('.practico-card');
+      let currentPracticoIdx = 0;
+
+      setInterval(() => {
+        practicoCards.forEach(card => {
+          card.classList.remove('auto-active-practico');
+        });
+        
+        if(practicoCards.length > 0) {
+           practicoCards[currentPracticoIdx].classList.add('auto-active-practico');
+           currentPracticoIdx = (currentPracticoIdx + 1) % practicoCards.length;
+        }
+      }, 1200);
+    });
+  </script>
+</body>
+</html>
