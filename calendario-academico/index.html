@@ -52,23 +52,36 @@
     ::-webkit-scrollbar-thumb { background: theme('colors.ibero.red'); border-radius: 4px; }
     ::-webkit-scrollbar-thumb:hover { background: theme('colors.ibero.darkRed'); }
 
-    /* Calendar Grid Specifics */
+    /* Calendar Grid Specifics Responsivo */
     .calendar-grid {
       display: grid;
       grid-template-columns: repeat(7, minmax(0, 1fr));
-      gap: 6px;
+      gap: 3px; /* Espacio reducido para móviles */
     }
+    @media (min-width: 768px) {
+      .calendar-grid { gap: 6px; }
+    }
+
     .calendar-day {
-      min-height: 160px;
+      min-height: 110px; /* Menor altura mínima en móviles */
       background: theme('colors.ibero.card');
-      border-radius: 0.5rem;
-      padding: 0.5rem;
+      border-radius: 0.3rem;
+      padding: 0.25rem;
       transition: all 0.2s;
       border: 1px solid rgba(255,255,255,0.05);
       display: flex;
       flex-direction: column;
-      gap: 4px;
+      gap: 3px;
     }
+    @media (min-width: 768px) {
+      .calendar-day {
+        min-height: 160px;
+        border-radius: 0.5rem;
+        padding: 0.5rem;
+        gap: 4px;
+      }
+    }
+    
     .calendar-day:hover {
       border-color: theme('colors.ibero.red');
       transform: translateY(-2px);
@@ -79,15 +92,23 @@
     #program-modal { backdrop-filter: blur(8px); }
     
     .event-badge {
-      font-size: 0.70rem;
-      padding: 0.35rem 0.4rem;
-      border-radius: 0.3rem;
+      font-size: 0.60rem; /* Tamaño de fuente más pequeño para móvil */
+      padding: 0.20rem;
+      border-radius: 0.25rem;
       cursor: pointer;
       font-weight: 600;
-      line-height: 1.25;
+      line-height: 1.15;
       transition: all 0.2s;
       white-space: normal;
       word-break: break-word;
+    }
+    @media (min-width: 768px) {
+      .event-badge {
+        font-size: 0.70rem;
+        padding: 0.35rem 0.4rem;
+        border-radius: 0.3rem;
+        line-height: 1.25;
+      }
     }
     .event-badge:hover { filter: brightness(1.2); transform: scale(1.02); }
     
@@ -101,57 +122,30 @@
     .prog-diplo { background: rgba(236, 72, 153, 0.15); color: #f9a8d4; border: 1px solid #ec4899; }
     .prog-hablar { background: rgba(234, 88, 12, 0.15); color: #fdba74; border: 1px solid #ea580c; }
     .prog-comercial { background: rgba(107, 114, 128, 0.15); color: #d1d5db; border: 1px dashed #6b7280; }
+    .prog-master { background: #000000; color: #ffffff; border: 1px solid #333333; }
 
-    /* ====================================================== */
-    /* MOTOR DE IMPRESIÓN NATIVO PARA PDF PERFECTO            */
-    /* ====================================================== */
+    /* MOTOR DE IMPRESIÓN NATIVO PARA PDF PERFECTO */
     @media print {
-      @page {
-        size: A4;
-        margin: 12mm;
-      }
-      
+      @page { size: A4; margin: 12mm; }
       body, html {
-        background-color: #0f172a !important; /* Mantiene el fondo oscuro */
+        background-color: #0f172a !important; 
         color: white !important;
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
         height: auto !important;
         overflow: visible !important;
       }
-
-      /* Ocultar elementos innecesarios para el PDF */
-      .no-print, #controls-section, #program-modal, .fixed.top-0.left-0 {
-        display: none !important;
-      }
-
-      #app-container {
-        padding: 0 !important;
-        margin: 0 !important;
-        max-width: 100% !important;
-      }
-
-      /* EVITAR QUE LAS TARJETAS SE CORTEN ENTRE PÁGINAS */
+      .no-print, #controls-section, #program-modal, .fixed.top-0.left-0 { display: none !important; }
+      #app-container { padding: 0 !important; margin: 0 !important; max-width: 100% !important; }
       #view-list > div {
-        page-break-inside: avoid !important;
-        break-inside: avoid !important;
-        background-color: #1e293b !important;
-        border: 1px solid rgba(255, 255, 255, 0.1) !important;
-        margin-bottom: 20px !important;
-        box-shadow: none !important;
+        page-break-inside: avoid !important; break-inside: avoid !important;
+        background-color: #1e293b !important; border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        margin-bottom: 20px !important; box-shadow: none !important;
       }
-
-      /* Forzar renderizado de los colores en las insignias */
-      .prog-gratis, .prog-inscripcion, .prog-marketing, .prog-docentes, .prog-monetiza, .prog-crea, .prog-diplo, .prog-hablar, .prog-comercial {
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
+      .prog-gratis, .prog-inscripcion, .prog-marketing, .prog-docentes, .prog-monetiza, .prog-crea, .prog-diplo, .prog-hablar, .prog-comercial, .prog-master {
+        -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important;
       }
-      
-      /* Ajustes menores de espaciado */
-      #header-section {
-        padding-top: 20px !important;
-        padding-bottom: 20px !important;
-      }
+      #header-section { padding-top: 20px !important; padding-bottom: 20px !important; }
     }
   </style>
 </head>
@@ -172,60 +166,72 @@
       <h1 class="text-4xl md:text-6xl font-extrabold mb-4 tracking-tight animate-fade-in-up" style="animation-delay: 0.2s;">
         Calendario <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-red-600">IBERO 2026</span>
       </h1>
-      <p class="text-lg md:text-xl text-ibero-gray max-w-2xl mx-auto mb-6 animate-fade-in-up" style="animation-delay: 0.3s;">
-        Cronograma oficial Marzo - Septiembre. <br>
-        <span class="text-white font-semibold">Cursos y Diplomados Online:</span> Lun - Jue (19:00 a 21:00) <br>
-        <span class="text-white font-semibold">Talleres Prácticos Presenciales:</span> Sábados (9:00 AM a 1:00 PM)
+      <p class="text-lg md:text-xl text-ibero-gray max-w-4xl mx-auto mb-6 animate-fade-in-up leading-relaxed" style="animation-delay: 0.3s;">
+        Cronograma oficial Marzo - Noviembre. <br>
+        <span class="text-white font-semibold">Cursos y Diplomados Intensivos Online:</span> Lun - Jue <span class="whitespace-nowrap">(7:00 PM a 9:00 PM EC/CO/PE | 6:00 PM a 8:00 PM MX)</span> <br>
+        <span class="text-white font-semibold">Executive Master Intensivo Online:</span> Lun - Vie <span class="whitespace-nowrap">(9:00 PM a 10:00 PM EC/CO/PE | 8:00 PM a 9:00 PM MX)</span> <br>
+        <span class="text-white font-semibold">Talleres Prácticos Presenciales Intensivos:</span> Sábados <span class="whitespace-nowrap">(9:00 AM a 1:00 PM Hora EC)</span>
       </p>
     </div>
   </header>
 
-  <!-- Controles y Filtros -->
-  <section class="container mx-auto px-4 py-8 no-print sticky top-0 z-40" id="controls-section">
-    <div class="bg-ibero-card/90 backdrop-blur-md border border-white/10 p-4 rounded-2xl shadow-2xl flex flex-col md:flex-row gap-4 items-end animate-fade-in-up" style="animation-delay: 0.4s;">
+  <!-- Controles y Filtros (Se agregó z-50 relativo para que el menú despliegue por encima) -->
+  <section class="container mx-auto px-4 py-8 no-print relative z-50" id="controls-section">
+    <div class="bg-ibero-card/90 backdrop-blur-md border border-white/10 p-5 rounded-2xl shadow-2xl flex flex-col gap-4 animate-fade-in-up" style="animation-delay: 0.4s;">
       
-      <div class="flex-1 w-full">
-        <label class="block text-sm font-semibold text-ibero-gray mb-2">Vista del Calendario</label>
-        <div class="flex bg-ibero-dark rounded-lg p-1 border border-white/10">
-          <button id="btn-view-list" onclick="setView('list')" class="flex-1 py-2 px-4 rounded-md bg-ibero-red text-white font-semibold transition-colors flex items-center justify-center gap-2">
-            <i class="ph ph-list-dashes text-lg"></i> Lista
-          </button>
-          <button id="btn-view-cal" onclick="setView('calendar')" class="flex-1 py-2 px-4 rounded-md text-ibero-gray hover:text-white transition-colors flex items-center justify-center gap-2">
-            <i class="ph ph-calendar-blank text-lg"></i> Mes
+      <div class="flex flex-col md:flex-row gap-4 items-end w-full">
+        <!-- Controles Base (Vista, Programas, Tipo) -->
+        <div class="flex-1 w-full grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div>
+            <label class="block text-sm font-semibold text-ibero-gray mb-2">Vista del Calendario</label>
+            <div class="flex bg-ibero-dark rounded-lg p-1 border border-white/10">
+              <button id="btn-view-list" onclick="setView('list')" class="flex-1 py-2 px-4 rounded-md bg-ibero-red text-white font-semibold transition-colors flex items-center justify-center gap-2">
+                <i class="ph ph-list-dashes text-lg"></i> Lista
+              </button>
+              <button id="btn-view-cal" onclick="setView('calendar')" class="flex-1 py-2 px-4 rounded-md text-ibero-gray hover:text-white transition-colors flex items-center justify-center gap-2">
+                <i class="ph ph-calendar-blank text-lg"></i> Mes
+              </button>
+            </div>
+          </div>
+
+          <!-- Programas Dropdown Multiple -->
+          <div class="relative w-full" id="programs-dropdown-container">
+            <label class="block text-sm font-semibold text-ibero-gray mb-2"><i class="ph ph-check-square-offset"></i> Filtrar Programa</label>
+            <button onclick="toggleProgramDropdown()" id="prog-dropdown-btn" class="w-full p-3 rounded-lg bg-ibero-dark border border-white/10 text-white flex justify-between items-center focus:outline-none focus:border-ibero-red transition-colors">
+              <span id="prog-dropdown-text" class="truncate pr-2">Todos los programas</span>
+              <i class="ph ph-caret-down"></i>
+            </button>
+            <div id="prog-dropdown-menu" class="absolute z-50 hidden w-full mt-1 bg-ibero-card border border-white/10 rounded-lg shadow-2xl max-h-64 overflow-y-auto p-2 flex flex-col gap-1">
+              <!-- Checkboxes se inyectan aquí -->
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-sm font-semibold text-ibero-gray mb-2"><i class="ph ph-funnel"></i> Categoría</label>
+            <select id="filter-type" onchange="renderApp()" class="w-full p-3 rounded-lg bg-ibero-dark border border-white/10 text-white focus:outline-none focus:border-ibero-red transition-colors appearance-none">
+              <option value="all">Todas las categorías</option>
+              <option value="curso">Cursos</option>
+              <option value="diplomado">Diplomados</option>
+              <option value="master">Executive Master</option>
+              <option value="taller">Talleres</option>
+              <option value="inscripcion">Apertura Inscripciones</option>
+              <option value="gratis">Clases Gratis</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="w-full md:w-auto">
+          <button onclick="downloadPDF()" id="pdf-btn" class="w-full md:w-auto bg-gradient-to-r from-gray-700 to-gray-800 hover:from-ibero-red hover:to-ibero-darkRed text-white py-3 px-6 rounded-lg font-semibold flex items-center justify-center gap-2 transition-all shadow-lg hover:shadow-red-500/25">
+            <i class="ph ph-printer text-xl"></i> Guardar PDF
           </button>
         </div>
       </div>
 
-      <div class="flex-1 w-full">
-        <label class="block text-sm font-semibold text-ibero-gray mb-2"><i class="ph ph-funnel"></i> Filtrar Programa</label>
-        <select id="filter-program" onchange="renderApp()" class="w-full p-3 rounded-lg bg-ibero-dark border border-white/10 text-white focus:outline-none focus:border-ibero-red transition-colors appearance-none">
-          <option value="all">Todos los programas</option>
-          <!-- Se llena dinamicamente -->
-        </select>
-      </div>
-
-      <div class="flex-1 w-full">
-        <label class="block text-sm font-semibold text-ibero-gray mb-2"><i class="ph ph-funnel"></i> Tipo</label>
-        <select id="filter-type" onchange="renderApp()" class="w-full p-3 rounded-lg bg-ibero-dark border border-white/10 text-white focus:outline-none focus:border-ibero-red transition-colors appearance-none">
-          <option value="all">Todos los tipos</option>
-          <option value="curso">Cursos</option>
-          <option value="diplomado">Diplomados</option>
-          <option value="taller">Talleres</option>
-          <option value="inscripcion">Apertura Inscripciones</option>
-          <option value="gratis">Clases Gratis</option>
-        </select>
-      </div>
-
-      <div class="w-full md:w-auto">
-        <button onclick="downloadPDF()" id="pdf-btn" class="w-full md:w-auto bg-gradient-to-r from-gray-700 to-gray-800 hover:from-ibero-red hover:to-ibero-darkRed text-white py-3 px-6 rounded-lg font-semibold flex items-center justify-center gap-2 transition-all shadow-lg hover:shadow-red-500/25">
-          <i class="ph ph-printer text-xl"></i> Guardar PDF
-        </button>
-      </div>
     </div>
   </section>
 
-  <!-- Contenedor Principal -->
-  <main id="app-container" class="container mx-auto px-4 pb-20 min-h-screen">
+  <!-- Contenedor Principal (Con márgenes reducidos en celulares px-1 en vez de px-4) -->
+  <main id="app-container" class="container mx-auto px-1 sm:px-4 pb-20 min-h-screen">
     
     <!-- Vista de Lista -->
     <div id="view-list" class="space-y-6">
@@ -234,26 +240,27 @@
 
     <!-- Vista de Calendario Mensual -->
     <div id="view-calendar" class="hidden">
-      <div class="bg-ibero-card border border-white/10 rounded-2xl p-6 shadow-2xl">
+      <!-- Ajuste en celular para dar vista Full Width a los padding -->
+      <div class="bg-ibero-card border border-white/10 rounded-xl md:rounded-2xl p-2 md:p-6 shadow-2xl">
         
-        <div class="flex items-center justify-between mb-8 no-print">
+        <div class="flex items-center justify-between mb-4 md:mb-8 no-print px-2 md:px-0">
           <button onclick="changeMonth(-1)" class="p-2 rounded-full hover:bg-white/10 transition-colors text-white">
             <i class="ph ph-caret-left text-2xl"></i>
           </button>
-          <h2 id="calendar-month-title" class="text-3xl font-bold tracking-tight text-white capitalize">Marzo 2026</h2>
+          <h2 id="calendar-month-title" class="text-2xl md:text-3xl font-bold tracking-tight text-white capitalize">Marzo 2026</h2>
           <button onclick="changeMonth(1)" class="p-2 rounded-full hover:bg-white/10 transition-colors text-white">
             <i class="ph ph-caret-right text-2xl"></i>
           </button>
         </div>
 
-        <div class="calendar-grid mb-2">
-          <div class="text-center font-bold text-ibero-gray text-sm py-2">LUN</div>
-          <div class="text-center font-bold text-ibero-gray text-sm py-2">MAR</div>
-          <div class="text-center font-bold text-ibero-gray text-sm py-2">MIÉ</div>
-          <div class="text-center font-bold text-ibero-gray text-sm py-2">JUE</div>
-          <div class="text-center font-bold text-ibero-gray text-sm py-2">VIE</div>
-          <div class="text-center font-bold text-ibero-gray text-sm py-2">SÁB</div>
-          <div class="text-center font-bold text-ibero-gray text-sm py-2">DOM</div>
+        <div class="calendar-grid mb-1 md:mb-2">
+          <div class="text-center font-bold text-ibero-gray text-xs md:text-sm py-1 md:py-2">LUN</div>
+          <div class="text-center font-bold text-ibero-gray text-xs md:text-sm py-1 md:py-2">MAR</div>
+          <div class="text-center font-bold text-ibero-gray text-xs md:text-sm py-1 md:py-2">MIÉ</div>
+          <div class="text-center font-bold text-ibero-gray text-xs md:text-sm py-1 md:py-2">JUE</div>
+          <div class="text-center font-bold text-ibero-gray text-xs md:text-sm py-1 md:py-2">VIE</div>
+          <div class="text-center font-bold text-ibero-gray text-xs md:text-sm py-1 md:py-2">SÁB</div>
+          <div class="text-center font-bold text-ibero-gray text-xs md:text-sm py-1 md:py-2">DOM</div>
         </div>
         <div id="calendar-grid-days" class="calendar-grid">
           <!-- Días se inyectan aquí -->
@@ -266,20 +273,20 @@
   <!-- Modal de Detalles -->
   <div id="program-modal" class="fixed inset-0 z-50 flex items-center justify-center hidden opacity-0 transition-opacity duration-300">
     <div class="absolute inset-0 bg-black/60" onclick="closeModal()"></div>
-    <div class="bg-ibero-card border border-white/10 rounded-2xl w-full max-w-2xl m-4 relative z-10 shadow-2xl overflow-hidden transform scale-95 transition-transform duration-300" id="modal-content-box">
+    <div class="bg-ibero-card border border-white/10 rounded-2xl w-full max-w-2xl m-4 relative z-10 shadow-2xl flex flex-col max-h-[90vh] transform scale-95 transition-transform duration-300" id="modal-content-box">
       
       <!-- Modal Header -->
-      <div class="relative bg-gradient-to-r from-ibero-red to-ibero-darkRed p-6">
+      <div class="relative bg-gradient-to-r from-ibero-red to-ibero-darkRed p-4 sm:p-6 shrink-0 rounded-t-2xl">
         <button onclick="closeModal()" class="absolute top-4 right-4 text-white/80 hover:text-white transition-colors">
           <i class="ph ph-x text-2xl"></i>
         </button>
-        <div id="modal-badge" class="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3 bg-white/20 text-white backdrop-blur-sm"></div>
-        <h3 id="modal-title" class="text-2xl md:text-3xl font-bold text-white leading-tight"></h3>
+        <div id="modal-badge" class="inline-block px-3 py-1 rounded-full text-[0.70rem] sm:text-xs font-bold uppercase tracking-wider mb-2 sm:mb-3 bg-white/20 text-white backdrop-blur-sm"></div>
+        <h3 id="modal-title" class="text-xl sm:text-2xl md:text-3xl font-bold text-white leading-tight"></h3>
       </div>
 
-      <!-- Modal Body -->
-      <div class="p-6">
-        <p id="modal-desc" class="text-ibero-gray text-lg mb-6 leading-relaxed"></p>
+      <!-- Modal Body (Agregado overflow-y-auto para scroll en móviles) -->
+      <div class="p-4 sm:p-6 overflow-y-auto">
+        <p id="modal-desc" class="text-ibero-gray text-base sm:text-lg mb-6 leading-relaxed"></p>
         
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
           <div class="flex items-center gap-3 bg-ibero-dark p-4 rounded-xl border border-white/5">
@@ -304,7 +311,7 @@
 
         <!-- Inversión / Precios -->
         <div id="investment-section">
-          <h4 class="text-sm font-bold text-ibero-gray uppercase tracking-wider mb-3 flex items-center gap-2"><i class="ph ph-wallet"></i> Inversión por país (25% OFF Aplicado)</h4>
+          <h4 class="text-sm font-bold text-ibero-gray uppercase tracking-wider mb-3 flex items-center gap-2"><i class="ph ph-wallet"></i> Inversión por país (30% OFF Aplicado)</h4>
           <div id="modal-prices" class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
             <!-- Precios inyectados por JS -->
           </div>
@@ -348,12 +355,13 @@
       hablar: 'https://www.ibero.education/oferta-acad%C3%A9mica/certificaciones/comunicaci%C3%B3n-efectiva'
     };
 
-    // Precios
+    // Precios ajustados matemáticamente para 30% OFF respecto a los originales
     const pricing = {
       gratis: { usd: 'Gratis', mxn: 'Gratis', pen: 'Gratis', cop: 'Gratis' },
-      curso: { usd: '$47', mxn: '$850', pen: 'S/ 185', cop: '$190,000', originalUsd: '$63', originalMxn: '$1,130', originalPen: 'S/ 246', originalCop: '$253,000' },
-      taller: { usd: '$37', mxn: '$680', pen: 'S/ 150', cop: '$150,000', originalUsd: '$49', originalMxn: '$900', originalPen: 'S/ 200', originalCop: '$200,000' },
-      diplomado: { usd: '$197', mxn: '$3,500', pen: 'S/ 750', cop: '$790,000', originalUsd: '$263', originalMxn: '$4,660', originalPen: 'S/ 1,000', originalCop: '$1,050,000' },
+      curso: { usd: '$47', mxn: '$850', pen: 'S/ 185', cop: '$190,000', originalUsd: '$67', originalMxn: '$1,214', originalPen: 'S/ 264', originalCop: '$271,428' },
+      taller: { usd: '$37', mxn: '$680', pen: 'S/ 150', cop: '$150,000', originalUsd: '$53', originalMxn: '$971', originalPen: 'S/ 214', originalCop: '$214,285' },
+      diplomado: { usd: '$197', mxn: '$3,500', pen: 'S/ 750', cop: '$790,000', originalUsd: '$281', originalMxn: '$5,000', originalPen: 'S/ 1,071', originalCop: '$1,128,571' },
+      master: { usd: '$367', mxn: '$6,600', pen: 'S/ 1,400', cop: '$1,470,000', originalUsd: '$524', originalMxn: '$9,430', originalPen: 'S/ 2,000', originalCop: '$2,100,000' },
       inscripcion: null,
       comercial: null
     };
@@ -363,210 +371,263 @@
       if (ev.type === 'inscripcion') return 'prog-inscripcion';
       if (ev.type === 'gratis') return 'prog-gratis';
       if (ev.type === 'comercial') return 'prog-comercial';
+      if (ev.type === 'master') return 'prog-master';
       
-      const title = ev.title || '';
-      if (title.includes('Marketing Digital')) return 'prog-marketing';
-      if (title.includes('Docentes')) return 'prog-docentes';
-      if (title.includes('Monetiza tu Idea')) return 'prog-monetiza';
-      if (title.includes('Crea y Vende')) return 'prog-crea';
-      if (title.includes('Diplomado')) return 'prog-diplo';
-      if (title.includes('Hablar en Público')) return 'prog-hablar';
+      const title = (ev.title || '').toUpperCase();
+      if (title.includes('MARKETING DIGITAL')) return 'prog-marketing';
+      if (title.includes('DOCENTES')) return 'prog-docentes';
+      if (title.includes('MONETIZA')) return 'prog-monetiza';
+      if (title.includes('CREA TU CURSO')) return 'prog-crea';
+      if (title.includes('DIPLOMADO')) return 'prog-diplo';
+      if (title.includes('HABLAR EN PÚBLICO')) return 'prog-hablar';
+      if (title.includes('EXECUTIVE MASTER')) return 'prog-master';
       
       return 'prog-marketing'; // Fallback
     }
 
     function getProgramEmoji(title) {
-      const t = title || '';
-      if (t.includes('Clase Gratis') || t.includes('Gratis')) return '🟢';
-      if (t.includes('Marketing Digital')) return '🔵';
-      if (t.includes('Docentes')) return '🟣';
-      if (t.includes('Monetiza tu Idea')) return '🟡';
-      if (t.includes('Crea y Vende')) return '🟢';
-      if (t.includes('Diplomado')) return '🔴';
-      if (t.includes('Hablar en Público')) return '🟠';
+      const t = (title || '').toUpperCase();
+      
+      if (t.includes('CLASE GRATIS') || t.includes('GRATIS') || t.includes('🟢')) return '🟢';
+      
+      if (t.includes('EXECUTIVE MASTER')) return '⚫';
+      if (t.includes('MARKETING DIGITAL')) return '🔵';
+      if (t.includes('DOCENTES')) return '🟣';
+      if (t.includes('MONETIZA')) return '🟡';
+      if (t.includes('CREA TU CURSO')) return '⚪'; 
+      if (t.includes('DIPLOMADO')) return '🔴';
+      if (t.includes('HABLAR EN PÚBLICO')) return '🟠';
       return '🔴';
     }
 
     const baseSchedule = [
-      {
-        week: 'Semana 1', startWeek: '2026-03-16', endWeek: '2026-03-22',
-        events: [] 
-      },
-      {
-        week: 'Semana 2', startWeek: '2026-03-23', endWeek: '2026-03-29',
-        events: [] 
-      },
+      { week: 'Semana 1', startWeek: '2026-03-16', endWeek: '2026-03-22', events: [] },
+      { week: 'Semana 2', startWeek: '2026-03-23', endWeek: '2026-03-29', events: [] },
       {
         week: 'Semana 3', startWeek: '2026-03-30', endWeek: '2026-04-05',
         events: [
-          { title: 'Marketing Digital con Inteligencia Artificial', type: 'curso', start: '2026-03-30', end: '2026-04-02', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Aprende a integrar la IA en tus embudos de marketing.', link: links.marketing }
+          { title: 'MARKETING DIGITAL CON INTELIGENCIA ARTIFICIAL', type: 'curso', start: '2026-03-30', end: '2026-04-02', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Aprende a integrar la IA en tus embudos de marketing.', link: links.marketing }
         ]
       },
       {
         week: 'Semana 4', startWeek: '2026-04-06', endWeek: '2026-04-12',
         events: [
-          { title: 'Inteligencia Artificial para Docentes', type: 'curso', start: '2026-04-06', end: '2026-04-09', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Transforma tu metodología educativa utilizando IA.', link: links.docentes },
-          { title: 'Taller: Aprende a Hablar en Público', type: 'taller', start: '2026-04-11', end: '2026-04-11', schedule: 'Sábado, 9:00 AM a 1:00 PM', desc: 'Domina el escenario y la comunicación no verbal.', link: links.hablar }
+          { title: 'INTELIGENCIA ARTIFICIAL PARA DOCENTES', type: 'curso', start: '2026-04-06', end: '2026-04-09', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Transforma tu metodología educativa utilizando IA.', link: links.docentes },
+          { title: 'APRENDE A HABLAR EN PÚBLICO', type: 'taller', start: '2026-04-11', end: '2026-04-11', schedule: 'Sábado, 9:00 AM a 1:00 PM', desc: 'Domina el escenario y la comunicación no verbal.', link: links.hablar }
         ]
       },
       {
         week: 'Semana 5', startWeek: '2026-04-13', endWeek: '2026-04-19',
         events: [
-          { title: 'Monetiza tu Idea con Inteligencia Artificial y Marketing', type: 'curso', start: '2026-04-13', end: '2026-04-16', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Estructura tu modelo de negocio digital.', link: links.creaMarca }
+          { title: 'MONETIZA TU IDEA CON IA', type: 'curso', start: '2026-04-13', end: '2026-04-16', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Estructura tu modelo de negocio digital.', link: links.creaMarca }
         ]
       },
       {
         week: 'Semana 6', startWeek: '2026-04-20', endWeek: '2026-04-26',
         events: [
-          { title: 'Crea y Vende tu Curso y Monetiza', type: 'curso', start: '2026-04-20', end: '2026-04-23', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Empaqueta tu conocimiento en un producto digital.', link: links.creaMarca },
-          { title: 'Taller: Aprende a Hablar en Público', type: 'taller', start: '2026-04-25', end: '2026-04-25', schedule: 'Sábado, 9:00 AM a 1:00 PM', desc: 'Domina el escenario y la comunicación no verbal.', link: links.hablar }
+          { title: 'CREA TU CURSO ONLINE Y MONETIZA', type: 'curso', start: '2026-04-20', end: '2026-04-23', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Empaqueta tu conocimiento en un producto digital.', link: links.creaMarca },
+          { title: 'APRENDE A HABLAR EN PÚBLICO', type: 'taller', start: '2026-04-25', end: '2026-04-25', schedule: 'Sábado, 9:00 AM a 1:00 PM', desc: 'Domina el escenario y la comunicación no verbal.', link: links.hablar }
         ]
       },
       {
         week: 'Semana 7', startWeek: '2026-04-27', endWeek: '2026-05-03',
         events: [
-          { title: 'Diplomado en IA Aplicada a Negocios', type: 'diplomado', start: '2026-04-27', end: '2026-04-30', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Módulo 1: Fundamentos estratégicos de IA para empresas.', link: links.diplomado }
+          { title: 'DIPLOMADO EN IA APLICADA A NEGOCIOS, MARKETING Y COMUNICACIÓN', type: 'diplomado', start: '2026-04-27', end: '2026-04-30', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Módulo 1: Fundamentos estratégicos de IA para empresas.', link: links.diplomado }
         ]
       },
       {
         week: 'Semana 8', startWeek: '2026-05-04', endWeek: '2026-05-10',
         events: [
-          { title: 'Diplomado en IA Aplicada a Negocios', type: 'diplomado', start: '2026-05-04', end: '2026-05-07', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Módulo 2: Herramientas avanzadas de marketing.', link: links.diplomado },
-          { title: 'Taller: Aprende a Hablar en Público', type: 'taller', start: '2026-05-09', end: '2026-05-09', schedule: 'Sábado, 9:00 AM a 1:00 PM', desc: 'Taller presencial de alto impacto.', link: links.hablar }
+          { title: 'DIPLOMADO EN IA APLICADA A NEGOCIOS, MARKETING Y COMUNICACIÓN', type: 'diplomado', start: '2026-05-04', end: '2026-05-07', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Módulo 2: Herramientas avanzadas de marketing.', link: links.diplomado },
+          { title: 'APRENDE A HABLAR EN PÚBLICO', type: 'taller', start: '2026-05-09', end: '2026-05-09', schedule: 'Sábado, 9:00 AM a 1:00 PM', desc: 'Taller presencial de alto impacto.', link: links.hablar }
         ]
       },
       {
         week: 'Semana 9', startWeek: '2026-05-11', endWeek: '2026-05-17',
         events: [
-          { title: 'Diplomado en IA Aplicada a Negocios', type: 'diplomado', start: '2026-05-11', end: '2026-05-14', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Módulo 3: Creación de contenido automatizado.', link: links.diplomado }
+          { title: 'DIPLOMADO EN IA APLICADA A NEGOCIOS, MARKETING Y COMUNICACIÓN', type: 'diplomado', start: '2026-05-11', end: '2026-05-14', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Módulo 3: Creación de contenido automatizado.', link: links.diplomado }
         ]
       },
       {
         week: 'Semana 10', startWeek: '2026-05-18', endWeek: '2026-05-24',
         events: [
-          { title: 'Diplomado en IA Aplicada a Negocios', type: 'diplomado', start: '2026-05-18', end: '2026-05-21', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Módulo 4: Proyecto final y graduación.', link: links.diplomado }
+          { title: 'DIPLOMADO EN IA APLICADA A NEGOCIOS, MARKETING Y COMUNICACIÓN', type: 'diplomado', start: '2026-05-18', end: '2026-05-21', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Módulo 4: Proyecto final y graduación.', link: links.diplomado }
         ]
       },
       {
         week: 'Semana 11', startWeek: '2026-05-25', endWeek: '2026-05-31',
         events: [
-          { title: 'Diplomado en IA Aplicada a Negocios', type: 'diplomado', start: '2026-05-25', end: '2026-05-28', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Módulo 5: Casos prácticos y cierre.', link: links.diplomado }
+          { title: 'DIPLOMADO EN IA APLICADA A NEGOCIOS, MARKETING Y COMUNICACIÓN', type: 'diplomado', start: '2026-05-25', end: '2026-05-28', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Módulo 5: Casos prácticos y cierre.', link: links.diplomado }
         ]
       },
       {
         week: 'Semana 12', startWeek: '2026-06-01', endWeek: '2026-06-07',
         events: [
-          { title: 'Marketing Digital con Inteligencia Artificial', type: 'curso', start: '2026-06-01', end: '2026-06-04', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Cohorte de Junio.', link: links.marketing },
-          { title: 'Taller: Aprende a Hablar en Público', type: 'taller', start: '2026-06-06', end: '2026-06-06', schedule: 'Sábado, 9:00 AM a 1:00 PM', desc: 'Taller práctico presencial.', link: links.hablar }
+          { title: 'MARKETING DIGITAL CON INTELIGENCIA ARTIFICIAL', type: 'curso', start: '2026-06-01', end: '2026-06-04', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Cohorte de Junio.', link: links.marketing },
+          { title: 'APRENDE A HABLAR EN PÚBLICO', type: 'taller', start: '2026-06-06', end: '2026-06-06', schedule: 'Sábado, 9:00 AM a 1:00 PM', desc: 'Taller práctico presencial.', link: links.hablar }
         ]
       },
       {
         week: 'Semana 13', startWeek: '2026-06-08', endWeek: '2026-06-14',
         events: [
-          { title: 'Inteligencia Artificial para Docentes', type: 'curso', start: '2026-06-08', end: '2026-06-11', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Cohorte de Junio.', link: links.docentes }
+          { title: 'INTELIGENCIA ARTIFICIAL PARA DOCENTES', type: 'curso', start: '2026-06-08', end: '2026-06-11', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Cohorte de Junio.', link: links.docentes }
         ]
       },
       {
         week: 'Semana 14', startWeek: '2026-06-15', endWeek: '2026-06-21',
         events: [
-          { title: 'Monetiza tu Idea con Inteligencia Artificial y Marketing', type: 'curso', start: '2026-06-15', end: '2026-06-18', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Cohorte de Junio.', link: links.creaMarca },
-          { title: 'Taller: Aprende a Hablar en Público', type: 'taller', start: '2026-06-20', end: '2026-06-20', schedule: 'Sábado, 9:00 AM a 1:00 PM', desc: 'Taller práctico presencial.', link: links.hablar }
+          { title: 'MONETIZA TU IDEA CON IA', type: 'curso', start: '2026-06-15', end: '2026-06-18', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Cohorte de Junio.', link: links.creaMarca },
+          { title: 'APRENDE A HABLAR EN PÚBLICO', type: 'taller', start: '2026-06-20', end: '2026-06-20', schedule: 'Sábado, 9:00 AM a 1:00 PM', desc: 'Taller práctico presencial.', link: links.hablar }
         ]
       },
       {
         week: 'Semana 15', startWeek: '2026-06-22', endWeek: '2026-06-28',
         events: [
-          { title: 'Crea y Vende tu Curso y Monetiza', type: 'curso', start: '2026-06-22', end: '2026-06-25', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Cohorte de Junio.', link: links.creaMarca }
+          { title: 'CREA TU CURSO ONLINE Y MONETIZA', type: 'curso', start: '2026-06-22', end: '2026-06-25', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Cohorte de Junio.', link: links.creaMarca }
         ]
       },
       {
         week: 'Semana 16', startWeek: '2026-06-29', endWeek: '2026-07-05',
         events: [
-          { title: 'Diplomado en IA Aplicada a Negocios (2da Edición)', type: 'diplomado', start: '2026-06-29', end: '2026-07-02', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Módulo 1: Fundamentos estratégicos de IA para empresas.', link: links.diplomado },
-          { title: 'Taller: Aprende a Hablar en Público', type: 'taller', start: '2026-07-04', end: '2026-07-04', schedule: 'Sábado, 9:00 AM a 1:00 PM', desc: 'Taller práctico presencial.', link: links.hablar }
+          { title: 'DIPLOMADO EN IA APLICADA A NEGOCIOS, MARKETING Y COMUNICACIÓN (2da Edición)', type: 'diplomado', start: '2026-06-29', end: '2026-07-02', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Módulo 1: Fundamentos estratégicos de IA para empresas.', link: links.diplomado },
+          { title: 'APRENDE A HABLAR EN PÚBLICO', type: 'taller', start: '2026-07-04', end: '2026-07-04', schedule: 'Sábado, 9:00 AM a 1:00 PM', desc: 'Taller práctico presencial.', link: links.hablar }
         ]
       },
       {
         week: 'Semana 17', startWeek: '2026-07-06', endWeek: '2026-07-12',
         events: [
-          { title: 'Diplomado en IA Aplicada a Negocios (2da Edición)', type: 'diplomado', start: '2026-07-06', end: '2026-07-09', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Módulo 2: Herramientas avanzadas de marketing.', link: links.diplomado }
+          { title: 'DIPLOMADO EN IA APLICADA A NEGOCIOS, MARKETING Y COMUNICACIÓN (2da Edición)', type: 'diplomado', start: '2026-07-06', end: '2026-07-09', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Módulo 2: Herramientas avanzadas de marketing.', link: links.diplomado }
         ]
       },
       {
         week: 'Semana 18', startWeek: '2026-07-13', endWeek: '2026-07-19',
         events: [
-          { title: 'Diplomado en IA Aplicada a Negocios (2da Edición)', type: 'diplomado', start: '2026-07-13', end: '2026-07-16', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Módulo 3: Creación de contenido automatizado.', link: links.diplomado },
-          { title: 'Taller: Aprende a Hablar en Público', type: 'taller', start: '2026-07-18', end: '2026-07-18', schedule: 'Sábado, 9:00 AM a 1:00 PM', desc: 'Taller práctico presencial.', link: links.hablar }
+          { title: 'DIPLOMADO EN IA APLICADA A NEGOCIOS, MARKETING Y COMUNICACIÓN (2da Edición)', type: 'diplomado', start: '2026-07-13', end: '2026-07-16', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Módulo 3: Creación de contenido automatizado.', link: links.diplomado },
+          { title: 'APRENDE A HABLAR EN PÚBLICO', type: 'taller', start: '2026-07-18', end: '2026-07-18', schedule: 'Sábado, 9:00 AM a 1:00 PM', desc: 'Taller práctico presencial.', link: links.hablar }
         ]
       },
       {
         week: 'Semana 19', startWeek: '2026-07-20', endWeek: '2026-07-26',
         events: [
-          { title: 'Diplomado en IA Aplicada a Negocios (2da Edición)', type: 'diplomado', start: '2026-07-20', end: '2026-07-23', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Módulo 4: Proyecto final y presentación.', link: links.diplomado }
+          { title: 'DIPLOMADO EN IA APLICADA A NEGOCIOS, MARKETING Y COMUNICACIÓN (2da Edición)', type: 'diplomado', start: '2026-07-20', end: '2026-07-23', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Módulo 4: Proyecto final y presentación.', link: links.diplomado }
         ]
       },
       {
         week: 'Semana 20', startWeek: '2026-07-27', endWeek: '2026-08-02',
         events: [
-          { title: 'Diplomado en IA Aplicada a Negocios (2da Edición)', type: 'diplomado', start: '2026-07-27', end: '2026-07-30', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Módulo 5: Casos prácticos y graduación.', link: links.diplomado },
-          { title: 'Taller: Aprende a Hablar en Público', type: 'taller', start: '2026-08-01', end: '2026-08-01', schedule: 'Sábado, 9:00 AM a 1:00 PM', desc: 'Taller práctico presencial.', link: links.hablar }
+          { title: 'DIPLOMADO EN IA APLICADA A NEGOCIOS, MARKETING Y COMUNICACIÓN (2da Edición)', type: 'diplomado', start: '2026-07-27', end: '2026-07-30', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Módulo 5: Casos prácticos y graduación.', link: links.diplomado },
+          { title: 'APRENDE A HABLAR EN PÚBLICO', type: 'taller', start: '2026-08-01', end: '2026-08-01', schedule: 'Sábado, 9:00 AM a 1:00 PM', desc: 'Taller práctico presencial.', link: links.hablar }
         ]
       },
       {
         week: 'Semana 21', startWeek: '2026-08-03', endWeek: '2026-08-09',
         events: [
-          { title: 'Inteligencia Artificial para Docentes', type: 'curso', start: '2026-08-03', end: '2026-08-06', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Cohorte de Agosto.', link: links.docentes }
+          { title: 'INTELIGENCIA ARTIFICIAL PARA DOCENTES', type: 'curso', start: '2026-08-03', end: '2026-08-06', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Cohorte de Agosto.', link: links.docentes }
         ]
       },
       {
         week: 'Semana 22', startWeek: '2026-08-10', endWeek: '2026-08-16',
         events: [
           { title: 'Semana Comercial (No Cohorte por Feriado)', type: 'comercial', start: '2026-08-10', end: '2026-08-13', schedule: 'Toda la semana', desc: 'Ventas y remarketing.' },
-          { title: 'Taller: Aprende a Hablar en Público', type: 'taller', start: '2026-08-15', end: '2026-08-15', schedule: 'Sábado, 9:00 AM a 1:00 PM', desc: 'Taller práctico presencial.', link: links.hablar }
+          { title: 'APRENDE A HABLAR EN PÚBLICO', type: 'taller', start: '2026-08-15', end: '2026-08-15', schedule: 'Sábado, 9:00 AM a 1:00 PM', desc: 'Taller práctico presencial.', link: links.hablar }
         ]
       },
       {
         week: 'Semana 23', startWeek: '2026-08-17', endWeek: '2026-08-23',
         events: [
-          { title: 'Monetiza tu Idea con Inteligencia Artificial y Marketing', type: 'curso', start: '2026-08-17', end: '2026-08-20', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Cohorte de Agosto.', link: links.creaMarca }
+          { title: 'MONETIZA TU IDEA CON IA', type: 'curso', start: '2026-08-17', end: '2026-08-20', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Cohorte de Agosto.', link: links.creaMarca }
         ]
       },
       {
         week: 'Semana 24', startWeek: '2026-08-24', endWeek: '2026-08-30',
         events: [
-          { title: 'Crea y Vende tu Curso y Monetiza', type: 'curso', start: '2026-08-24', end: '2026-08-27', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Cohorte de Agosto.', link: links.creaMarca },
-          { title: 'Taller: Aprende a Hablar en Público', type: 'taller', start: '2026-08-29', end: '2026-08-29', schedule: 'Sábado, 9:00 AM a 1:00 PM', desc: 'Taller práctico presencial.', link: links.hablar }
+          { title: 'CREA TU CURSO ONLINE Y MONETIZA', type: 'curso', start: '2026-08-24', end: '2026-08-27', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Cohorte de Agosto.', link: links.creaMarca },
+          { title: 'APRENDE A HABLAR EN PÚBLICO', type: 'taller', start: '2026-08-29', end: '2026-08-29', schedule: 'Sábado, 9:00 AM a 1:00 PM', desc: 'Taller práctico presencial.', link: links.hablar }
         ]
       },
       {
         week: 'Semana 25', startWeek: '2026-08-31', endWeek: '2026-09-06',
         events: [
-          { title: 'Marketing Digital con Inteligencia Artificial', type: 'curso', start: '2026-08-31', end: '2026-09-03', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Cohorte de Septiembre.', link: links.marketing }
+          { title: 'MARKETING DIGITAL CON INTELIGENCIA ARTIFICIAL', type: 'curso', start: '2026-08-31', end: '2026-09-03', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Cohorte de Septiembre.', link: links.marketing }
         ]
       },
       {
         week: 'Semana 26', startWeek: '2026-09-07', endWeek: '2026-09-13',
         events: [
-          { title: 'Inteligencia Artificial para Docentes', type: 'curso', start: '2026-09-07', end: '2026-09-10', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Cohorte de Septiembre.', link: links.docentes },
-          { title: 'Taller: Aprende a Hablar en Público', type: 'taller', start: '2026-09-12', end: '2026-09-12', schedule: 'Sábado, 9:00 AM a 1:00 PM', desc: 'Taller práctico presencial.', link: links.hablar }
+          { title: 'INTELIGENCIA ARTIFICIAL PARA DOCENTES', type: 'curso', start: '2026-09-07', end: '2026-09-10', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Cohorte de Septiembre.', link: links.docentes },
+          { title: 'APRENDE A HABLAR EN PÚBLICO', type: 'taller', start: '2026-09-12', end: '2026-09-12', schedule: 'Sábado, 9:00 AM a 1:00 PM', desc: 'Taller práctico presencial.', link: links.hablar }
         ]
       },
       {
         week: 'Semana 27', startWeek: '2026-09-14', endWeek: '2026-09-20',
         events: [
-          { title: 'Monetiza tu Idea con Inteligencia Artificial y Marketing', type: 'curso', start: '2026-09-14', end: '2026-09-17', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Cohorte de Septiembre.', link: links.creaMarca }
+          { title: 'MONETIZA TU IDEA CON IA', type: 'curso', start: '2026-09-14', end: '2026-09-17', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Cohorte de Septiembre.', link: links.creaMarca }
         ]
       },
       {
         week: 'Semana 28', startWeek: '2026-09-21', endWeek: '2026-09-27',
         events: [
-          { title: 'Crea y Vende tu Curso y Monetiza', type: 'curso', start: '2026-09-21', end: '2026-09-24', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Cohorte de Septiembre.', link: links.creaMarca },
-          { title: 'Taller: Aprende a Hablar en Público', type: 'taller', start: '2026-09-26', end: '2026-09-26', schedule: 'Sábado, 9:00 AM a 1:00 PM', desc: 'Taller práctico presencial.', link: links.hablar }
+          { title: 'CREA TU CURSO ONLINE Y MONETIZA', type: 'curso', start: '2026-09-21', end: '2026-09-24', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Cohorte de Septiembre.', link: links.creaMarca },
+          { title: 'APRENDE A HABLAR EN PÚBLICO', type: 'taller', start: '2026-09-26', end: '2026-09-26', schedule: 'Sábado, 9:00 AM a 1:00 PM', desc: 'Taller práctico presencial.', link: links.hablar }
         ]
-      }
+      },
+      // Semanas extendidas para dar cabida a la finalización del Executive Master
+      { week: 'Semana 29', startWeek: '2026-09-28', endWeek: '2026-10-04', events: [] },
+      { week: 'Semana 30', startWeek: '2026-10-05', endWeek: '2026-10-11', events: [] },
+      { week: 'Semana 31', startWeek: '2026-10-12', endWeek: '2026-10-18', events: [] },
+      { week: 'Semana 32', startWeek: '2026-10-19', endWeek: '2026-10-25', events: [] },
+      { week: 'Semana 33', startWeek: '2026-10-26', endWeek: '2026-11-01', events: [] },
+      { week: 'Semana 34', startWeek: '2026-11-02', endWeek: '2026-11-08', events: [] },
+      { week: 'Semana 35', startWeek: '2026-11-09', endWeek: '2026-11-15', events: [] },
+      { week: 'Semana 36', startWeek: '2026-11-16', endWeek: '2026-11-22', events: [] },
+      { week: 'Semana 37', startWeek: '2026-11-23', endWeek: '2026-11-29', events: [] }
     ];
 
     let dbSchedule = [];
+
+    // Función para Inyectar Automáticamente el Executive Master
+    function injectMaster(schedule) {
+      let finalSchedule = JSON.parse(JSON.stringify(schedule));
+      
+      // El Master va desde el 1 de Junio (Semana 12) hasta la Semana 37 de Noviembre
+      finalSchedule.forEach(w => {
+         if (w.startWeek >= '2026-06-01' && w.startWeek <= '2026-11-23') {
+           let [y, m, d] = w.startWeek.split('-');
+           let d1 = new Date(y, parseInt(m)-1, d);
+           let d2 = new Date(y, parseInt(m)-1, d);
+           d2.setDate(d2.getDate() + 4); // Lunes a viernes
+           
+           let endStr = `${d2.getFullYear()}-${String(d2.getMonth()+1).padStart(2,'0')}-${String(d2.getDate()).padStart(2,'0')}`;
+           
+           w.events.push({
+             title: 'EXECUTIVE MASTER EN IA APLICADA A NEGOCIOS, MARKETING Y COMUNICACIÓN',
+             type: 'master',
+             start: w.startWeek,
+             end: endStr,
+             schedule: 'Lun a Vie, 9:00 PM - 10:00 PM',
+             desc: 'Programa de maestría ejecutiva intensiva (1 hora síncrona y 1 hora asíncrona).',
+             link: '#' 
+           });
+         }
+      });
+      
+      // Inyectar inscripción para el Master
+      const inscWeek = finalSchedule.find(w => w.startWeek === '2026-05-04');
+      if (inscWeek) {
+        inscWeek.events.push({
+           title: '⚫ Inscripciones: EXECUTIVE MASTER EN IA APLICADA A NEGOCIOS, MARKETING Y COMUNICACIÓN',
+           type: 'inscripcion',
+           start: '2026-05-04',
+           end: '2026-05-04',
+           schedule: 'Inicia el 1 de Junio',
+           desc: 'Apertura oficial de inscripciones al Executive Master.',
+           link: '#',
+           relatedType: 'master'
+        });
+      }
+
+      return finalSchedule;
+    }
 
     // Lógica para Inyectar Inscripciones y Clases Gratis dinámicamente
     function processDynamicEvents(schedule) {
@@ -575,14 +636,12 @@
 
       finalSchedule.forEach(week => {
         week.events.forEach(ev => {
-          if(ev.type === 'comercial' || ev.type === 'inscripcion') return;
+          if(ev.type === 'comercial' || ev.type === 'inscripcion' || ev.type === 'master') return;
 
-          // Si es una clase gratis hardcodeada (como la inicial de Marzo)
           if(ev.type === 'gratis') {
             const startDate = new Date(ev.start + 'T12:00:00');
             startDate.setDate(startDate.getDate() - 6);
             const isoDate = startDate.toISOString().split('T')[0];
-            
             let cleanTitle = ev.title.replace('🟢 ', '');
             
             newEvents.push({
@@ -598,7 +657,6 @@
             return;
           }
           
-          // 1. INSCRIPCIONES (Para Cursos y Diplomados)
           let diasAntesInsc = 0;
           if(ev.type === 'curso' || ev.type === 'taller') diasAntesInsc = 14;
           else if(ev.type === 'diplomado') diasAntesInsc = 28;
@@ -614,18 +672,16 @@
               start: isoDate,
               end: isoDate,
               schedule: `Inicia el ${formatDate(ev.start)}`,
-              desc: `Apertura oficial de inscripciones. Asegura tu lugar con un 25% de descuento especial pre-aplicado.`,
+              desc: `Apertura oficial de inscripciones. Asegura tu lugar con un 30% de descuento especial pre-aplicado.`,
               link: ev.link,
               relatedType: ev.type
             });
           }
 
-          // 2. CLASES GRATIS (Martes de la semana previa, 9 a 10 PM)
           if ((ev.type === 'curso' || ev.type === 'diplomado') && 
-              !ev.title.includes('Docentes') && 
-              !ev.title.includes('Hablar en Público')) {
+              !ev.title.includes('DOCENTES') && 
+              !ev.title.includes('HABLAR EN PÚBLICO')) {
             
-            // Restar 6 días a la fecha de inicio (que siempre es Lunes) para caer exactamente en el Martes previo
             const freeClassDate = new Date(ev.start + 'T12:00:00');
             freeClassDate.setDate(freeClassDate.getDate() - 6);
             const isoDateFree = freeClassDate.toISOString().split('T')[0];
@@ -641,7 +697,6 @@
               relatedType: ev.type
             });
 
-            // 3. INSCRIPCIONES A LA CLASE GRATIS (6 días antes de la clase gratis)
             const freeClassInscDate = new Date(isoDateFree + 'T12:00:00');
             freeClassInscDate.setDate(freeClassInscDate.getDate() - 6);
             const isoDateFreeInsc = freeClassInscDate.toISOString().split('T')[0];
@@ -660,20 +715,13 @@
         });
       });
 
-      // Distribuir los eventos nuevos en las semanas correctas
       newEvents.forEach(evt => {
         let matchedWeek = finalSchedule.find(w => evt.start >= w.startWeek && evt.start <= w.endWeek);
-        if(!matchedWeek) {
-          matchedWeek = finalSchedule[0]; // fallback
-        }
+        if(!matchedWeek) matchedWeek = finalSchedule[0];
         matchedWeek.events.push(evt);
       });
 
-      // Re-ordenar por fecha de inicio para mantener el orden cronológico
-      finalSchedule.forEach(w => {
-        w.events.sort((a, b) => a.start.localeCompare(b.start));
-      });
-
+      finalSchedule.forEach(w => w.events.sort((a, b) => a.start.localeCompare(b.start)));
       return finalSchedule;
     }
 
@@ -681,20 +729,78 @@
     let calMonth = 2; // Marzo
     let calYear = 2026;
 
+    // --- LOGICA DEL DROPDOWN MULTIPLE ---
+    function toggleProgramDropdown() {
+      document.getElementById('prog-dropdown-menu').classList.toggle('hidden');
+    }
+
+    document.addEventListener('click', function(event) {
+      const container = document.getElementById('programs-dropdown-container');
+      if (container && !container.contains(event.target)) {
+        document.getElementById('prog-dropdown-menu').classList.add('hidden');
+      }
+    });
+
+    function toggleAllPrograms(masterCb) {
+      const checkboxes = document.querySelectorAll('.program-checkbox');
+      checkboxes.forEach(cb => cb.checked = masterCb.checked);
+      updateDropdownText();
+      renderApp();
+    }
+
+    function handleProgramCheckboxChange() {
+      const allCheckboxes = document.querySelectorAll('.program-checkbox');
+      const checkedCheckboxes = document.querySelectorAll('.program-checkbox:checked');
+      const masterCb = document.getElementById('check-all-progs');
+      
+      if(masterCb) masterCb.checked = (allCheckboxes.length === checkedCheckboxes.length);
+      
+      updateDropdownText();
+      renderApp();
+    }
+
+    function updateDropdownText() {
+      const allCheckboxes = document.querySelectorAll('.program-checkbox');
+      const checkedCheckboxes = document.querySelectorAll('.program-checkbox:checked');
+      const btnText = document.getElementById('prog-dropdown-text');
+
+      if (checkedCheckboxes.length === allCheckboxes.length || checkedCheckboxes.length === 0) {
+        btnText.textContent = 'Todos los programas';
+      } else if (checkedCheckboxes.length === 1) {
+        btnText.textContent = checkedCheckboxes[0].value;
+      } else {
+        btnText.textContent = `${checkedCheckboxes.length} programas seleccionados`;
+      }
+    }
+
     function init() {
-      dbSchedule = processDynamicEvents(baseSchedule);
+      dbSchedule = processDynamicEvents(injectMaster(baseSchedule));
       
       const allEvents = dbSchedule.flatMap(w => w.events);
-      // Evitamos incluir eventos del sistema o generados dinamicamente en los filtros
       const uniqueTitles = [...new Set(allEvents.map(e => e.title))].filter(t => !t.includes('Semana de Cierre') && !t.includes('Inscripciones:') && !t.includes('Clase Gratis:'));
       
-      const progSelect = document.getElementById('filter-program');
-      uniqueTitles.forEach(t => {
-        const opt = document.createElement('option');
-        opt.value = t; opt.textContent = t;
-        progSelect.appendChild(opt);
+      const progContainer = document.getElementById('prog-dropdown-menu');
+      progContainer.innerHTML = '';
+      
+      // Añadir la opción "Seleccionar Todos"
+      progContainer.innerHTML += `
+        <label class="cursor-pointer flex items-center gap-3 p-2 hover:bg-white/5 rounded-md transition-colors border-b border-white/5 mb-1">
+          <input type="checkbox" id="check-all-progs" checked onchange="toggleAllPrograms(this)" class="w-4 h-4 accent-ibero-red bg-ibero-dark border-white/20 rounded">
+          <span class="text-sm font-bold text-white">Seleccionar Todos</span>
+        </label>
+      `;
+
+      uniqueTitles.forEach((t) => {
+        const wrapper = document.createElement('label');
+        wrapper.className = 'cursor-pointer flex items-center gap-3 p-2 hover:bg-white/5 rounded-md transition-colors';
+        wrapper.innerHTML = `
+          <input type="checkbox" value="${t}" class="program-checkbox w-4 h-4 accent-ibero-red bg-ibero-dark border-white/20 rounded" checked onchange="handleProgramCheckboxChange()">
+          <span class="text-sm text-gray-300 line-clamp-2 leading-tight">${t}</span>
+        `;
+        progContainer.appendChild(wrapper);
       });
 
+      updateDropdownText();
       renderApp();
     }
 
@@ -726,23 +832,26 @@
     }
 
     function getFilteredEvents() {
-      const prog = document.getElementById('filter-program').value;
       const type = document.getElementById('filter-type').value;
+      const checkedPrograms = Array.from(document.querySelectorAll('.program-checkbox:checked')).map(cb => cb.value);
 
       return dbSchedule.map(week => {
         return {
           ...week,
           events: week.events.filter(e => {
-            if (prog !== 'all' && e.title !== prog && !e.title.includes(prog)) return false;
+            // Verificamos si el título del evento contiene alguna de las categorías seleccionadas
+            const matchesProg = checkedPrograms.some(prog => e.title.includes(prog) || prog === e.title);
+            
+            if (!matchesProg) return false;
             if (type !== 'all' && e.type !== type) return false;
             return true;
           })
         };
       }).filter(week => {
-        // Si no hay ningún filtro aplicado, se muestran todas las semanas obligatoriamente
-        if (prog === 'all' && type === 'all') return true;
+        const allCheckboxes = document.querySelectorAll('.program-checkbox');
+        const allChecked = checkedPrograms.length === allCheckboxes.length;
         
-        // Si hay algún filtro, solo mostrar semanas que tengan eventos coincidentes
+        if (allChecked && type === 'all') return true; // Mostrar semanas libres si no hay filtros aplicados
         return week.events.length > 0;
       });
     }
@@ -760,6 +869,7 @@
         case 'gratis': return '<i class="ph-fill ph-gift"></i>';
         case 'inscripcion': return '<i class="ph-fill ph-megaphone"></i>';
         case 'comercial': return '<i class="ph-fill ph-trend-up"></i>';
+        case 'master': return '<i class="ph-fill ph-crown"></i>';
         default: return '<i class="ph-fill ph-calendar"></i>';
       }
     }
@@ -780,10 +890,14 @@
         card.style.animationDelay = `${index * 0.05}s`;
 
         const isDiplo = weekData.events.some(e => e.type === 'diplomado');
+        const isMaster = weekData.events.some(e => e.type === 'master');
         const isInscrip = weekData.events.some(e => e.type === 'inscripcion');
-        const colorClass = isDiplo ? 'bg-ibero-red' : (isInscrip ? 'bg-red-500' : 'bg-blue-500');
         
-        // Determinar si la semana no tiene eventos (posible si no hay filtros)
+        let colorClass = 'bg-blue-500';
+        if (isMaster) colorClass = 'bg-black';
+        else if (isDiplo) colorClass = 'bg-ibero-red';
+        else if (isInscrip) colorClass = 'bg-red-500';
+        
         const hasEvents = weekData.events.length > 0;
         
         card.innerHTML = `
@@ -826,8 +940,8 @@
       if(calYear < 2026 || (calYear === 2026 && calMonth < 2)) {
          calYear = 2026; calMonth = 2;
       }
-      if(calYear > 2026 || (calYear === 2026 && calMonth > 8)) {
-         calYear = 2026; calMonth = 8;
+      if(calYear > 2026 || (calYear === 2026 && calMonth > 11)) {
+         calYear = 2026; calMonth = 11;
       }
       renderCalendar();
     }
@@ -854,7 +968,7 @@
       for (let d = 1; d <= daysInMonth; d++) {
         const dayDiv = document.createElement('div');
         dayDiv.className = 'calendar-day relative flex flex-col group';
-        dayDiv.innerHTML = `<span class="text-sm font-bold text-ibero-gray group-hover:text-white transition-colors mb-2">${d}</span>`;
+        dayDiv.innerHTML = `<span class="text-xs md:text-sm font-bold text-ibero-gray group-hover:text-white transition-colors mb-1 md:mb-2">${d}</span>`;
         
         const currentStr = `${calYear}-${String(calMonth+1).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
         
@@ -879,8 +993,10 @@
       document.getElementById('modal-title').textContent = ev.title;
       document.getElementById('modal-desc').textContent = ev.desc;
       
-      const sDate = formatDate(ev.start);
-      const eDate = formatDate(ev.end);
+      const sDateStr = ev.start;
+      const eDateStr = ev.end;
+      const sDate = formatDate(sDateStr);
+      const eDate = formatDate(eDateStr);
       document.getElementById('modal-dates').textContent = (sDate === eDate) ? sDate : `${sDate} al ${eDate}`;
       document.getElementById('modal-schedule').textContent = ev.schedule;
 
@@ -888,7 +1004,6 @@
       badge.className = `inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3 ${getProgClass(ev)}`;
       badge.innerHTML = `${getIconForType(ev.type)} ${ev.type}`;
 
-      // Configurar botón principal
       const btnInscribete = document.getElementById('btn-inscribete');
       if(ev.link) {
         btnInscribete.href = ev.link;
@@ -899,43 +1014,65 @@
         btnInscribete.classList.remove('flex');
       }
 
-      // Precios UI
       const pricesContainer = document.getElementById('modal-prices');
       const invSection = document.getElementById('investment-section');
       
-      // Si es una inscripción, mostramos el precio de su "relatedType"
       let key = ev.relatedType ? ev.relatedType : ev.type;
       const p = pricing[key];
 
       if(p) {
         invSection.style.display = 'block';
         pricesContainer.innerHTML = `
-          <div class="bg-ibero-dark/50 p-3 rounded-lg border border-white/5 text-center relative overflow-hidden">
+          <div class="bg-ibero-dark/50 p-2 sm:p-3 rounded-lg border border-white/5 text-center relative flex flex-col min-w-0 break-words h-full">
             <p class="text-xl mb-1">🇪🇨</p>
-            <p class="text-xs text-ibero-gray mb-1">Ecuador</p>
-            <p class="font-bold text-white text-lg leading-none">${p.originalUsd ? `<span class="line-through text-ibero-gray/60 text-xs mr-1 font-normal">${p.originalUsd}</span>` : ''}${p.usd}</p>
+            <p class="text-[0.65rem] sm:text-xs text-ibero-gray mb-1 leading-none uppercase tracking-wider">Ecuador</p>
+            <div class="mt-auto flex flex-col items-center justify-end w-full overflow-hidden">
+              ${p.originalUsd ? `<span class="line-through text-ibero-gray/60 text-[0.65rem] sm:text-xs font-normal leading-none mb-1">${p.originalUsd}</span>` : ''}
+              <span class="font-bold text-white text-sm sm:text-base leading-none truncate w-full" title="${p.usd}">${p.usd}</span>
+            </div>
           </div>
-          <div class="bg-ibero-dark/50 p-3 rounded-lg border border-white/5 text-center">
+          <div class="bg-ibero-dark/50 p-2 sm:p-3 rounded-lg border border-white/5 text-center relative flex flex-col min-w-0 break-words h-full">
             <p class="text-xl mb-1">🇲🇽</p>
-            <p class="text-xs text-ibero-gray mb-1">México</p>
-            <p class="font-bold text-white text-lg leading-none">${p.originalMxn ? `<span class="line-through text-ibero-gray/60 text-xs mr-1 font-normal">${p.originalMxn}</span>` : ''}${p.mxn}</p>
+            <p class="text-[0.65rem] sm:text-xs text-ibero-gray mb-1 leading-none uppercase tracking-wider">México</p>
+            <div class="mt-auto flex flex-col items-center justify-end w-full overflow-hidden">
+              ${p.originalMxn ? `<span class="line-through text-ibero-gray/60 text-[0.65rem] sm:text-xs font-normal leading-none mb-1">${p.originalMxn}</span>` : ''}
+              <span class="font-bold text-white text-sm sm:text-base leading-none truncate w-full" title="${p.mxn}">${p.mxn}</span>
+            </div>
           </div>
-          <div class="bg-ibero-dark/50 p-3 rounded-lg border border-white/5 text-center">
+          <div class="bg-ibero-dark/50 p-2 sm:p-3 rounded-lg border border-white/5 text-center relative flex flex-col min-w-0 break-words h-full">
             <p class="text-xl mb-1">🇵🇪</p>
-            <p class="text-xs text-ibero-gray mb-1">Perú</p>
-            <p class="font-bold text-white text-lg leading-none">${p.originalPen ? `<span class="line-through text-ibero-gray/60 text-xs mr-1 font-normal">${p.originalPen}</span>` : ''}${p.pen}</p>
+            <p class="text-[0.65rem] sm:text-xs text-ibero-gray mb-1 leading-none uppercase tracking-wider">Perú</p>
+            <div class="mt-auto flex flex-col items-center justify-end w-full overflow-hidden">
+              ${p.originalPen ? `<span class="line-through text-ibero-gray/60 text-[0.65rem] sm:text-xs font-normal leading-none mb-1">${p.originalPen}</span>` : ''}
+              <span class="font-bold text-white text-sm sm:text-base leading-none truncate w-full" title="${p.pen}">${p.pen}</span>
+            </div>
           </div>
-          <div class="bg-ibero-dark/50 p-3 rounded-lg border border-white/5 text-center">
+          <div class="bg-ibero-dark/50 p-2 sm:p-3 rounded-lg border border-white/5 text-center relative flex flex-col min-w-0 break-words h-full">
             <p class="text-xl mb-1">🇨🇴</p>
-            <p class="text-xs text-ibero-gray mb-1">Colombia</p>
-            <p class="font-bold text-white text-lg leading-none">${p.originalCop ? `<span class="line-through text-ibero-gray/60 text-xs mr-1 font-normal">${p.originalCop}</span>` : ''}${p.cop}</p>
+            <p class="text-[0.65rem] sm:text-xs text-ibero-gray mb-1 leading-none uppercase tracking-wider">Colombia</p>
+            <div class="mt-auto flex flex-col items-center justify-end w-full overflow-hidden">
+              ${p.originalCop ? `<span class="line-through text-ibero-gray/60 text-[0.65rem] sm:text-xs font-normal leading-none mb-1">${p.originalCop}</span>` : ''}
+              <span class="font-bold text-white text-sm sm:text-base leading-none truncate w-full" title="${p.cop}">${p.cop}</span>
+            </div>
           </div>
         `;
       } else {
         invSection.style.display = 'none';
       }
 
-      const gcalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent('IBERO: ' + ev.title)}&dates=${ev.start.replace(/-/g,'')}T190000Z/${ev.end.replace(/-/g,'')}T210000Z&details=${encodeURIComponent(ev.desc)}`;
+      // Logica para determinar la zona horaria sin el 'Z' para que se guarde en formato Local
+      let startTimeStr = '190000';
+      let endTimeStr = '210000';
+      if (ev.schedule.includes('9:00 AM') || ev.schedule.includes('9:00 AM a 1:00 PM')) {
+        startTimeStr = '090000'; endTimeStr = '130000';
+      } else if (ev.schedule.includes('9:00 PM - 10:00 PM')) {
+        startTimeStr = '210000'; endTimeStr = '220000';
+      }
+
+      const formattedStartDate = sDateStr.replace(/-/g, '');
+      const formattedEndDate = eDateStr.replace(/-/g, '');
+
+      const gcalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent('IBERO: ' + ev.title)}&dates=${formattedStartDate}T${startTimeStr}/${formattedEndDate}T${endTimeStr}&details=${encodeURIComponent(ev.desc)}`;
       document.getElementById('btn-gcal').href = gcalUrl;
 
       const modal = document.getElementById('program-modal');
@@ -958,10 +1095,7 @@
       }, 300);
     }
 
-    // PDF Export function simplificada y 100% confiable usando la Impresión Nativa
     function downloadPDF() {
-      // Usar la impresión nativa asegura que no existan cortes en documentos largos
-      // y mantiene el texto en formato vectorial (no borroso)
       setTimeout(() => {
         window.print();
       }, 300);
