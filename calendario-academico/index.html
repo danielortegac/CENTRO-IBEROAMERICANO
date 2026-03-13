@@ -158,7 +158,17 @@
   </div>
 
   <!-- Hero Section -->
-  <header class="relative bg-black pt-16 pb-12 text-center border-b border-white/10" id="header-section">
+  <header class="relative bg-black pt-16 pb-12 text-center border-b border-white/10 overflow-hidden" id="header-section">
+    
+    <!-- Video Background -->
+    <div class="absolute inset-0 z-0">
+      <video autoplay loop muted playsinline class="w-full h-full object-cover opacity-40">
+        <source src="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/d83d4e1f5d31f07d6435c9256ee64e7e501d3673/fotos/AI_Business_Education_Hero_Video.mp4" type="video/mp4">
+      </video>
+      <!-- Capa oscura para garantizar lectura del texto -->
+      <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black"></div>
+    </div>
+
     <div class="container mx-auto px-4 relative z-10">
       <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-sm font-semibold text-red-200 mb-6 animate-fade-in-up" style="animation-delay: 0.1s;">
         <i class="ph-fill ph-rocket-launch text-ibero-red"></i> Plan de Ejecución a 6 Meses
