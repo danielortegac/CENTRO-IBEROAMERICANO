@@ -6,6 +6,9 @@
   <meta name="description" content="Ponte en contacto con IBERO. Descubre cómo nuestros Executive Masters, diplomados y cursos pueden impulsar tu carrera.">
   <title>Contacto | IBERO Educación de Élite</title>
   
+  <!-- FAVICON OFICIAL -->
+  <link rel="icon" type="image/svg+xml" href="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/3339294f71590eeeaa7f0b0b0591f5e09156ed96/fotos/logos%20ibero/ibero-favicon.svg">
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
@@ -16,16 +19,28 @@
     tailwind.config = {
       theme: {
         extend: {
-          colors: { ibero: { red: '#D91212', reddark: '#880d0d', purple: '#6B21A8', dark: '#09090B', gray: '#FAFAFA', teal: '#0f766e' } },
-          fontFamily: { sans: ['Inter', 'sans-serif'], serif: ['Playfair Display', 'serif'] }
+          colors: { 
+            ibero: { 
+              red: '#D91212', 
+              reddark: '#880d0d', 
+              purple: '#6B21A8', 
+              dark: '#09090B', 
+              gray: '#FAFAFA', 
+              teal: '#0f766e' 
+            } 
+          },
+          fontFamily: { 
+            sans: ['Inter', 'sans-serif'], 
+            serif: ['Playfair Display', 'serif'] 
+          }
         }
       }
     }
   </script>
   <style>
     /* Ajustes Base - Zoom 90% para look Premium/Elegante */
-    html { zoom: 0.9; scroll-padding-top: 170px; }
-    body { background-color: #fafafa; } /* Fondo muy claro y limpio */
+    html { zoom: 0.9; scroll-padding-top: 152px; }
+    body { background-color: #fafafa; }
     .hide-scrollbar::-webkit-scrollbar { display: none; }
     .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     
@@ -47,28 +62,75 @@
         padding-bottom: 0.2em; margin-bottom: -0.2em;
     }
     @keyframes textShine { 0% { background-position: 250% center; } 100% { background-position: -250% center; } }
+
+    /* Floating Buttons Styles */
+    #scroll-top-btn {
+        position: fixed;
+        bottom: 24px;
+        left: 24px;
+        z-index: 50;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.4s ease;
+        pointer-events: none;
+    }
+    #scroll-top-btn.visible {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+    .floating-wa-btn {
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        z-index: 50;
+        transition: all 0.3s ease;
+    }
+    .floating-wa-btn:hover {
+        transform: translateY(-4px);
+    }
   </style>
 </head>
-<body class="bg-zinc-50 text-ibero-dark font-sans antialiased overflow-x-hidden selection:bg-ibero-dark selection:text-white pt-[168px] md:pt-[170px]">
+<body class="bg-zinc-50 text-ibero-dark font-sans antialiased overflow-x-hidden selection:bg-ibero-dark selection:text-white pt-[144px] md:pt-[152px]">
 
-  <!-- NAVEGACIÓN EXACTA AL INDEX -->
+  <!-- Botones Flotantes -->
+  <!-- Scroll to Top (Izquierda) -->
+  <button id="scroll-top-btn" class="w-10 h-10 bg-white border border-zinc-200 shadow-md text-zinc-500 rounded-full flex items-center justify-center hover:bg-zinc-50 hover:text-ibero-dark focus:outline-none focus:ring-2 focus:ring-ibero-dark focus:ring-offset-2 group" onclick="window.scrollTo({top:0, behavior:'smooth'})" aria-label="Volver arriba">
+    <i class="fa-solid fa-arrow-up group-hover:-translate-y-1 transition-transform text-sm"></i>
+  </button>
+
+  <!-- WhatsApp 24/7 (Derecha) -->
+  <a href="https://wa.me/19152854778" target="_blank" class="floating-wa-btn flex items-center gap-3 group" aria-label="Asistencia 24/7 en WhatsApp">
+    <span class="bg-white border border-zinc-800 text-zinc-800 text-[11px] font-bold px-3 py-1.5 rounded-full shadow-sm opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-4 group-hover:translate-x-0 hidden sm:block">
+      Asistencia 24/7
+    </span>
+    <div class="w-12 h-12 bg-[#09090B] text-white rounded-full flex items-center justify-center shadow-lg border border-zinc-700 hover:bg-black transition-colors relative">
+      <span class="absolute inline-flex h-full w-full rounded-full bg-zinc-600 opacity-20 animate-ping"></span>
+      <i class="fa-brands fa-whatsapp text-[22px] relative z-10"></i>
+    </div>
+  </a>
+
+  <!-- HEADER / NAVEGACIÓN ESTANDARIZADO -->
   <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 shadow-sm flex flex-col">
-    <!-- Fila 1: Logo y Navegación Principal -->
+    
+    <!-- Fila 1: Navegación Interna Principal y Logo (Ultra-Delgado) -->
     <div class="w-full nav-glass border-b border-zinc-200">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between items-center h-20">
-          <a href="index.html" class="flex-shrink-0 flex items-center cursor-pointer py-2">
-            <img src="https://raw.githubusercontent.com/danielortegac/GOATIA/3da5106c0b4208293b67981cdf116fb11045c5ff/portafolio/apps-logos/Logo%20nuevo.png" alt="Logo IBERO" class="h-14 md:h-16 w-auto object-contain filter contrast-125">
+        <div class="flex justify-between items-center h-14 md:h-16">
+          <!-- Logo Oficial Actualizado -->
+          <a href="https://ibero.education/" target="_blank" class="flex-shrink-0 flex items-center cursor-pointer">
+            <img src="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/1557a79470d9c26d1ad0f0b00243f9f03e55cf2f/fotos/svg/ibero-logo-black-redE.svg" alt="Logo IBERO" class="h-8 sm:h-10 md:h-10 w-auto object-contain">
           </a>
           
+          <!-- Desktop Menu Interno (Anclas locales) -->
           <div class="hidden md:flex space-x-10 items-center">
-            <a href="certificaciones.html" class="text-[13px] font-bold text-zinc-600 hover:text-ibero-dark transition-colors">Certificaciones 2026</a>
-            <a href="metodologia.html" class="text-[13px] font-bold text-zinc-600 hover:text-ibero-dark transition-colors">Metodología</a>
-            <a href="oferta-academica.html" class="text-[13px] font-bold text-zinc-600 hover:text-ibero-dark transition-colors">Oferta Académica</a>
-            <a href="consultoria.html" class="text-[13px] font-bold text-zinc-600 hover:text-ibero-dark transition-colors">Consultoría</a>
+            <a href="#canales-directos" class="text-[13px] font-bold text-zinc-600 hover:text-ibero-dark transition-colors">Canales Directos</a>
+            <a href="#redes-comunidad" class="text-[13px] font-bold text-zinc-600 hover:text-ibero-dark transition-colors">Comunidad</a>
             
-            <a href="proceso-inscripcion.html" class="bg-black text-white px-6 py-2.5 md:py-3 rounded-xl text-[13px] font-bold hover:bg-zinc-800 border border-zinc-700 shadow-lg hover:shadow-xl transition-all flex items-center gap-2 group">
-              <span>Inscribirse Ahora</span>
+            <!-- Botón de Matrículas (Urgencia) -->
+            <a href="https://ibero.education/registro-y-admisiones/" target="_blank" class="bg-black text-white px-6 py-2 md:py-2.5 rounded-lg text-[13px] font-bold hover:bg-zinc-800 border border-zinc-700 shadow-lg hover:shadow-xl transition-all flex items-center gap-2 group relative overflow-hidden">
+              <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-[textShine_1.5s_ease-in-out_infinite]"></span>
+              <span>Postular Admisión</span>
               <span class="relative flex h-2 w-2">
                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
                 <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
@@ -76,60 +138,81 @@
             </a>
           </div>
 
+          <!-- Mobile Menu Button -->
           <div class="md:hidden flex items-center">
             <button id="mobile-menu-btn" class="text-zinc-600 hover:text-ibero-dark focus:outline-none p-2 transition-colors">
-              <i class="fa-solid fa-bars text-2xl"></i>
+              <i class="fa-solid fa-bars text-xl"></i>
             </button>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Fila 2: Enlaces Institucionales (AHORA BLANCA SEGÚN INSTRUCCIONES) -->
-    <div class="flex w-full bg-white text-zinc-600 border-b border-zinc-200">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex justify-start md:justify-end items-center h-10 text-[10px] md:text-[11px] font-bold tracking-wider uppercase overflow-x-auto hide-scrollbar">
+    <!-- Fila 2: Enlaces Institucionales -->
+    <div class="flex w-full bg-[#050505] text-white border-b border-zinc-900">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex justify-start md:justify-end items-center h-10 text-[10px] md:text-[11px] font-semibold tracking-wider uppercase overflow-x-auto hide-scrollbar">
         <div class="flex items-center gap-5 md:gap-7 min-w-max pr-4 md:pr-0">
-          <a href="index.html" class="hover:text-ibero-dark transition-colors">Inicio</a>
-          <a href="https://qlase.goatify.app/" target="_blank" class="hover:text-ibero-dark transition-colors">Campus Virtual</a>
-          <a href="#" class="hover:text-ibero-dark transition-colors">Docentes</a>
-          <a href="#" class="hover:text-ibero-dark transition-colors">Trabaja con nosotros</a>
-          <a href="ayuda-financiera.html" class="hover:text-ibero-dark transition-colors">Ayuda Financiera</a>
-          <a href="https://ia.goatify.app/#discovery" target="_blank" class="hover:text-ibero-dark transition-colors">Blog</a>
-          <a href="contactos.html" class="text-ibero-dark border-b-2 border-ibero-dark pb-0.5 transition-colors">Contactos</a>
+          <a href="https://ibero.education/" target="_blank" class="text-white hover:text-zinc-300 transition-colors">Inicio</a>
+          <a href="https://qlase.goatify.app/" target="_blank" class="text-white hover:text-zinc-300 transition-colors">Campus Virtual</a>
+          <a href="https://ibero.education/trabaja-con-nosotros/" target="_blank" class="text-white hover:text-zinc-300 transition-colors">Docentes</a>
+          <a href="https://ibero.education/trabaja-con-nosotros/" target="_blank" class="text-white hover:text-zinc-300 transition-colors">Trabaja con nosotros</a>
+          <a href="https://ibero.education/ayuda-financiera/" target="_blank" class="text-white hover:text-zinc-300 transition-colors">Ayuda Financiera</a>
+          <a href="https://ia.goatify.app/#discovery" target="_blank" class="text-white hover:text-zinc-300 transition-colors">Blog</a>
+          <a href="#" class="text-white font-bold border-b border-white transition-colors pb-0.5">Contactos</a>
         </div>
       </div>
     </div>
 
-    <!-- Fila 3: Ecosistema y Programas Académicos -->
+    <!-- Fila 3: Ecosistema y Programas Académicos Externos -->
     <div class="flex w-full bg-zinc-50/90 border-b border-zinc-200 backdrop-blur-md">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex justify-start md:justify-center items-center h-12 text-[11px] md:text-[12px] font-medium text-zinc-600 overflow-x-auto hide-scrollbar">
         <div class="flex items-center gap-6 lg:gap-12 min-w-max pr-4 md:pr-0">
-          <a href="oferta-academica.html" class="hover:text-ibero-dark hover:font-bold transition-all">Oferta Académica</a>
-          <a href="certificaciones.html" class="hover:text-ibero-dark hover:font-bold transition-all">Calendario Cursos</a>
-          <a href="diplomados-ejecutivos.html" class="hover:text-ibero-dark hover:font-bold transition-all">Diplomados</a>
-          <a href="executive-masters.html" class="hover:text-ibero-dark hover:font-bold transition-all">Executive Masters</a>
-          <a href="consultoria.html" class="hover:text-ibero-dark hover:font-bold transition-all">Consultoría en educación</a>
-          <a href="proceso-inscripcion.html" class="hover:text-ibero-dark hover:font-bold transition-all">Registro y admisiones</a>
+          <a href="https://ibero.education/oferta-academica/" target="_blank" class="hover:text-ibero-dark hover:font-bold transition-all">Catálogo Oferta</a>
+          <a href="https://ibero.education/calendario-academico/" target="_blank" class="hover:text-ibero-dark hover:font-bold transition-all">Calendario 2026</a>
+          <a href="https://ibero.education/certificaciones-intensivas/" target="_blank" class="hover:text-ibero-dark hover:font-bold transition-all">Certificaciones</a>
+          <a href="https://ibero.education/diplomados-intensivos/" target="_blank" class="hover:text-ibero-dark hover:font-bold transition-all">Diplomados</a>
+          <a href="https://ibero.education/executive-master/" target="_blank" class="hover:text-ibero-dark hover:font-bold transition-all">Executive Master</a>
+          <a href="https://ibero.education/ibero-academy/" target="_blank" class="hover:text-ibero-dark hover:font-bold transition-all">IBERO Academy</a>
+          <a href="https://ibero.education/ibero-labs/" target="_blank" class="hover:text-ibero-dark hover:font-bold transition-all">IBERO Labs</a>
+          <a href="https://ibero.education/artes-liberales/" target="_blank" class="hover:text-ibero-dark hover:font-bold transition-all">Artes liberales</a>
+          <a href="https://ibero.education/consultoria-en-educacion/" target="_blank" class="hover:text-ibero-dark hover:font-bold transition-all">Consultoría Educación</a>
         </div>
       </div>
     </div>
 
-    <!-- Mobile Menu Panel -->
-    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-zinc-100 absolute w-full shadow-lg max-h-[calc(100vh-168px)] overflow-y-auto top-[168px]">
+    <!-- Mobile Menu Panel Estructurado -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-zinc-100 absolute w-full shadow-lg max-h-[calc(100vh-144px)] overflow-y-auto top-[144px]">
       <div class="px-4 pt-2 pb-6 space-y-1 flex flex-col">
-        <a href="oferta-academica.html" class="mobile-link block px-3 py-3 text-base font-medium text-zinc-800 border-b border-zinc-50 hover:text-ibero-reddark">Oferta Académica</a>
-        <a href="certificaciones.html" class="mobile-link block px-3 py-3 text-base font-medium text-zinc-800 border-b border-zinc-50 hover:text-ibero-reddark">Certificaciones 2026</a>
-        <a href="diplomados-ejecutivos.html" class="mobile-link block px-3 py-3 text-base font-medium text-zinc-800 border-b border-zinc-50 hover:text-ibero-reddark">Diplomados Ejecutivos</a>
-        <a href="executive-masters.html" class="mobile-link block px-3 py-3 text-base font-medium text-zinc-800 border-b border-zinc-50 hover:text-ibero-reddark">Executive Masters</a>
-        <a href="consultoria.html" class="mobile-link block px-3 py-3 text-base font-medium text-zinc-800 border-b border-zinc-50 hover:text-ibero-reddark">Consultoría en Educación</a>
+        <!-- Navegación Interna -->
+        <div class="mb-2 px-3 pt-2">
+          <span class="text-[10px] font-bold tracking-widest text-zinc-400 uppercase">Navegación de Página</span>
+        </div>
+        <a href="#canales-directos" class="mobile-link block px-3 py-3 text-base font-medium text-zinc-800 border-b border-zinc-50 hover:text-ibero-reddark">Canales Directos</a>
+        <a href="#redes-comunidad" class="mobile-link block px-3 py-3 text-base font-medium text-zinc-800 border-b border-zinc-50 hover:text-ibero-reddark">Comunidad y Redes</a>
 
+        <!-- Portales Externos -->
         <div class="mt-4 mb-2 px-3 border-t border-zinc-100 pt-4">
+          <span class="text-[10px] font-bold tracking-widest text-ibero-reddark uppercase">Ecosistema & Programas</span>
+        </div>
+        <a href="https://ibero.education/oferta-academica/" target="_blank" class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 border-b border-zinc-50 hover:text-ibero-reddark">Oferta Académica</a>
+        <a href="https://ibero.education/calendario-academico/" target="_blank" class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 border-b border-zinc-50 hover:text-ibero-reddark">Calendario Cursos</a>
+        <a href="https://ibero.education/certificaciones-intensivas/" target="_blank" class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 border-b border-zinc-50 hover:text-ibero-reddark">Certificaciones</a>
+        <a href="https://ibero.education/diplomados-intensivos/" target="_blank" class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 border-b border-zinc-50 hover:text-ibero-reddark">Diplomados</a>
+        <a href="https://ibero.education/executive-master/" target="_blank" class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 border-b border-zinc-50 hover:text-ibero-reddark">Executive Master</a>
+        <a href="https://ibero.education/ibero-academy/" target="_blank" class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 border-b border-zinc-50 hover:text-ibero-reddark">IBERO Academy</a>
+        <a href="https://ibero.education/ibero-labs/" target="_blank" class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 border-b border-zinc-50 hover:text-ibero-reddark">IBERO Labs</a>
+        <a href="https://ibero.education/artes-liberales/" target="_blank" class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 border-b border-zinc-50 hover:text-ibero-reddark">Artes liberales</a>
+        <a href="https://ibero.education/registro-y-admisiones/" target="_blank" class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 border-b border-zinc-50 hover:text-ibero-reddark">Registro y admisiones</a>
+
+        <div class="mt-4 mb-2 px-3">
           <span class="text-[10px] font-bold tracking-widest text-ibero-reddark uppercase">Institucional & Contacto</span>
         </div>
-        
-        <a href="index.html" class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 border-b border-zinc-50 hover:text-ibero-reddark">Inicio</a>
-        <a href="proceso-inscripcion.html" class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 border-b border-zinc-50 hover:text-ibero-reddark">Registro y Admisiones</a>
-        <a href="contactos.html" class="mobile-link block px-3 py-2.5 text-sm font-medium text-ibero-dark font-bold hover:text-ibero-reddark">Contactos</a>
+        <a href="https://ibero.education/" target="_blank" class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 border-b border-zinc-50 hover:text-ibero-reddark">Inicio</a>
+        <a href="https://qlase.goatify.app/" target="_blank" class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 border-b border-zinc-50 hover:text-ibero-reddark">Campus Virtual</a>
+        <a href="https://ibero.education/trabaja-con-nosotros/" target="_blank" class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 border-b border-zinc-50 hover:text-ibero-reddark">Docentes</a>
+        <a href="https://ibero.education/ayuda-financiera/" target="_blank" class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 border-b border-zinc-50 hover:text-ibero-reddark">Ayuda Financiera</a>
+        <a href="https://ia.goatify.app/#discovery" target="_blank" class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 hover:text-ibero-reddark">Blog</a>
+        <a href="https://ibero.education/contacto/" target="_blank" class="mobile-link block px-3 py-2.5 text-sm font-medium text-ibero-dark font-bold hover:text-ibero-reddark">Contactos</a>
       </div>
     </div>
   </nav>
@@ -150,22 +233,22 @@
       </div>
       <h1 class="text-[2.5rem] sm:text-5xl md:text-6xl lg:text-7xl font-sans font-extrabold tracking-tighter mb-4 text-ibero-dark">
         ¡Hablemos de tu <br>
-        <span class="font-serif italic text-zinc-500 font-medium block mt-2 hero-shine-dark">futuro!</span>
+        <span class="font-serif italic text-zinc-500 font-medium block mt-2 hero-shine-dark">futuro ejecutivo!</span>
       </h1>
       <p class="text-base sm:text-lg md:text-xl text-zinc-600 font-medium max-w-2xl mx-auto leading-relaxed">
-        Estamos aquí para ayudarte a transformar tu carrera con educación de élite. Escríbenos y descubre cómo nuestros <strong class="text-ibero-dark border-b border-ibero-reddark pb-0.5">Executive Masters, diplomados y cursos</strong> pueden escalar tus resultados.
+        Estamos aquí para guiar tu transformación profesional con educación de élite. Escríbenos y descubre cómo nuestros <strong class="text-ibero-dark border-b border-ibero-reddark pb-0.5">Executive Masters, diplomados y programas corporativos</strong> pueden escalar tus resultados.
       </p>
     </div>
   </section>
 
   <!-- SECCIÓN DE TARJETAS DE CONTACTO (GRID PREMIUM) -->
-  <section class="pb-24 pt-16 bg-zinc-50 relative z-10">
+  <section id="canales-directos" class="pb-24 pt-16 bg-zinc-50 relative z-10">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
       
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-8">
         
         <!-- Tarjeta WhatsApp -->
-        <a href="https://api.whatsapp.com/send/?phone=%2B19152854778&text&type=phone_number&app_absent=0" target="_blank" rel="noopener" class="bg-white rounded-[2rem] p-8 sm:p-10 border border-zinc-200 shadow-sm hover:shadow-xl hover:border-green-500 transition-all duration-500 group flex flex-col items-center text-center relative overflow-hidden">
+        <a href="https://wa.me/19152854778" target="_blank" rel="noopener" class="bg-white rounded-[2rem] p-8 sm:p-10 border border-zinc-200 shadow-sm hover:shadow-xl hover:border-green-500 transition-all duration-500 group flex flex-col items-center text-center relative overflow-hidden">
            <div class="absolute inset-0 bg-gradient-to-b from-green-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
            
            <div class="w-16 h-16 sm:w-20 sm:h-20 bg-zinc-50 rounded-2xl border border-zinc-100 flex items-center justify-center mb-6 group-hover:bg-green-500 group-hover:text-white transition-colors shadow-sm relative z-10">
@@ -173,7 +256,7 @@
            </div>
            
            <h3 class="text-xl sm:text-2xl font-extrabold text-ibero-dark mb-2 relative z-10">WhatsApp Directo</h3>
-           <p class="text-sm text-zinc-500 mb-6 relative z-10">Chatea con un asesor de admisiones en tiempo real.</p>
+           <p class="text-sm text-zinc-500 mb-6 relative z-10">Chatea con un asesor de admisiones para resolver dudas inmediatas.</p>
            
            <div class="mt-auto bg-zinc-100 group-hover:bg-green-100 text-zinc-800 group-hover:text-green-800 px-6 py-3 rounded-xl font-bold text-sm sm:text-base transition-colors w-full relative z-10 flex items-center justify-center gap-2">
              +1 915 285 4778 <i class="fa-solid fa-arrow-right-long opacity-50"></i>
@@ -188,8 +271,8 @@
              <i class="fa-regular fa-envelope text-3xl sm:text-4xl text-white group-hover:text-ibero-dark"></i>
            </div>
            
-           <h3 class="text-xl sm:text-2xl font-extrabold text-white mb-2 relative z-10">Correo Electrónico</h3>
-           <p class="text-sm text-zinc-400 mb-6 relative z-10">Consultas corporativas, convenios o soporte académico.</p>
+           <h3 class="text-xl sm:text-2xl font-extrabold text-white mb-2 relative z-10">Correo de Admisiones</h3>
+           <p class="text-sm text-zinc-400 mb-6 relative z-10">Consultas corporativas, convenios o soporte técnico académico.</p>
            
            <div class="mt-auto bg-zinc-800 group-hover:bg-white text-zinc-300 group-hover:text-ibero-dark px-6 py-3 rounded-xl font-bold text-[13px] sm:text-base transition-colors w-full relative z-10 flex items-center justify-center gap-2">
              programas@ibero.education <i class="fa-solid fa-arrow-right-long opacity-50"></i>
@@ -199,15 +282,15 @@
       </div>
 
       <!-- Tarjeta Redes Sociales -->
-      <div class="bg-white rounded-[2rem] p-8 sm:p-10 border border-zinc-200 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-8 relative overflow-hidden">
+      <div id="redes-comunidad" class="bg-white rounded-[2rem] p-8 sm:p-10 border border-zinc-200 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-8 relative overflow-hidden">
          <div class="text-center sm:text-left">
-            <h3 class="text-xl font-extrabold text-ibero-dark mb-2">Nuestras Redes Sociales</h3>
-            <p class="text-sm text-zinc-500 max-w-sm">Únete a nuestra comunidad. Compartimos contenido de valor, eventos en vivo y actualizaciones de los programas.</p>
+            <h3 class="text-xl font-extrabold text-ibero-dark mb-2">Comunidad IBERO</h3>
+            <p class="text-sm text-zinc-500 max-w-sm">Únete a nuestras redes. Compartimos masterclasses gratuitas, eventos de networking y actualizaciones tecnológicas.</p>
          </div>
          
          <div class="flex items-center gap-4 sm:gap-6">
             <!-- LinkedIn -->
-            <a href="https://www.linkedin.com/company/86619742/admin/dashboard/" target="_blank" rel="noopener" class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-zinc-50 border border-zinc-200 flex items-center justify-center text-zinc-600 hover:bg-[#0077b5] hover:text-white hover:border-[#0077b5] transition-all shadow-sm hover:shadow-lg hover:-translate-y-1">
+            <a href="https://www.linkedin.com/company/centro-iberoamericano/" target="_blank" rel="noopener" class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-zinc-50 border border-zinc-200 flex items-center justify-center text-zinc-600 hover:bg-[#0077b5] hover:text-white hover:border-[#0077b5] transition-all shadow-sm hover:shadow-lg hover:-translate-y-1">
               <i class="fa-brands fa-linkedin-in text-2xl sm:text-3xl"></i>
             </a>
             
@@ -226,22 +309,35 @@
     </div>
   </section>
 
-  <!-- FOOTER PREMIUM EXACTO (CON LOGO) -->
+  <!-- FOOTER PREMIUM EXACTO -->
   <footer class="bg-[#050505] text-zinc-400 py-12 border-t border-zinc-900">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-       <!-- Grid ampliado a 5 columnas -->
-       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-8 border-b border-zinc-900 pb-12">
+       <!-- Grid ampliado a 6 columnas para consistencia -->
+       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 mb-8 border-b border-zinc-900 pb-12">
           
-          <!-- Col 1: Brand -->
-          <div class="lg:col-span-1">
-             <div class="mb-5">
-                <img src="https://raw.githubusercontent.com/danielortegac/GOATIA/3da5106c0b4208293b67981cdf116fb11045c5ff/portafolio/apps-logos/Logo%20nuevo.png" alt="Logo IBERO" class="h-12 w-auto object-contain filter contrast-125">
+          <!-- Col 1: Brand & Socials -->
+          <div class="lg:col-span-2 lg:pr-12">
+             <div class="mb-1">
+                <img src="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/8c1109d60abc984df0e47724b61bab75d49a6b12/fotos/svg/ibero-menu-purple.svg" alt="Logo IBERO" class="w-40 sm:w-48 h-auto object-contain object-left">
              </div>
-             <p class="text-xs sm:text-sm leading-relaxed mb-4">Educación Executive impulsada por Inteligencia Artificial. Formamos a los creadores de los negocios del mañana.</p>
-             <div class="flex gap-4">
-                <a href="https://www.linkedin.com/company/86619742/admin/dashboard/" target="_blank" class="w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center hover:bg-ibero-reddark hover:text-white transition-colors"><i class="fa-brands fa-linkedin-in text-sm"></i></a>
-                <a href="https://www.instagram.com/centro.iberoamericano/" target="_blank" class="w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center hover:bg-ibero-reddark hover:text-white transition-colors"><i class="fa-brands fa-instagram text-sm"></i></a>
-                <a href="https://www.facebook.com/ibero.education" target="_blank" class="w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center hover:bg-ibero-reddark hover:text-white transition-colors"><i class="fa-brands fa-facebook-f text-sm"></i></a>
+             <p class="text-xs sm:text-sm leading-relaxed mb-5">Educación Executive impulsada por Inteligencia Artificial. Formamos a los fundadores y creadores corporativos del mañana.</p>
+             
+             <!-- Redes Sociales Correctas -->
+             <div class="flex flex-wrap gap-3 mb-4">
+                <a href="https://www.linkedin.com/company/centro-iberoamericano/" target="_blank" class="w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center hover:bg-[#0077b5] hover:text-white transition-colors border border-zinc-800"><i class="fa-brands fa-linkedin-in text-sm"></i></a>
+                <a href="https://www.instagram.com/centro.iberoamericano/" target="_blank" class="w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center hover:bg-[#E1306C] hover:text-white transition-colors border border-zinc-800"><i class="fa-brands fa-instagram text-sm"></i></a>
+                <a href="https://www.facebook.com/ibero.education" target="_blank" class="w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center hover:bg-[#1877F2] hover:text-white transition-colors border border-zinc-800"><i class="fa-brands fa-facebook-f text-sm"></i></a>
+                <a href="https://wa.me/19152854778" target="_blank" class="w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center hover:bg-[#25D366] hover:text-white transition-colors border border-zinc-800"><i class="fa-brands fa-whatsapp text-sm"></i></a>
+             </div>
+             
+             <!-- Correo Clickable -->
+             <div class="mt-4">
+               <a href="mailto:programas@ibero.education" class="inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-zinc-300 hover:text-white transition-colors group">
+                 <div class="w-8 h-8 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center group-hover:bg-ibero-purple group-hover:border-ibero-purple transition-colors">
+                   <i class="fa-solid fa-envelope text-xs"></i>
+                 </div>
+                 <span class="border-b border-transparent group-hover:border-zinc-500 pb-0.5">programas@ibero.education</span>
+               </a>
              </div>
           </div>
           
@@ -249,12 +345,12 @@
           <div>
              <h4 class="text-white font-bold mb-4 text-sm">Programas</h4>
              <ul class="space-y-2 text-xs sm:text-sm">
-                <li><a href="oferta-academica.html" class="hover:text-white transition-colors">Oferta Académica</a></li>
-                <li><a href="certificaciones.html" class="hover:text-white transition-colors">Calendario Cursos</a></li>
-                <li><a href="#" class="hover:text-white transition-colors">Certificaciones en IA</a></li>
-                <li><a href="diplomados-ejecutivos.html" class="hover:text-white transition-colors">Diplomados Ejecutivos</a></li>
-                <li><a href="executive-masters.html" class="hover:text-white transition-colors">Executive Masters</a></li>
-                <li><a href="ingles-continuo.html" class="hover:text-white transition-colors">Programas de Inglés</a></li>
+                <li><a href="https://ibero.education/oferta-academica/" target="_blank" class="hover:text-white transition-colors">Oferta Académica</a></li>
+                <li><a href="https://ibero.education/calendario-academico/" target="_blank" class="hover:text-white transition-colors">Calendario Cursos</a></li>
+                <li><a href="https://ibero.education/certificaciones-intensivas/" target="_blank" class="hover:text-white transition-colors">Cursos Intensivos</a></li>
+                <li><a href="https://ibero.education/diplomados-intensivos/" target="_blank" class="hover:text-white transition-colors">Diplomados Ejecutivos</a></li>
+                <li><a href="https://ibero.education/executive-master/" target="_blank" class="hover:text-white transition-colors">Executive Masters</a></li>
+                <li><a href="https://ibero.education/english-courses/" target="_blank" class="hover:text-white transition-colors">Programas de Inglés</a></li>
              </ul>
           </div>
 
@@ -263,10 +359,10 @@
              <h4 class="text-white font-bold mb-4 text-sm">Ecosistema</h4>
              <ul class="space-y-2 text-xs sm:text-sm">
                 <li><a href="https://qlase.goatify.app/" target="_blank" class="hover:text-white transition-colors">Campus Virtual</a></li>
-                <li><a href="#" class="hover:text-white transition-colors">IBERO Academy</a></li>
-                <li><a href="#" class="hover:text-white transition-colors">IBERO Labs</a></li>
-                <li><a href="#" class="hover:text-white transition-colors">Artes liberales</a></li>
-                <li><a href="consultoria.html" class="hover:text-white transition-colors">Consultoría en educación</a></li>
+                <li><a href="https://ibero.education/ibero-academy/" target="_blank" class="hover:text-white transition-colors">IBERO Academy</a></li>
+                <li><a href="https://ibero.education/ibero-labs/" target="_blank" class="hover:text-white transition-colors">IBERO Labs</a></li>
+                <li><a href="https://ibero.education/artes-liberales/" target="_blank" class="hover:text-white transition-colors">Artes liberales</a></li>
+                <li><a href="https://ibero.education/consultoria-en-educacion/" target="_blank" class="hover:text-white transition-colors">Consultoría B2B</a></li>
                 <li><a href="https://ia.goatify.app/#discovery" target="_blank" class="hover:text-white transition-colors">Blog</a></li>
              </ul>
           </div>
@@ -275,22 +371,21 @@
           <div>
              <h4 class="text-white font-bold mb-4 text-sm">Nosotros</h4>
              <ul class="space-y-2 text-xs sm:text-sm">
-                <li><a href="index.html" class="hover:text-white transition-colors">Inicio</a></li>
-                <li><a href="metodologia.html" class="hover:text-white transition-colors">Metodología 360°</a></li>
-                <li><a href="#" class="hover:text-white transition-colors">Alianzas</a></li>
-                <li><a href="#" class="hover:text-white transition-colors">Docentes</a></li>
-                <li><a href="#" class="hover:text-white transition-colors">Trabaja con nosotros</a></li>
-                <li><a href="contactos.html" class="hover:text-white transition-colors">Contactos</a></li>
+                <li><a href="https://ibero.education/" target="_blank" class="hover:text-white transition-colors">Inicio Institucional</a></li>
+                <li><a href="https://ibero.education/metodologia/" target="_blank" class="hover:text-white transition-colors">Metodología 360°</a></li>
+                <li><a href="https://ibero.education/#colaboraciones" target="_blank" class="hover:text-white transition-colors">Alianzas y Avales</a></li>
+                <li><a href="https://ibero.education/trabaja-con-nosotros/" target="_blank" class="hover:text-white transition-colors">Nuestro Claustro</a></li>
+                <li><a href="https://ibero.education/trabaja-con-nosotros/" target="_blank" class="hover:text-white transition-colors">Trabaja con nosotros</a></li>
+                <li><a href="#" class="text-white font-bold">Contactos y Soporte</a></li>
              </ul>
           </div>
 
           <!-- Col 5: Legal & Soporte -->
           <div>
-             <h4 class="text-white font-bold mb-4 text-sm">Legal & Soporte</h4>
+             <h4 class="text-white font-bold mb-4 text-sm">Legal & Admisiones</h4>
              <ul class="space-y-2 text-xs sm:text-sm">
-                <li><a href="proceso-inscripcion.html" class="hover:text-white transition-colors">Registro y admisiones</a></li>
-                <li><a href="ayuda-financiera.html" class="hover:text-white transition-colors">Ayuda Financiera</a></li>
-                <li><a href="#" class="hover:text-white transition-colors">Soporte al Estudiante</a></li>
+                <li><a href="https://ibero.education/registro-y-admisiones/" target="_blank" class="hover:text-white transition-colors">Registro y admisiones</a></li>
+                <li><a href="https://ibero.education/ayuda-financiera/" target="_blank" class="hover:text-white transition-colors">Ayuda Financiera</a></li>
                 <li><a href="#" class="hover:text-white transition-colors">Verificar Certificado QR</a></li>
                 <li><a href="#" class="hover:text-white transition-colors">Términos y Condiciones</a></li>
                 <li><a href="#" class="hover:text-white transition-colors">Políticas de Privacidad</a></li>
@@ -299,9 +394,11 @@
 
        </div>
 
-       <div class="flex flex-col md:flex-row justify-between items-center text-[10px] sm:text-xs">
-          <p>&copy; 2026 Centro Iberoamericano (IBERO). Todos los derechos reservados.</p>
-          <p class="mt-2 md:mt-0 flex items-center gap-1">Diseñado para la <span class="text-white font-bold border-b border-ibero-reddark">Élite Digital</span></p>
+       <div class="flex flex-col md:flex-row justify-between items-center text-[10px] sm:text-xs pt-6 pb-24 md:pb-4 md:px-16 border-t border-zinc-900/50">
+          <p class="text-zinc-500 mb-4 md:mb-0 text-center">&copy; 2026 Centro Iberoamericano (IBERO). Todos los derechos reservados.</p>
+          <div class="flex flex-col items-center md:items-end gap-1.5 text-center md:text-right">
+             <p class="text-zinc-500">Sitio desarrollado y diseñado por <a href="https://www.goatify.app" target="_blank" class="text-ibero-purple hover:text-white font-bold transition-colors">GOATIFY</a></p>
+          </div>
        </div>
     </div>
   </footer>
@@ -318,9 +415,9 @@
         mobileMenuBtn.addEventListener('click', () => {
           mobileMenu.classList.toggle('hidden');
           if(mobileMenuBtn.innerHTML.includes('bars')){
-             mobileMenuBtn.innerHTML = '<i class="fa-solid fa-xmark text-2xl"></i>';
+             mobileMenuBtn.innerHTML = '<i class="fa-solid fa-xmark text-xl"></i>';
           } else {
-             mobileMenuBtn.innerHTML = '<i class="fa-solid fa-bars text-2xl"></i>';
+             mobileMenuBtn.innerHTML = '<i class="fa-solid fa-bars text-xl"></i>';
           }
         });
     }
@@ -328,11 +425,13 @@
     mobileLinks.forEach(link => {
        link.addEventListener('click', () => {
           if (mobileMenu) mobileMenu.classList.add('hidden');
-          if (mobileMenuBtn) mobileMenuBtn.innerHTML = '<i class="fa-solid fa-bars text-2xl"></i>';
+          if (mobileMenuBtn) mobileMenuBtn.innerHTML = '<i class="fa-solid fa-bars text-xl"></i>';
        });
     });
 
-    // Scroll Navbar effect
+    // Scroll Navbar effect y Botón de Volver Arriba
+    const scrollTopBtn = document.getElementById('scroll-top-btn');
+
     window.addEventListener('scroll', () => {
        if (navbar) {
            if (window.scrollY > 20) {
@@ -343,15 +442,23 @@
               navbar.classList.add('shadow-sm');
            }
        }
+       
+       if (scrollTopBtn) {
+           if (window.scrollY > 300) {
+               scrollTopBtn.classList.add('visible');
+           } else {
+               scrollTopBtn.classList.remove('visible');
+           }
+       }
     });
 
-    // Animaciones Reveal
+    // Animaciones Reveal al hacer scroll
     function reveal() {
       var reveals = document.querySelectorAll(".reveal");
       for (var i = 0; i < reveals.length; i++) {
         var windowHeight = window.innerHeight;
         var elementTop = reveals[i].getBoundingClientRect().top;
-        var elementVisible = 50;
+        var elementVisible = 50; 
         
         if(reveals[i].classList.contains('active') && window.scrollY < 100) continue;
 
