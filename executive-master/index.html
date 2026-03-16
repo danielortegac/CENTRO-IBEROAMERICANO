@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Executive Master en IA Aplicada | IBERO Educación de Élite</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { ibero: { red: '#D91212', reddark: '#880d0d', purple: '#6B21A8', dark: '#09090B', gray: '#FAFAFA' } },
+          fontFamily: { sans: ['Inter', 'sans-serif'], serif: ['Playfair Display', 'serif'] }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Ajustes Base */
+    html { zoom: 0.9; scroll-padding-top: 170px; }
+    body { background-color: #050505; } /* Fondo base oscuro para esta página */
+    .hide-scrollbar::-webkit-scrollbar { display: none; }
+    .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    
+    /* Nav Glassmorphism */
+    .nav-glass { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+    
+    /* Tarjetas Minimalistas Premium */
+    .glass-card { background: #ffffff; border: 1px solid #f4f4f5; border-top: 2px solid transparent; box-shadow: 0 4px 24px -8px rgba(0,0,0,0.03); transition: all 0.4s ease; }
+    .glass-card:hover { box-shadow: 0 16px 32px -8px rgba(217, 18, 18, 0.05); border-color: #e4e4e7; transform: translateY(-4px); }
+    
+    /* Reveal Animation */
+    .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+    
+    /* Títulos con brillo */
+    .hero-shine-dark {
+        background: linear-gradient(110deg, #09090B 35%, #52525b 48%, #09090B 65%); background-size: 250% auto;
+        -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: textShine 6s linear infinite;
+        padding-bottom: 0.2em; margin-bottom: -0.2em;
+    }
+    .hero-shine-light {
+        background: linear-gradient(110deg, #ffffff 35%, #a1a1aa 48%, #ffffff 65%); background-size: 250% auto;
+        -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: textShine 6s linear infinite;
+        padding-bottom: 0.2em; margin-bottom: -0.2em;
+    }
+    @keyframes textShine { 0% { background-position: 250% center; } 100% { background-position: -250% center; } }
+  </style>
+</head>
+<body class="text-white font-sans antialiased overflow-x-hidden selection:bg-ibero-purple selection:text-white pt-[168px] md:pt-[170px]">
+
+  <!-- NAVEGACIÓN EXACTA AL INDEX -->
+  <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 shadow-sm flex flex-col">
+    <!-- Fila 1: Logo y Navegación Principal -->
+    <div class="w-full nav-glass border-b border-zinc-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+          <a href="index.html" class="flex-shrink-0 flex items-center cursor-pointer py-2">
+            <img src="https://raw.githubusercontent.com/danielortegac/GOATIA/3da5106c0b4208293b67981cdf116fb11045c5ff/portafolio/apps-logos/Logo%20nuevo.png" alt="Logo IBERO" class="h-14 md:h-16 w-auto object-contain filter contrast-125">
+          </a>
+          
+          <div class="hidden md:flex space-x-10 items-center">
+            <a href="certificaciones.html" class="text-[13px] font-bold text-zinc-600 hover:text-ibero-dark transition-colors">Certificaciones 2026</a>
+            <a href="#" class="text-[13px] font-bold text-zinc-600 hover:text-ibero-dark transition-colors">Metodología</a>
+            <a href="oferta-academica.html" class="text-[13px] font-bold text-zinc-600 hover:text-ibero-dark transition-colors">Oferta Académica</a>
+            <a href="#" class="text-[13px] font-bold text-zinc-600 hover:text-ibero-dark transition-colors">Colaboraciones</a>
+            <a href="#" class="text-[13px] font-bold text-zinc-600 hover:text-ibero-dark transition-colors">Consultoría</a>
+            
+            <a href="#precios" class="bg-black text-white px-6 py-2.5 md:py-3 rounded-xl text-[13px] font-bold hover:bg-zinc-800 border border-zinc-700 shadow-lg hover:shadow-xl transition-all flex items-center gap-2 group">
+              <span>Matrículas Abiertas</span>
+              <span class="relative flex h-2 w-2">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+              </span>
+            </a>
+          </div>
+
+          <div class="md:hidden flex items-center">
+            <button id="mobile-menu-btn" class="text-zinc-600 hover:text-ibero-dark focus:outline-none p-2 transition-colors">
+              <i class="fa-solid fa-bars text-2xl"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fila 2: Enlaces Institucionales (Franja negra) -->
+    <div class="flex w-full bg-[#050505] text-white border-b border-zinc-900">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex justify-start md:justify-end items-center h-10 text-[10px] md:text-[11px] font-semibold tracking-wider uppercase overflow-x-auto hide-scrollbar">
+        <div class="flex items-center gap-5 md:gap-7 min-w-max pr-4 md:pr-0">
+          <a href="index.html" class="text-white hover:text-zinc-300 transition-colors">Inicio</a>
+          <a href="https://qlase.goatify.app/" target="_blank" class="text-white hover:text-zinc-300 transition-colors">Campus Virtual</a>
+          <a href="#" class="text-white hover:text-zinc-300 transition-colors">Docentes</a>
+          <a href="#" class="text-white hover:text-zinc-300 transition-colors">Trabaja con nosotros</a>
+          <a href="#" class="text-white hover:text-zinc-300 transition-colors">Ayuda Financiera</a>
+          <a href="https://ia.goatify.app/#discovery" target="_blank" class="text-white hover:text-zinc-300 transition-colors">Blog</a>
+          <a href="#" class="text-white hover:text-zinc-300 transition-colors">Contactos</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fila 3: Ecosistema y Programas Académicos (Franja gris) -->
+    <div class="flex w-full bg-zinc-50/90 border-b border-zinc-200 backdrop-blur-md">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex justify-start md:justify-center items-center h-12 text-[11px] md:text-[12px] font-medium text-zinc-600 overflow-x-auto hide-scrollbar">
+        <div class="flex items-center gap-6 lg:gap-12 min-w-max pr-4 md:pr-0">
+          <a href="oferta-academica.html" class="hover:text-ibero-dark hover:font-bold transition-all">Oferta Académica</a>
+          <a href="certificaciones.html" class="hover:text-ibero-dark hover:font-bold transition-all">Certificaciones</a>
+          <a href="diplomados-ejecutivos.html" class="hover:text-ibero-dark hover:font-bold transition-all">Diplomados</a>
+          <a href="#" class="hover:text-ibero-dark hover:font-bold transition-all text-ibero-dark font-bold border-b-2 border-ibero-dark pb-0.5">Executive Masters</a>
+          <a href="#" class="hover:text-ibero-dark hover:font-bold transition-all">IBERO Labs</a>
+          <a href="#" class="hover:text-ibero-dark hover:font-bold transition-all">Artes liberales</a>
+          <a href="#" class="hover:text-ibero-dark hover:font-bold transition-all">Registro y admisiones</a>
+          <a href="ingles-continuo.html" class="hover:text-ibero-dark hover:font-bold transition-all">Inglés Continuo</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu Panel -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-zinc-100 absolute w-full shadow-lg max-h-[calc(100vh-168px)] overflow-y-auto top-[168px]">
+      <div class="px-4 pt-2 pb-6 space-y-1 flex flex-col">
+        <a href="oferta-academica.html" class="mobile-link block px-3 py-3 text-base font-medium text-zinc-800 border-b border-zinc-50 hover:text-ibero-reddark">Oferta Académica</a>
+        <a href="certificaciones.html" class="mobile-link block px-3 py-3 text-base font-medium text-zinc-800 border-b border-zinc-50 hover:text-ibero-reddark">Certificaciones 2026</a>
+        <a href="diplomados-ejecutivos.html" class="mobile-link block px-3 py-3 text-base font-medium text-zinc-800 border-b border-zinc-50 hover:text-ibero-reddark">Diplomados Ejecutivos</a>
+        <a href="#" class="mobile-link block px-3 py-3 text-base font-medium text-zinc-800 border-b border-zinc-50 hover:text-ibero-reddark">Executive Masters</a>
+        <a href="ingles-continuo.html" class="mobile-link block px-3 py-3 text-base font-medium text-zinc-800 border-b border-zinc-50 hover:text-ibero-reddark">Inglés Continuo</a>
+
+        <div class="mt-4 mb-2 px-3 border-t border-zinc-100 pt-4">
+          <span class="text-[10px] font-bold tracking-widest text-ibero-reddark uppercase">Institucional & Contacto</span>
+        </div>
+        
+        <a href="index.html" class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 border-b border-zinc-50 hover:text-ibero-reddark">Inicio</a>
+        <a href="https://qlase.goatify.app/" target="_blank" class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 border-b border-zinc-50 hover:text-ibero-reddark">Campus Virtual</a>
+        <a href="#" class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 border-b border-zinc-50 hover:text-ibero-reddark">Ayuda Financiera</a>
+        <a href="https://ia.goatify.app/#discovery" target="_blank" class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 hover:text-ibero-reddark">Blog</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HEADER PREMIUM CON VIDEO DE FONDO -->
+  <section class="relative pt-24 pb-32 overflow-hidden bg-[#050505] min-h-[85vh] flex items-center justify-center border-b border-zinc-900">
+    
+    <!-- Background Video con filtro oscuro para High Ticket -->
+    <div class="absolute inset-0 z-0">
+      <video autoplay loop muted playsinline preload="auto" class="absolute inset-0 w-full h-full object-cover pointer-events-none opacity-40 grayscale">
+          <source src="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/284767d23c4cd5793b419e4625bb7707aa42b4f4/fotos/AI_Business_Education_Hero_Video.mp4" type="video/mp4">
+      </video>
+      <div class="absolute inset-0 bg-gradient-to-b from-[#050505]/90 via-[#050505]/60 to-[#050505]"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(107,33,168,0.25)_0%,transparent_60%)]"></div>
+    </div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 reveal">
+      <div class="inline-block px-5 py-2 rounded-full border border-zinc-700 bg-zinc-900/80 shadow-2xl text-[10px] sm:text-xs font-bold tracking-widest uppercase mb-8 backdrop-blur-md text-white">
+        <span class="w-2 h-2 rounded-full bg-ibero-purple inline-block mr-2 animate-pulse"></span> Academia Élite
+      </div>
+      <h1 class="text-[2.2rem] sm:text-5xl md:text-6xl lg:text-7xl font-sans font-extrabold tracking-tighter mb-6">
+        <span class="text-white">Executive Master en</span><br>
+        <span class="font-serif italic hero-shine-light block mt-2">IA Aplicada a Negocios, <br class="md:hidden">Marketing y Comunicación</span>
+      </h1>
+      <p class="text-base sm:text-xl md:text-2xl text-zinc-400 font-medium max-w-4xl mx-auto leading-relaxed mb-6">
+        Escala tus Ideas, Crea tu Propio Futuro.<br>
+        <strong class="text-white border-b border-ibero-purple/50 pb-0.5">No es solo educación, es tu Catalizador Financiero.</strong>
+      </p>
+      
+      <a href="#precios" class="mt-4 mb-10 bg-ibero-purple hover:bg-purple-700 text-white px-10 py-5 rounded-xl font-bold text-sm sm:text-lg transition-all shadow-[0_0_30px_rgba(107,33,168,0.4)] inline-flex items-center gap-3">
+        Transformar mi Carrera Hoy <i class="fa-solid fa-arrow-right"></i>
+      </a>
+
+      <!-- Stats / Calculation Row -->
+      <div class="flex flex-wrap justify-center gap-3 sm:gap-6 mt-8">
+        <div class="bg-zinc-900/60 border border-zinc-800 px-6 py-5 rounded-2xl backdrop-blur-sm shadow-xl relative overflow-hidden">
+           <div class="absolute top-0 left-0 w-full h-1 bg-ibero-purple"></div>
+           <p class="text-[10px] sm:text-xs text-zinc-400 uppercase tracking-widest font-bold mb-2">Carga Horaria Total</p>
+           <p class="text-2xl sm:text-3xl font-black text-white">234 Horas <span class="text-sm font-normal text-ibero-purple ml-1">Reales</span></p>
+           <p class="text-[10px] text-zinc-500 mt-2">130 Hrs Sincrónicas + 104 Hrs Asincrónicas</p>
+        </div>
+        <div class="bg-zinc-900/60 border border-zinc-800 px-6 py-5 rounded-2xl backdrop-blur-sm shadow-xl relative overflow-hidden">
+           <div class="absolute top-0 left-0 w-full h-1 bg-white"></div>
+           <p class="text-[10px] sm:text-xs text-zinc-400 uppercase tracking-widest font-bold mb-2">Duración</p>
+           <p class="text-2xl sm:text-3xl font-black text-white">6 Meses <span class="text-sm font-normal text-zinc-500 ml-1">De Inmersión</span></p>
+           <p class="text-[10px] text-zinc-500 mt-2">Programa 100% enfocado a resultados</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EL MANIFIESTO (UN ANTES Y UN DESPUÉS) -->
+  <section class="pt-16 lg:pt-24 bg-[#050505] relative">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
+      <i class="fa-solid fa-bolt text-4xl text-ibero-purple mb-6 drop-shadow-[0_0_15px_rgba(107,33,168,0.8)]"></i>
+      <h2 class="text-3xl sm:text-5xl font-black text-white tracking-tight mb-8">Un Antes y Un Después <br><span class="font-serif italic text-zinc-400 font-medium">en solo 6 meses.</span></h2>
+      <p class="text-lg sm:text-xl text-zinc-400 leading-relaxed font-medium">
+        La educación tradicional te hace estudiar durante años para luego salir a buscar suerte. Aquí las reglas cambian. 
+      </p>
+      <p class="text-lg sm:text-xl text-zinc-400 leading-relaxed font-medium mt-4">
+        Con la Inteligencia Artificial y la tecnología actual de automatización, <strong class="text-white">6 meses es el tiempo exacto que necesitas</strong> para concebir una idea, sistematizarla, tener una operación bien hecha en marcha y empezar a <strong class="text-ibero-purple">monetizar de forma real</strong>. Este programa te empodera a tope para que seas el dueño de tu propio ecosistema de negocios.
+      </p>
+    </div>
+  </section>
+
+  <!-- LA PROMESA DEL MÁSTER (TEXTO ADICIONAL) -->
+  <section class="py-16 lg:py-24 bg-[#050505] relative border-b border-zinc-900">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(107,33,168,0.1)_0%,transparent_50%)] pointer-events-none"></div>
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 reveal relative z-10">
+      <div class="border-l-4 border-ibero-purple pl-6 sm:pl-10">
+        <h2 class="text-2xl sm:text-4xl font-black text-white tracking-tight mb-6">La Meta <span class="font-serif italic text-zinc-400 font-medium">Definitiva</span></h2>
+        
+        <p class="text-base sm:text-xl text-zinc-400 leading-relaxed font-medium mb-6">
+          El <strong>Executive Master en IA Aplicada a Negocios, Marketing y Comunicación</strong> es un programa premium de formación intensiva. Está diseñado para que, al finalizar los 6 meses, cada participante haya logrado construir, fortalecer o escalar una <strong class="text-white">marca, servicio, proyecto o negocio real</strong>.
+        </p>
+        <p class="text-base sm:text-xl text-zinc-400 leading-relaxed font-medium mb-6">
+          Ya sea partiendo desde cero o potenciando una operación que ya existe, saldrás con una estructura mucho más sólida, una propuesta más clara, herramientas actuales de IA y una <strong>orientación total a la monetización, la ejecución y el crecimiento</strong>.
+        </p>
+        <p class="text-base sm:text-xl text-zinc-400 leading-relaxed font-medium">
+          La meta no es solo aprender, sino <strong class="text-ibero-purple border-b border-ibero-purple/30 pb-0.5">salir con algo verdaderamente en marcha</strong>, con capacidad de generar ingresos, abrir nuevas oportunidades, crear empleo, mover dinero y sentar bases reales para escalar de forma inteligente, sostenible y con mayor impacto económico.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ECOSISTEMA DE ALTO IMPACTO (VALUE STACK EN SECCIONES PRO) -->
+  <section class="py-16 lg:py-32 bg-[#050505] relative overflow-hidden border-b border-zinc-900">
+    <!-- Línea vertical central sutil de conexión -->
+    <div class="hidden lg:block absolute left-1/2 top-0 w-px h-full bg-gradient-to-b from-zinc-900 via-ibero-purple/30 to-zinc-900 transform -translate-x-1/2"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+       <div class="text-center mb-16 lg:mb-32 reveal">
+        <h2 class="text-[10px] sm:text-xs font-bold tracking-widest text-ibero-purple uppercase mb-3 flex items-center justify-center gap-2">
+          <span class="w-6 h-[1px] bg-ibero-purple/50"></span> El Poder del Máster <span class="w-6 h-[1px] bg-ibero-purple/50"></span>
+        </h2>
+        <h3 class="text-4xl sm:text-6xl font-black text-white tracking-tight">Ecosistema de <br><span class="font-serif italic text-zinc-400 font-medium">Alto Impacto</span></h3>
+      </div>
+      
+      <div class="space-y-16 lg:space-y-32">
+        
+        <!-- Pilar 1 -->
+        <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-16 reveal group">
+          <div class="w-full lg:w-1/2 relative order-1">
+             <div class="absolute -inset-4 bg-ibero-purple/10 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+             <div class="bg-zinc-900/40 border border-zinc-800 rounded-[2rem] aspect-[16/9] lg:aspect-[4/3] flex items-center justify-center relative overflow-hidden backdrop-blur-sm group-hover:border-ibero-purple/30 transition-all">
+                <span class="absolute top-2 left-4 sm:top-6 sm:left-8 text-6xl sm:text-8xl font-black text-zinc-800/30 tracking-tighter">01</span>
+                <i class="fa-solid fa-fire text-6xl sm:text-8xl text-white drop-shadow-[0_0_30px_rgba(255,255,255,0.3)] group-hover:scale-110 transition-transform duration-700"></i>
+             </div>
+          </div>
+          <div class="w-full lg:w-1/2 order-2 text-center lg:text-left">
+             <h4 class="text-2xl sm:text-4xl font-black text-white mb-4 leading-tight">Capacitación Diaria <br>Intensiva</h4>
+             <p class="text-zinc-400 text-sm sm:text-lg leading-relaxed">Olvídate de clases esporádicas. Recibirás entrenamiento táctico de alto impacto de <strong>Lunes a Viernes (1 hora diaria)</strong>. Un régimen riguroso diseñado para mantenerte en estado de flujo, absorbiendo y aplicando conocimiento inmediatamente a tu negocio.</p>
+          </div>
+        </div>
+
+        <!-- Pilar 2 -->
+        <div class="flex flex-col lg:flex-row-reverse items-center gap-8 lg:gap-16 reveal group">
+          <div class="w-full lg:w-1/2 relative order-1">
+             <div class="absolute -inset-4 bg-green-500/10 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+             <div class="bg-zinc-900/40 border border-zinc-800 rounded-[2rem] aspect-[16/9] lg:aspect-[4/3] flex items-center justify-center relative overflow-hidden backdrop-blur-sm group-hover:border-green-500/30 transition-all">
+                <span class="absolute top-2 right-4 sm:top-6 sm:right-8 text-6xl sm:text-8xl font-black text-zinc-800/30 tracking-tighter">02</span>
+                <i class="fa-solid fa-money-bill-trend-up text-6xl sm:text-8xl text-green-400 drop-shadow-[0_0_30px_rgba(74,222,128,0.4)] group-hover:scale-110 transition-transform duration-700"></i>
+             </div>
+          </div>
+          <div class="w-full lg:w-1/2 order-2 text-center lg:text-right">
+             <h4 class="text-2xl sm:text-4xl font-black text-white mb-4 leading-tight">50% de Comisión <br><span class="text-green-400">Garantizada</span></h4>
+             <p class="text-zinc-400 text-sm sm:text-lg leading-relaxed">No solo aprendes, también facturas. Como alumno de élite, tu cuenta asciende automáticamente al nivel más alto de afiliados, obteniendo un <strong>50% de comisión real</strong> por cada venta que generes de cualquier producto de nuestro ecosistema.</p>
+          </div>
+        </div>
+
+        <!-- Pilar 3 -->
+        <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-16 reveal group">
+          <div class="w-full lg:w-1/2 relative order-1">
+             <div class="absolute -inset-4 bg-blue-500/10 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+             <div class="bg-zinc-900/40 border border-zinc-800 rounded-[2rem] aspect-[16/9] lg:aspect-[4/3] flex items-center justify-center relative overflow-hidden backdrop-blur-sm group-hover:border-blue-500/30 transition-all">
+                <span class="absolute top-2 left-4 sm:top-6 sm:left-8 text-6xl sm:text-8xl font-black text-zinc-800/30 tracking-tighter">03</span>
+                <i class="fa-solid fa-rocket text-6xl sm:text-8xl text-blue-400 drop-shadow-[0_0_30px_rgba(96,165,250,0.4)] group-hover:scale-110 transition-transform duration-700"></i>
+             </div>
+          </div>
+          <div class="w-full lg:w-1/2 order-2 text-center lg:text-left">
+             <h4 class="text-2xl sm:text-4xl font-black text-white mb-4 leading-tight">Creación de Negocios <br>Exponenciales</h4>
+             <p class="text-zinc-400 text-sm sm:text-lg leading-relaxed">Te entregamos los planos, los frameworks y las estrategias maestras para concebir, estructurar y lanzar <strong>empresas basadas en Inteligencia Artificial</strong> que puedan escalar globalmente sin techos operativos.</p>
+          </div>
+        </div>
+
+        <!-- Pilar 4 -->
+        <div class="flex flex-col lg:flex-row-reverse items-center gap-8 lg:gap-16 reveal group">
+          <div class="w-full lg:w-1/2 relative order-1">
+             <div class="absolute -inset-4 bg-orange-500/10 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+             <div class="bg-zinc-900/40 border border-zinc-800 rounded-[2rem] aspect-[16/9] lg:aspect-[4/3] flex items-center justify-center relative overflow-hidden backdrop-blur-sm group-hover:border-orange-500/30 transition-all">
+                <span class="absolute top-2 right-4 sm:top-6 sm:right-8 text-6xl sm:text-8xl font-black text-zinc-800/30 tracking-tighter">04</span>
+                <i class="fa-solid fa-user-astronaut text-6xl sm:text-8xl text-orange-400 drop-shadow-[0_0_30px_rgba(251,146,60,0.4)] group-hover:scale-110 transition-transform duration-700"></i>
+             </div>
+          </div>
+          <div class="w-full lg:w-1/2 order-2 text-center lg:text-right">
+             <h4 class="text-2xl sm:text-4xl font-black text-white mb-4 leading-tight">Mentoría Técnica y <br>Estratégica 1 a 1</h4>
+             <p class="text-zinc-400 text-sm sm:text-lg leading-relaxed">No eres un número más. Tendrás acceso mensual a sesiones privadas de mentoría donde analizaremos en profundidad el código, las estrategias de marketing y el avance de <strong>tu proyecto específico</strong>.</p>
+          </div>
+        </div>
+
+        <!-- Pilar 5 -->
+        <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-16 reveal group">
+          <div class="w-full lg:w-1/2 relative order-1">
+             <div class="absolute -inset-4 bg-purple-500/10 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+             <div class="bg-zinc-900/40 border border-zinc-800 rounded-[2rem] aspect-[16/9] lg:aspect-[4/3] flex items-center justify-center relative overflow-hidden backdrop-blur-sm group-hover:border-purple-500/30 transition-all">
+                <span class="absolute top-2 left-4 sm:top-6 sm:left-8 text-6xl sm:text-8xl font-black text-zinc-800/30 tracking-tighter">05</span>
+                <i class="fa-solid fa-brain text-6xl sm:text-8xl text-purple-400 drop-shadow-[0_0_30px_rgba(168,85,247,0.4)] group-hover:scale-110 transition-transform duration-700"></i>
+             </div>
+          </div>
+          <div class="w-full lg:w-1/2 order-2 text-center lg:text-left">
+             <h4 class="text-2xl sm:text-4xl font-black text-white mb-4 leading-tight">Neuro-programación para el <br>Éxito Comercial</h4>
+             <p class="text-zinc-400 text-sm sm:text-lg leading-relaxed">Destruimos el síndrome del impostor. Trabajaremos con técnicas de programación neurolingüística para forjar una mentalidad inquebrantable, enfocada en la <strong>facturación masiva y la creación de riqueza real</strong>.</p>
+          </div>
+        </div>
+
+        <!-- Pilar 6 -->
+        <div class="flex flex-col lg:flex-row-reverse items-center gap-8 lg:gap-16 reveal group">
+          <div class="w-full lg:w-1/2 relative order-1">
+             <div class="absolute -inset-4 bg-teal-500/10 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+             <div class="bg-zinc-900/40 border border-zinc-800 rounded-[2rem] aspect-[16/9] lg:aspect-[4/3] flex items-center justify-center relative overflow-hidden backdrop-blur-sm group-hover:border-teal-500/30 transition-all">
+                <span class="absolute top-2 right-4 sm:top-6 sm:right-8 text-6xl sm:text-8xl font-black text-zinc-800/30 tracking-tighter">06</span>
+                <i class="fa-solid fa-handshake-angle text-6xl sm:text-8xl text-teal-400 drop-shadow-[0_0_30px_rgba(45,212,191,0.4)] group-hover:scale-110 transition-transform duration-700"></i>
+             </div>
+          </div>
+          <div class="w-full lg:w-1/2 order-2 text-center lg:text-right">
+             <h4 class="text-2xl sm:text-4xl font-black text-white mb-4 leading-tight">Habilidades Sociales <br>y Persuasión de Élite</h4>
+             <p class="text-zinc-400 text-sm sm:text-lg leading-relaxed">El mejor producto no se vende solo. Aprenderás a comunicarte como un líder, a manejar negociaciones críticas B2B y a utilizar la psicología humana para cerrar tratos High Ticket (Alto Valor) sin esfuerzo aparente.</p>
+          </div>
+        </div>
+
+        <!-- Pilar 7 -->
+        <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-16 reveal group">
+          <div class="w-full lg:w-1/2 relative order-1">
+             <div class="absolute -inset-4 bg-red-500/10 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+             <div class="bg-zinc-900/40 border border-zinc-800 rounded-[2rem] aspect-[16/9] lg:aspect-[4/3] flex items-center justify-center relative overflow-hidden backdrop-blur-sm group-hover:border-red-500/30 transition-all">
+                <span class="absolute top-2 left-4 sm:top-6 sm:left-8 text-6xl sm:text-8xl font-black text-zinc-800/30 tracking-tighter">07</span>
+                <i class="fa-solid fa-microchip text-6xl sm:text-8xl text-red-500 drop-shadow-[0_0_30px_rgba(239,68,68,0.4)] group-hover:scale-110 transition-transform duration-700"></i>
+             </div>
+          </div>
+          <div class="w-full lg:w-1/2 order-2 text-center lg:text-left">
+             <h4 class="text-2xl sm:text-4xl font-black text-white mb-4 leading-tight">Acceso Preferente a <br>Lanzamientos Alfa</h4>
+             <p class="text-zinc-400 text-sm sm:text-lg leading-relaxed">Ve un paso adelante del mercado. Tendrás acceso anticipado (Alfa/Beta) a las nuevas herramientas, plataformas y modelos de Inteligencia Artificial antes de que sean revelados al público general.</p>
+          </div>
+        </div>
+
+        <!-- Pilar 8 -->
+        <div class="flex flex-col lg:flex-row-reverse items-center gap-8 lg:gap-16 reveal group">
+          <div class="w-full lg:w-1/2 relative order-1">
+             <div class="absolute -inset-4 bg-yellow-500/10 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+             <div class="bg-zinc-900/40 border border-zinc-800 rounded-[2rem] aspect-[16/9] lg:aspect-[4/3] flex items-center justify-center relative overflow-hidden backdrop-blur-sm group-hover:border-yellow-500/30 transition-all">
+                <span class="absolute top-2 right-4 sm:top-6 sm:right-8 text-6xl sm:text-8xl font-black text-zinc-800/30 tracking-tighter">08</span>
+                <i class="fa-solid fa-medal text-6xl sm:text-8xl text-yellow-400 drop-shadow-[0_0_30px_rgba(250,204,21,0.4)] group-hover:scale-110 transition-transform duration-700"></i>
+             </div>
+          </div>
+          <div class="w-full lg:w-1/2 order-2 text-center lg:text-right">
+             <h4 class="text-2xl sm:text-4xl font-black text-white mb-4 leading-tight">Certificación Oficial como <br>Consultor Estratégico</h4>
+             <p class="text-zinc-400 text-sm sm:text-lg leading-relaxed">No te llevas un simple diploma. Te avalamos oficialmente como Consultor Estratégico de Goatify IA, otorgándole un peso y una autoridad masiva a tu perfil profesional frente a corporaciones y clientes.</p>
+          </div>
+        </div>
+
+        <!-- Pilar 9 -->
+        <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-16 reveal group">
+          <div class="w-full lg:w-1/2 relative order-1">
+             <div class="absolute -inset-4 bg-emerald-500/10 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+             <div class="bg-zinc-900/40 border border-zinc-800 rounded-[2rem] aspect-[16/9] lg:aspect-[4/3] flex items-center justify-center relative overflow-hidden backdrop-blur-sm group-hover:border-emerald-500/30 transition-all">
+                <span class="absolute top-2 left-4 sm:top-6 sm:left-8 text-6xl sm:text-8xl font-black text-zinc-800/30 tracking-tighter">09</span>
+                <i class="fa-solid fa-bolt text-6xl sm:text-8xl text-emerald-400 drop-shadow-[0_0_30px_rgba(52,211,153,0.4)] group-hover:scale-110 transition-transform duration-700"></i>
+             </div>
+          </div>
+          <div class="w-full lg:w-1/2 order-2 text-center lg:text-left">
+             <h4 class="text-2xl sm:text-4xl font-black text-white mb-4 leading-tight">Plan Estructurado de <br><span class="text-emerald-400">Retorno Veloz (ROI)</span></h4>
+             <p class="text-zinc-400 text-sm sm:text-lg leading-relaxed">Este programa se paga a sí mismo. Desde el mes 1 trabajamos bajo un plan milimétricamente calculado para que recuperes tu inversión mediante ventas, consultoría o la tracción de tu nueva empresa en tiempo récord.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FICHA TÉCNICA DEL PROGRAMA -->
+  <section class="py-16 lg:py-24 bg-[#050505] relative border-b border-zinc-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+      <div class="text-center mb-12 sm:mb-16">
+        <h2 class="text-[10px] sm:text-xs font-bold tracking-widest text-ibero-purple uppercase mb-3 flex items-center justify-center gap-2">
+          <span class="w-6 h-[1px] bg-ibero-purple/50"></span> Detalles Operativos <span class="w-6 h-[1px] bg-ibero-purple/50"></span>
+        </h2>
+        <h3 class="text-3xl sm:text-5xl font-black text-white tracking-tight">Ficha <span class="font-serif italic text-zinc-400 font-medium">Técnica</span></h3>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        <!-- Cards Ficha Técnica -->
+        <div class="bg-zinc-900/60 border border-zinc-800 p-6 rounded-2xl flex items-start gap-4 hover:border-ibero-purple/50 transition-colors shadow-lg">
+           <i class="fa-solid fa-graduation-cap text-2xl text-ibero-purple mt-1"></i>
+           <div>
+             <h4 class="text-[10px] sm:text-xs font-bold text-zinc-500 uppercase tracking-widest mb-1">Tipo de Programa</h4>
+             <p class="text-lg font-black text-white">Executive Master</p>
+           </div>
+        </div>
+        
+        <div class="bg-zinc-900/60 border border-zinc-800 p-6 rounded-2xl flex items-start gap-4 hover:border-ibero-purple/50 transition-colors shadow-lg">
+           <i class="fa-solid fa-laptop text-2xl text-ibero-purple mt-1"></i>
+           <div>
+             <h4 class="text-[10px] sm:text-xs font-bold text-zinc-500 uppercase tracking-widest mb-1">Modalidad</h4>
+             <p class="text-lg font-black text-white">100% Online</p>
+           </div>
+        </div>
+        
+        <div class="bg-zinc-900/60 border border-zinc-800 p-6 rounded-2xl flex items-start gap-4 hover:border-ibero-purple/50 transition-colors shadow-lg">
+           <i class="fa-regular fa-calendar text-2xl text-ibero-purple mt-1"></i>
+           <div>
+             <h4 class="text-[10px] sm:text-xs font-bold text-zinc-500 uppercase tracking-widest mb-1">Duración & Frecuencia</h4>
+             <p class="text-lg font-black text-white leading-tight">6 Meses <br><span class="text-sm font-normal text-zinc-400">Lunes a Viernes</span></p>
+           </div>
+        </div>
+        
+        <div class="bg-zinc-900/60 border border-zinc-800 p-6 rounded-2xl flex items-start gap-4 hover:border-ibero-purple/50 transition-colors shadow-lg">
+           <i class="fa-solid fa-hourglass-half text-2xl text-ibero-purple mt-1"></i>
+           <div>
+             <h4 class="text-[10px] sm:text-xs font-bold text-zinc-500 uppercase tracking-widest mb-1">Carga Horaria Total</h4>
+             <p class="text-lg font-black text-white leading-tight">234 Horas <br><span class="text-sm font-normal text-zinc-400">130 Sincrónicas / 104 Asincrónicas</span></p>
+           </div>
+        </div>
+        
+        <div class="bg-zinc-900/60 border border-zinc-800 p-6 rounded-2xl flex items-start gap-4 hover:border-ibero-purple/50 transition-colors shadow-lg">
+           <i class="fa-regular fa-clock text-2xl text-ibero-purple mt-1"></i>
+           <div>
+             <h4 class="text-[10px] sm:text-xs font-bold text-zinc-500 uppercase tracking-widest mb-1">Horarios de Clase</h4>
+             <p class="text-base font-black text-white leading-relaxed">
+               🇪🇨 🇨🇴 🇵🇪 9:00 PM a 10:00 PM <br>
+               🇲🇽 8:00 PM a 9:00 PM
+             </p>
+           </div>
+        </div>
+        
+        <div class="bg-zinc-900/60 border border-zinc-800 p-6 rounded-2xl flex items-start gap-4 hover:border-ibero-purple/50 transition-colors shadow-lg">
+           <i class="fa-solid fa-check-double text-2xl text-ibero-purple mt-1"></i>
+           <div>
+             <h4 class="text-[10px] sm:text-xs font-bold text-zinc-500 uppercase tracking-widest mb-1">Criterio de Aprobación</h4>
+             <p class="text-base font-black text-white leading-tight">Mínimo 70% <br><span class="text-sm font-normal text-zinc-400">Asistencia, participación y tareas.</span></p>
+           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLANES Y PRECIOS -->
+  <section id="precios" class="py-20 lg:py-32 bg-[#050505] relative border-t border-zinc-900">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-ibero-purple/10 via-[#050505] to-[#050505]"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center mb-10 reveal">
+        <h2 class="text-4xl sm:text-5xl font-black text-white tracking-tight mb-4">Invierte en tu <span class="font-serif italic text-zinc-400 font-medium">Futuro</span></h2>
+        <p class="text-zinc-400 text-sm sm:text-base max-w-2xl mx-auto">Selecciona el plan que garantice tu crecimiento. El plan Semestral VIP incluye acceso ininterrumpido y todos los avales de certificación oficial.</p>
+      </div>
+
+      <!-- Selector de Moneda (Convertidor) -->
+      <div class="flex flex-col items-center mb-16 reveal">
+        <div class="bg-zinc-900/80 border border-zinc-800 p-1.5 rounded-full inline-flex gap-1 backdrop-blur-md shadow-xl overflow-x-auto max-w-full hide-scrollbar">
+          <button class="currency-btn bg-ibero-purple text-white px-4 sm:px-6 py-2.5 rounded-full text-[11px] sm:text-xs font-bold transition-all whitespace-nowrap" data-currency="USD" data-rate="1" data-symbol="$">🇪🇨 USD (Ecuador)</button>
+          <button class="currency-btn text-zinc-400 hover:text-white px-4 sm:px-6 py-2.5 rounded-full text-[11px] sm:text-xs font-bold transition-all whitespace-nowrap" data-currency="MXN" data-rate="17.00" data-symbol="$">🇲🇽 MXN (México)</button>
+          <button class="currency-btn text-zinc-400 hover:text-white px-4 sm:px-6 py-2.5 rounded-full text-[11px] sm:text-xs font-bold transition-all whitespace-nowrap" data-currency="COP" data-rate="3900" data-symbol="$">🇨🇴 COP (Colombia)</button>
+          <button class="currency-btn text-zinc-400 hover:text-white px-4 sm:px-6 py-2.5 rounded-full text-[11px] sm:text-xs font-bold transition-all whitespace-nowrap" data-currency="PEN" data-rate="3.75" data-symbol="S/ ">🇵🇪 PEN (Perú)</button>
+        </div>
+        <p class="text-[10px] text-zinc-600 mt-3">* Valores referenciales aproximados. El cobro final siempre se procesa en Dólares (USD).</p>
+      </div>
+
+      <div class="flex flex-col md:flex-row justify-center items-center md:items-stretch gap-6 md:gap-8 max-w-5xl mx-auto reveal">
+        
+        <!-- Plan Mensual -->
+        <div class="w-full md:w-1/2 bg-zinc-900/60 border border-zinc-800 rounded-[2rem] p-8 sm:p-10 flex flex-col justify-between hover:border-zinc-600 transition-all backdrop-blur-md">
+          <div>
+            <div class="inline-block px-4 py-1.5 bg-zinc-800 text-zinc-300 text-[10px] font-bold uppercase tracking-widest rounded-full mb-6">Acceso Premium</div>
+            <h3 class="text-2xl sm:text-3xl font-black text-white mb-2">Mensual</h3>
+            <p class="text-zinc-400 text-sm mb-8">Ideal para validar la metodología y comenzar tu entrenamiento de inmediato.</p>
+            <div class="flex items-end gap-1 mb-8 pb-8 border-b border-zinc-800">
+              <span class="text-5xl sm:text-6xl font-black text-white tracking-tighter price-display" data-base="77">$77.00</span>
+              <span class="text-zinc-500 text-sm mb-2 font-bold">/mes</span>
+            </div>
+            
+            <ul class="space-y-5 mb-8">
+              <li class="flex items-start gap-4 text-sm text-zinc-300"><i class="fa-solid fa-check text-green-500 mt-1 text-lg"></i> <span class="leading-tight">Capacitación Diaria (1h/día) en Vivo</span></li>
+              <li class="flex items-start gap-4 text-sm text-zinc-300"><i class="fa-solid fa-check text-green-500 mt-1 text-lg"></i> <span class="leading-tight">Acceso a la currícula de Negocios e IA</span></li>
+              <li class="flex items-start gap-4 text-sm text-zinc-300"><i class="fa-solid fa-check text-green-500 mt-1 text-lg"></i> <span class="leading-tight">50% de Comisión en Ecosistema IBERO</span></li>
+            </ul>
+          </div>
+          <a href="#" class="w-full text-center bg-transparent border-2 border-zinc-700 text-white hover:bg-zinc-800 font-bold py-4 sm:py-5 rounded-xl transition-all">Suscribirse al Premium</a>
+        </div>
+
+        <!-- Plan Semestral (VIP) -->
+        <div class="w-full md:w-1/2 bg-gradient-to-b from-ibero-purple/20 to-zinc-900 border-2 border-ibero-purple/50 rounded-[2rem] p-8 sm:p-10 flex flex-col justify-between shadow-[0_20px_50px_rgba(107,33,168,0.2)] relative overflow-hidden transform md:-translate-y-6">
+          <div class="absolute top-0 right-0 w-64 h-64 bg-ibero-purple/20 blur-[80px] rounded-full pointer-events-none"></div>
+          <div class="relative z-10">
+            <div class="inline-block px-4 py-1.5 bg-ibero-purple text-white text-[10px] font-bold uppercase tracking-widest rounded-full mb-6 shadow-[0_0_15px_rgba(107,33,168,0.6)]">VIP • Full Access</div>
+            <h3 class="text-2xl sm:text-3xl font-black text-white mb-2">Semestral</h3>
+            <p class="text-zinc-300 text-sm mb-8">Compromiso total con tu éxito comercial. Ahorro significativo y máxima prioridad.</p>
+            <div class="flex items-end gap-1 mb-8 pb-8 border-b border-ibero-purple/30">
+              <span class="text-5xl sm:text-6xl font-black text-white tracking-tighter price-display" data-base="367">$367.00</span>
+              <span class="text-ibero-purple text-sm mb-2 font-bold">/6 meses</span>
+            </div>
+            
+            <ul class="space-y-5 mb-8">
+              <li class="flex items-start gap-4 text-sm text-white"><i class="fa-solid fa-bolt text-yellow-400 mt-1 text-lg"></i> <strong class="leading-tight">Ahorro Directo de <span class="price-display-inline text-yellow-400" data-base="95">$95.00 USD</span></strong></li>
+              <li class="flex items-start gap-4 text-sm text-zinc-300"><i class="fa-solid fa-star text-ibero-purple mt-1 text-lg"></i> <span class="leading-tight">Todo lo incluido en el plan Premium</span></li>
+              <li class="flex items-start gap-4 text-sm text-zinc-300"><i class="fa-solid fa-star text-ibero-purple mt-1 text-lg"></i> <span class="leading-tight">Mentoría Estratégica 1 a 1 Mensual</span></li>
+              <li class="flex items-start gap-4 text-sm text-zinc-300"><i class="fa-solid fa-star text-ibero-purple mt-1 text-lg"></i> <span class="leading-tight">Acceso Alfa a Lanzamientos Tech</span></li>
+              <li class="flex items-start gap-4 text-sm text-zinc-300"><i class="fa-solid fa-star text-ibero-purple mt-1 text-lg"></i> <span class="leading-tight">Certificación Oficial Consultor Goatify</span></li>
+            </ul>
+          </div>
+          <a href="#" class="relative z-10 w-full text-center bg-ibero-purple hover:bg-purple-600 text-white font-bold py-4 sm:py-5 rounded-xl transition-all shadow-[0_0_25px_rgba(107,33,168,0.5)]">Inscribirse Ahora (Recomendado)</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER PREMIUM EXACTO (CON LOGO) -->
+  <footer class="bg-[#050505] text-zinc-400 py-12 border-t border-zinc-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+       <!-- Grid ampliado a 5 columnas -->
+       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-8 border-b border-zinc-900 pb-12">
+          
+          <!-- Col 1: Brand -->
+          <div class="lg:col-span-1">
+             <div class="mb-5">
+                <img src="https://raw.githubusercontent.com/danielortegac/GOATIA/3da5106c0b4208293b67981cdf116fb11045c5ff/portafolio/apps-logos/Logo%20nuevo.png" alt="Logo IBERO" class="h-12 w-auto object-contain filter contrast-125">
+             </div>
+             <p class="text-xs sm:text-sm leading-relaxed mb-4">Educación Executive impulsada por Inteligencia Artificial. Formamos a los creadores de los negocios del mañana.</p>
+             <div class="flex gap-4">
+                <a href="#" class="w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center hover:bg-ibero-reddark hover:text-white transition-colors"><i class="fa-brands fa-linkedin-in text-sm"></i></a>
+                <a href="#" class="w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center hover:bg-ibero-reddark hover:text-white transition-colors"><i class="fa-brands fa-instagram text-sm"></i></a>
+                <a href="#" class="w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center hover:bg-ibero-reddark hover:text-white transition-colors"><i class="fa-brands fa-facebook-f text-sm"></i></a>
+             </div>
+          </div>
+          
+          <!-- Col 2: Programas -->
+          <div>
+             <h4 class="text-white font-bold mb-4 text-sm">Programas</h4>
+             <ul class="space-y-2 text-xs sm:text-sm">
+                <li><a href="oferta-academica.html" class="hover:text-white transition-colors">Oferta Académica</a></li>
+                <li><a href="certificaciones.html" class="hover:text-white transition-colors">Calendario Cursos</a></li>
+                <li><a href="#" class="hover:text-white transition-colors">Certificaciones en IA</a></li>
+                <li><a href="diplomados-ejecutivos.html" class="hover:text-white transition-colors">Diplomados Ejecutivos</a></li>
+                <li><a href="executive-masters.html" class="hover:text-white transition-colors">Executive Masters</a></li>
+                <li><a href="ingles-continuo.html" class="hover:text-white transition-colors">Programas de Inglés</a></li>
+             </ul>
+          </div>
+
+          <!-- Col 3: Ecosistema IBERO -->
+          <div>
+             <h4 class="text-white font-bold mb-4 text-sm">Ecosistema</h4>
+             <ul class="space-y-2 text-xs sm:text-sm">
+                <li><a href="https://qlase.goatify.app/" target="_blank" class="hover:text-white transition-colors">Campus Virtual</a></li>
+                <li><a href="#" class="hover:text-white transition-colors">IBERO Academy</a></li>
+                <li><a href="#" class="hover:text-white transition-colors">IBERO Labs</a></li>
+                <li><a href="#" class="hover:text-white transition-colors">Artes liberales</a></li>
+                <li><a href="#" class="hover:text-white transition-colors">Consultoría en educación</a></li>
+                <li><a href="https://ia.goatify.app/#discovery" target="_blank" class="hover:text-white transition-colors">Blog</a></li>
+             </ul>
+          </div>
+
+          <!-- Col 4: Nosotros -->
+          <div>
+             <h4 class="text-white font-bold mb-4 text-sm">Nosotros</h4>
+             <ul class="space-y-2 text-xs sm:text-sm">
+                <li><a href="index.html" class="hover:text-white transition-colors">Inicio</a></li>
+                <li><a href="#" class="hover:text-white transition-colors">Metodología 360°</a></li>
+                <li><a href="#" class="hover:text-white transition-colors">Alianzas</a></li>
+                <li><a href="#" class="hover:text-white transition-colors">Docentes</a></li>
+                <li><a href="#" class="hover:text-white transition-colors">Trabaja con nosotros</a></li>
+                <li><a href="#" class="hover:text-white transition-colors">Contactos</a></li>
+             </ul>
+          </div>
+
+          <!-- Col 5: Legal & Soporte -->
+          <div>
+             <h4 class="text-white font-bold mb-4 text-sm">Legal & Soporte</h4>
+             <ul class="space-y-2 text-xs sm:text-sm">
+                <li><a href="#" class="hover:text-white transition-colors">Registro y admisiones</a></li>
+                <li><a href="#" class="hover:text-white transition-colors">Ayuda Financiera</a></li>
+                <li><a href="#" class="hover:text-white transition-colors">Soporte al Estudiante</a></li>
+                <li><a href="#" class="hover:text-white transition-colors">Verificar Certificado QR</a></li>
+                <li><a href="#" class="hover:text-white transition-colors">Términos y Condiciones</a></li>
+                <li><a href="#" class="hover:text-white transition-colors">Políticas de Privacidad</a></li>
+             </ul>
+          </div>
+
+       </div>
+
+       <div class="flex flex-col md:flex-row justify-between items-center text-[10px] sm:text-xs">
+          <p>&copy; 2026 Centro Iberoamericano (IBERO). Todos los derechos reservados.</p>
+          <p class="mt-2 md:mt-0 flex items-center gap-1">Diseñado para la <span class="text-white font-bold border-b border-ibero-reddark">Élite Digital</span></p>
+       </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script>
+    // Menu Mobile Toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+    const navbar = document.getElementById('navbar');
+
+    if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+          if(mobileMenuBtn.innerHTML.includes('bars')){
+             mobileMenuBtn.innerHTML = '<i class="fa-solid fa-xmark text-2xl"></i>';
+          } else {
+             mobileMenuBtn.innerHTML = '<i class="fa-solid fa-bars text-2xl"></i>';
+          }
+        });
+    }
+
+    mobileLinks.forEach(link => {
+       link.addEventListener('click', () => {
+          if (mobileMenu) mobileMenu.classList.add('hidden');
+          if (mobileMenuBtn) mobileMenuBtn.innerHTML = '<i class="fa-solid fa-bars text-2xl"></i>';
+       });
+    });
+
+    // Scroll Navbar effect
+    window.addEventListener('scroll', () => {
+       if (navbar) {
+           if (window.scrollY > 20) {
+              navbar.classList.add('shadow-md');
+              navbar.classList.remove('shadow-sm');
+           } else {
+              navbar.classList.remove('shadow-md');
+              navbar.classList.add('shadow-sm');
+           }
+       }
+    });
+
+    // Animaciones Reveal
+    function reveal() {
+      var reveals = document.querySelectorAll(".reveal");
+      for (var i = 0; i < reveals.length; i++) {
+        var windowHeight = window.innerHeight;
+        var elementTop = reveals[i].getBoundingClientRect().top;
+        var elementVisible = 50;
+        
+        if(reveals[i].classList.contains('active') && window.scrollY < 100) continue;
+
+        if (elementTop < windowHeight - elementVisible) {
+          reveals[i].classList.add("active");
+        }
+      }
+    }
+
+    window.addEventListener("scroll", reveal);
+    window.addEventListener("resize", reveal);
+    window.addEventListener("load", reveal);
+    setTimeout(reveal, 100);
+
+    // --- LÓGICA DEL CONVERTIDOR DE MONEDAS ---
+    document.addEventListener('DOMContentLoaded', () => {
+      const currencyBtns = document.querySelectorAll('.currency-btn');
+      const priceDisplays = document.querySelectorAll('.price-display');
+      const priceDisplaysInline = document.querySelectorAll('.price-display-inline');
+
+      currencyBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          // 1. Actualizar el estilo visual de los botones (Tabs)
+          currencyBtns.forEach(b => {
+            b.classList.remove('bg-ibero-purple', 'text-white');
+            b.classList.add('text-zinc-400');
+          });
+          btn.classList.remove('text-zinc-400');
+          btn.classList.add('bg-ibero-purple', 'text-white');
+
+          // 2. Extraer datos de la moneda seleccionada
+          const rate = parseFloat(btn.dataset.rate);
+          const symbol = btn.dataset.symbol;
+          const currency = btn.dataset.currency;
+
+          // Función para formatear el número según el país
+          const formatPrice = (price, currencyCode) => {
+            if(currencyCode === 'COP') {
+              // Colombia maneja miles sin decimales
+              return price.toLocaleString('es-CO', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+            } else {
+              // El resto con 2 decimales estándar
+              return price.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+            }
+          };
+
+          // 3. Actualizar los precios principales
+          priceDisplays.forEach(display => {
+            const basePrice = parseFloat(display.dataset.base);
+            display.innerText = `${symbol}${formatPrice(basePrice * rate, currency)}`;
+          });
+
+          // 4. Actualizar precios en línea (como el Ahorro de $95)
+          priceDisplaysInline.forEach(display => {
+            const basePrice = parseFloat(display.dataset.base);
+            const currText = currency === 'USD' ? 'USD' : currency;
+            display.innerText = `${symbol}${formatPrice(basePrice * rate, currency)} ${currText}`;
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>
