@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="Opciones de financiamiento, becas y crédito directo para los programas de élite de IBERO.">
+  <title>Ayuda Financiera y Becas | IBERO Educación de Élite</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { ibero: { red: '#D91212', reddark: '#880d0d', purple: '#6B21A8', dark: '#09090B', gray: '#FAFAFA', teal: '#0f766e' } },
+          fontFamily: { sans: ['Inter', 'sans-serif'], serif: ['Playfair Display', 'serif'] }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Ajustes Base - Zoom 90% para look Premium/Elegante */
+    html { zoom: 0.9; scroll-padding-top: 170px; }
+    body { background-color: #ffffff; }
+    .hide-scrollbar::-webkit-scrollbar { display: none; }
+    .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    
+    /* Nav Glassmorphism */
+    .nav-glass { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+    
+    /* Tarjetas Minimalistas Premium */
+    .glass-card { background: #ffffff; border: 1px solid #f4f4f5; border-top: 2px solid transparent; box-shadow: 0 4px 24px -8px rgba(0,0,0,0.03); transition: all 0.4s ease; }
+    .glass-card:hover { box-shadow: 0 16px 32px -8px rgba(217, 18, 18, 0.05); border-color: #e4e4e7; transform: translateY(-4px); }
+    
+    /* Reveal Animation */
+    .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+    
+    /* Títulos con brillo */
+    .hero-shine-dark {
+        background: linear-gradient(110deg, #09090B 35%, #52525b 48%, #09090B 65%); background-size: 250% auto;
+        -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: textShine 6s linear infinite;
+        padding-bottom: 0.2em; margin-bottom: -0.2em;
+    }
+    .hero-shine-light {
+        background: linear-gradient(110deg, #ffffff 35%, #a1a1aa 48%, #ffffff 65%); background-size: 250% auto;
+        -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: textShine 6s linear infinite;
+        padding-bottom: 0.2em; margin-bottom: -0.2em;
+    }
+    @keyframes textShine { 0% { background-position: 250% center; } 100% { background-position: -250% center; } }
+  </style>
+</head>
+<body class="bg-white text-ibero-dark font-sans antialiased overflow-x-hidden selection:bg-ibero-dark selection:text-white pt-[168px] md:pt-[170px]">
+
+  <!-- NAVEGACIÓN EXACTA AL INDEX -->
+  <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 shadow-sm flex flex-col">
+    <!-- Fila 1: Logo y Navegación Principal -->
+    <div class="w-full nav-glass border-b border-zinc-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+          <a href="index.html" class="flex-shrink-0 flex items-center cursor-pointer py-2">
+            <img src="https://raw.githubusercontent.com/danielortegac/GOATIA/3da5106c0b4208293b67981cdf116fb11045c5ff/portafolio/apps-logos/Logo%20nuevo.png" alt="Logo IBERO" class="h-14 md:h-16 w-auto object-contain filter contrast-125">
+          </a>
+          
+          <div class="hidden md:flex space-x-10 items-center">
+            <a href="certificaciones.html" class="text-[13px] font-bold text-zinc-600 hover:text-ibero-dark transition-colors">Certificaciones 2026</a>
+            <a href="metodologia.html" class="text-[13px] font-bold text-zinc-600 hover:text-ibero-dark transition-colors">Metodología</a>
+            <a href="oferta-academica.html" class="text-[13px] font-bold text-zinc-600 hover:text-ibero-dark transition-colors">Oferta Académica</a>
+            <a href="#" class="text-[13px] font-bold text-zinc-600 hover:text-ibero-dark transition-colors">Colaboraciones</a>
+            <a href="#" class="text-[13px] font-bold text-zinc-600 hover:text-ibero-dark transition-colors">Consultoría</a>
+            
+            <a href="proceso-inscripcion.html" class="bg-black text-white px-6 py-2.5 md:py-3 rounded-xl text-[13px] font-bold hover:bg-zinc-800 border border-zinc-700 shadow-lg hover:shadow-xl transition-all flex items-center gap-2 group">
+              <span>Inscribirse Ahora</span>
+              <span class="relative flex h-2 w-2">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+              </span>
+            </a>
+          </div>
+
+          <div class="md:hidden flex items-center">
+            <button id="mobile-menu-btn" class="text-zinc-600 hover:text-ibero-dark focus:outline-none p-2 transition-colors">
+              <i class="fa-solid fa-bars text-2xl"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fila 2: Enlaces Institucionales -->
+    <div class="flex w-full bg-[#050505] text-white border-b border-zinc-900">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex justify-start md:justify-end items-center h-10 text-[10px] md:text-[11px] font-semibold tracking-wider uppercase overflow-x-auto hide-scrollbar">
+        <div class="flex items-center gap-5 md:gap-7 min-w-max pr-4 md:pr-0">
+          <a href="index.html" class="text-white hover:text-zinc-300 transition-colors">Inicio</a>
+          <a href="https://qlase.goatify.app/" target="_blank" class="text-white hover:text-zinc-300 transition-colors">Campus Virtual</a>
+          <a href="#" class="text-white hover:text-zinc-300 transition-colors">Docentes</a>
+          <a href="#" class="text-white hover:text-zinc-300 transition-colors">Trabaja con nosotros</a>
+          <a href="ayuda-financiera.html" class="text-white font-bold border-b border-white transition-colors pb-0.5">Ayuda Financiera</a>
+          <a href="https://ia.goatify.app/#discovery" target="_blank" class="text-white hover:text-zinc-300 transition-colors">Blog</a>
+          <a href="#" class="text-white hover:text-zinc-300 transition-colors">Contactos</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fila 3: Ecosistema y Programas Académicos -->
+    <div class="flex w-full bg-zinc-50/90 border-b border-zinc-200 backdrop-blur-md">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex justify-start md:justify-center items-center h-12 text-[11px] md:text-[12px] font-medium text-zinc-600 overflow-x-auto hide-scrollbar">
+        <div class="flex items-center gap-6 lg:gap-12 min-w-max pr-4 md:pr-0">
+          <a href="oferta-academica.html" class="hover:text-ibero-dark hover:font-bold transition-all">Oferta Académica</a>
+          <a href="certificaciones.html" class="hover:text-ibero-dark hover:font-bold transition-all">Calendario Cursos</a>
+          <a href="diplomados-ejecutivos.html" class="hover:text-ibero-dark hover:font-bold transition-all">Diplomados</a>
+          <a href="executive-masters.html" class="hover:text-ibero-dark hover:font-bold transition-all">Executive Masters</a>
+          <a href="#" class="hover:text-ibero-dark hover:font-bold transition-all">IBERO Labs</a>
+          <a href="proceso-inscripcion.html" class="hover:text-ibero-dark hover:font-bold transition-all">Registro y admisiones</a>
+          <a href="ingles-continuo.html" class="hover:text-ibero-dark hover:font-bold transition-all">Inglés Continuo</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu Panel -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-zinc-100 absolute w-full shadow-lg max-h-[calc(100vh-168px)] overflow-y-auto top-[168px]">
+      <div class="px-4 pt-2 pb-6 space-y-1 flex flex-col">
+        <a href="oferta-academica.html" class="mobile-link block px-3 py-3 text-base font-medium text-zinc-800 border-b border-zinc-50 hover:text-ibero-reddark">Oferta Académica</a>
+        <a href="certificaciones.html" class="mobile-link block px-3 py-3 text-base font-medium text-zinc-800 border-b border-zinc-50 hover:text-ibero-reddark">Certificaciones 2026</a>
+        <a href="diplomados-ejecutivos.html" class="mobile-link block px-3 py-3 text-base font-medium text-zinc-800 border-b border-zinc-50 hover:text-ibero-reddark">Diplomados Ejecutivos</a>
+        <a href="executive-masters.html" class="mobile-link block px-3 py-3 text-base font-medium text-zinc-800 border-b border-zinc-50 hover:text-ibero-reddark">Executive Masters</a>
+        <a href="metodologia.html" class="mobile-link block px-3 py-3 text-base font-medium text-zinc-800 border-b border-zinc-50 hover:text-ibero-reddark">Nuestra Metodología</a>
+
+        <div class="mt-4 mb-2 px-3 border-t border-zinc-100 pt-4">
+          <span class="text-[10px] font-bold tracking-widest text-ibero-reddark uppercase">Institucional & Contacto</span>
+        </div>
+        
+        <a href="index.html" class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 border-b border-zinc-50 hover:text-ibero-reddark">Inicio</a>
+        <a href="proceso-inscripcion.html" class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 border-b border-zinc-50 hover:text-ibero-reddark">Registro y Admisiones</a>
+        <a href="ayuda-financiera.html" class="mobile-link block px-3 py-2.5 text-sm font-medium text-ibero-dark font-bold border-b border-zinc-50 hover:text-ibero-reddark">Ayuda Financiera</a>
+        <a href="https://ia.goatify.app/#discovery" target="_blank" class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 hover:text-ibero-reddark">Blog</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION PREMIUM OSCURO -->
+  <section class="relative pt-24 pb-32 overflow-hidden bg-[#022c22] min-h-[65vh] flex items-center justify-center border-b border-teal-900/60">
+    <div class="absolute inset-0 z-0">
+      <video autoplay loop muted playsinline preload="auto" class="absolute inset-0 w-full h-full object-cover pointer-events-none opacity-40 mix-blend-luminosity grayscale">
+          <source src="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/284767d23c4cd5793b419e4625bb7707aa42b4f4/fotos/AI_Business_Education_Hero_Video.mp4" type="video/mp4">
+      </video>
+      <div class="absolute inset-0 bg-gradient-to-b from-[#022c22]/95 via-[#022c22]/70 to-[#022c22]"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(20,184,166,0.15)_0%,transparent_60%)]"></div>
+    </div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 reveal">
+      <div class="inline-block px-5 py-2 rounded-full border border-teal-800 bg-teal-950/80 shadow-2xl text-[10px] sm:text-xs font-bold tracking-widest uppercase mb-8 backdrop-blur-md text-teal-100">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 inline-block mr-2 animate-pulse"></span> Accesibilidad y Excelencia
+      </div>
+      <h1 class="text-[2.2rem] sm:text-5xl md:text-6xl lg:text-7xl font-sans font-extrabold tracking-tighter mb-6">
+        <span class="text-white">Ayuda Financiera</span><br>
+        <span class="font-serif italic hero-shine-light block mt-2">y Becas de Estudio</span>
+      </h1>
+      <p class="text-base sm:text-xl md:text-2xl text-teal-100/80 font-medium max-w-3xl mx-auto leading-relaxed">
+        El talento no tiene barreras. En IBERO <strong class="text-white border-b border-teal-600 pb-0.5">otorgamos financiamiento y crédito</strong> para garantizar que los futuros líderes accedan a nuestros programas académicos.
+      </p>
+    </div>
+  </section>
+
+  <!-- INTRO: COMPROMISO IBERO -->
+  <section class="py-16 lg:py-20 bg-white relative border-b border-zinc-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
+      <i class="fa-solid fa-scale-balanced text-4xl text-ibero-dark mb-6"></i>
+      <h2 class="text-2xl sm:text-4xl font-black text-ibero-dark tracking-tight mb-6">Nuestro <span class="font-serif italic text-zinc-500 font-medium">Compromiso</span></h2>
+      <p class="text-base sm:text-lg text-zinc-600 leading-relaxed font-medium">
+        En IBERO, lo más importante es tener el mayor alcance posible. Creemos firmemente que las personas con potencial, visión y ganas de transformar su entorno profesional deben tener acceso a la educación de élite. Por eso, contamos con un departamento dedicado exclusivamente a evaluar perfiles y ofrecer <strong class="text-ibero-dark">vías de acceso justas, flexibles y personalizadas</strong>.
+      </p>
+    </div>
+  </section>
+
+  <!-- LAS DOS VÍAS PRINCIPALES (FOTOGRAFÍAS DE FINANZAS/DINERO DE FONDO) -->
+  <section class="py-16 lg:py-24 bg-zinc-50 relative border-b border-zinc-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+      
+      <div class="text-center mb-12 lg:mb-16">
+        <h2 class="text-[10px] sm:text-xs font-bold tracking-widest text-zinc-500 uppercase mb-3 flex items-center justify-center gap-2">
+          <span class="w-6 h-[1px] bg-zinc-400"></span> Rutas de Apoyo <span class="w-6 h-[1px] bg-zinc-400"></span>
+        </h2>
+        <h3 class="text-3xl sm:text-5xl font-extrabold text-ibero-dark tracking-tight">Opciones de <span class="font-serif italic text-zinc-500 font-medium">Acceso</span></h3>
+      </div>
+
+      <div class="flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-10">
+        
+        <!-- VÍA 1: Financiamiento y Becas -->
+        <div class="lg:w-1/2 bg-[#09090b] rounded-[2rem] p-6 sm:p-10 flex flex-col shadow-2xl relative overflow-hidden group">
+           <!-- Background Photo: Monedas / Inversión -->
+           <div class="absolute inset-0 z-0 pointer-events-none rounded-[2rem] overflow-hidden bg-black">
+             <img src="https://images.unsplash.com/photo-1621504450181-5d356f61d307?auto=format&fit=crop&q=80&w=800" alt="Monedas e Inversión" class="w-full h-full object-cover opacity-30 filter grayscale transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0 group-hover:opacity-50 mix-blend-luminosity">
+             <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/80 to-transparent"></div>
+           </div>
+
+           <div class="relative z-10 flex flex-col h-full mt-20 sm:mt-32">
+               <div class="w-12 h-12 bg-ibero-purple text-white rounded-xl flex items-center justify-center mb-5 shadow-[0_4px_20px_rgba(107,33,168,0.5)]">
+                 <i class="fa-solid fa-percent text-xl"></i>
+               </div>
+               <h3 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight mb-4 leading-tight">Financiamiento <br><span class="font-serif italic text-zinc-300 font-medium">& Becas</span></h3>
+               <p class="text-[13px] sm:text-base text-zinc-300 leading-relaxed mb-8 font-medium">
+                 Otorgamos financiamiento para cualquiera de nuestros programas académicos. Tras un proceso de evaluación, puedes ser acreedor de un porcentaje de cobertura que varía <strong class="text-white border-b border-ibero-purple">desde el 25% hasta el 100%</strong>.
+               </p>
+               <a href="#proceso-becas" class="mt-auto w-full text-center bg-white/10 backdrop-blur-md border border-zinc-500 hover:border-white text-white font-bold py-4 rounded-xl transition-all shadow-md">
+                 Ver proceso de aplicación
+               </a>
+           </div>
+        </div>
+
+        <!-- VÍA 2: Crédito Directo -->
+        <div class="lg:w-1/2 bg-[#09090b] rounded-[2rem] p-6 sm:p-10 flex flex-col shadow-2xl relative overflow-hidden group">
+           <!-- Background Photo: Libros / Académico -->
+           <div class="absolute inset-0 z-0 pointer-events-none rounded-[2rem] overflow-hidden bg-black">
+             <img src="https://images.unsplash.com/photo-1491841550275-ad7854e35ca6?auto=format&fit=crop&q=80&w=800" alt="Educación y Libros" class="w-full h-full object-cover opacity-30 filter grayscale transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0 group-hover:opacity-50 mix-blend-luminosity">
+             <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/80 to-transparent"></div>
+           </div>
+
+           <div class="relative z-10 flex flex-col h-full mt-20 sm:mt-32">
+               <div class="w-12 h-12 bg-ibero-dark text-white border border-zinc-600 rounded-xl flex items-center justify-center mb-5 shadow-lg group-hover:border-zinc-400 transition-colors">
+                 <i class="fa-solid fa-handshake text-xl"></i>
+               </div>
+               <h3 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight mb-4 leading-tight">Crédito Directo <br><span class="font-serif italic text-zinc-300 font-medium">Sin Intereses</span></h3>
+               <p class="text-[13px] sm:text-base text-zinc-300 leading-relaxed mb-8 font-medium">
+                 Nuestros créditos institucionales te permiten dividir tu inversión en pagos cómodos <strong class="text-white border-b border-zinc-400">hasta 3 y 6 meses sin intereses</strong>, garantizando que el dinero no sea un freno para tu crecimiento profesional.
+               </p>
+               <a href="#proceso-credito" class="mt-auto w-full text-center bg-white/10 backdrop-blur-md border border-zinc-500 hover:border-white text-white font-bold py-4 rounded-xl transition-all shadow-md">
+                 Ver requisitos del crédito
+               </a>
+           </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- NUEVA SECCIÓN: BECAS DE EXCELENCIA (EL TOQUE "RE PRO") -->
+  <section class="py-16 lg:py-24 bg-white relative border-b border-zinc-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col lg:flex-row items-center gap-10 lg:gap-16 reveal">
+        
+        <!-- Text Side -->
+        <div class="lg:w-1/2">
+           <div class="inline-flex items-center gap-2 border border-zinc-200 bg-zinc-50 px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest text-zinc-600 mb-6 shadow-sm">
+             <i class="fa-solid fa-medal text-yellow-500"></i> Reconocimiento al Talento
+           </div>
+           <h3 class="text-3xl sm:text-4xl font-extrabold text-ibero-dark tracking-tight mb-6 leading-tight">
+             Becas de <span class="font-serif italic text-zinc-500 font-medium">Excelencia y Compromiso</span>
+           </h3>
+           <p class="text-sm sm:text-base text-zinc-600 leading-relaxed mb-6">
+             Más allá de la ayuda por vulnerabilidad, en IBERO premiamos la trayectoria, el liderazgo y el potencial de impacto. 
+           </p>
+           <p class="text-sm sm:text-base text-zinc-600 leading-relaxed mb-8">
+             Contamos con un fondo de <strong class="text-ibero-dark font-bold">Becas al Mérito</strong> destinadas a profesionales, emprendedores o nuevos estudiantes que demuestren un compromiso excepcional con su industria y deseen ingresar a nuestros Executive Masters o Diplomados. 
+           </p>
+           <ul class="space-y-4">
+             <li class="flex gap-3 items-start">
+               <i class="fa-solid fa-check text-green-600 mt-1"></i>
+               <span class="text-sm text-zinc-700 font-medium">Evaluación basada en trayectoria profesional y académica.</span>
+             </li>
+             <li class="flex gap-3 items-start">
+               <i class="fa-solid fa-check text-green-600 mt-1"></i>
+               <span class="text-sm text-zinc-700 font-medium">Proyección de impacto social o empresarial de sus proyectos.</span>
+             </li>
+           </ul>
+        </div>
+
+        <!-- Image Side -->
+        <div class="lg:w-1/2 w-full">
+           <div class="aspect-video sm:aspect-[4/3] rounded-[2rem] overflow-hidden shadow-2xl border border-zinc-100 relative group">
+             <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=1000" alt="Excelencia Ejecutiva" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+             <div class="absolute inset-0 bg-ibero-dark/10 group-hover:bg-transparent transition-colors duration-500"></div>
+           </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESO DE FINANCIAMIENTO Y UBICACIÓN -->
+  <section id="proceso-becas" class="py-16 lg:py-24 bg-zinc-50 relative border-b border-zinc-200 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="text-center mb-12 lg:mb-16 reveal">
+        <h3 class="text-3xl sm:text-4xl font-extrabold text-ibero-dark tracking-tight mb-4">¿Cómo aplico al <span class="font-serif italic text-ibero-purple font-medium">Financiamiento?</span></h3>
+        <p class="text-zinc-500 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+          Tenemos un proceso de investigación estructurado para ubicar a nuestros estudiantes en su nivel de vulnerabilidad real y otorgar la ayuda justa.
+        </p>
+      </div>
+
+      <!-- Grid de 3 pasos (forzado a 2 en celular, el 3ro abarca 2 columnas) -->
+      <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 reveal">
+        
+        <!-- Paso 1 -->
+        <div class="glass-card bg-white p-5 sm:p-8 rounded-2xl sm:rounded-[1.5rem] flex flex-col group relative overflow-hidden">
+           <div class="w-10 h-10 sm:w-12 sm:h-12 bg-zinc-100 text-ibero-dark font-black text-lg sm:text-xl rounded-xl flex items-center justify-center mb-5 border border-zinc-200 shadow-sm group-hover:bg-ibero-purple group-hover:text-white group-hover:border-ibero-purple transition-all">
+             1
+           </div>
+           <h4 class="font-bold text-[14px] sm:text-xl text-ibero-dark mb-2 leading-tight">Formulario de Ubicación</h4>
+           <p class="text-[11px] sm:text-sm text-zinc-500 leading-relaxed flex-grow">El primer paso es llenar y enviar nuestro formulario oficial de ubicación socioeconómica con tus datos reales.</p>
+        </div>
+
+        <!-- Paso 2 -->
+        <div class="glass-card bg-white p-5 sm:p-8 rounded-2xl sm:rounded-[1.5rem] flex flex-col group relative overflow-hidden">
+           <div class="w-10 h-10 sm:w-12 sm:h-12 bg-zinc-100 text-ibero-dark font-black text-lg sm:text-xl rounded-xl flex items-center justify-center mb-5 border border-zinc-200 shadow-sm group-hover:bg-ibero-purple group-hover:text-white group-hover:border-ibero-purple transition-all">
+             2
+           </div>
+           <h4 class="font-bold text-[14px] sm:text-xl text-ibero-dark mb-2 leading-tight">Carga de Documentos</h4>
+           <p class="text-[11px] sm:text-sm text-zinc-500 leading-relaxed flex-grow">En el mismo formulario, deberás adjuntar: copia de tu cédula de identidad, cartilla de servicios básicos y soportes adicionales requeridos.</p>
+        </div>
+
+        <!-- Paso 3 -->
+        <div class="glass-card bg-white p-5 sm:p-8 rounded-2xl sm:rounded-[1.5rem] flex flex-col group relative overflow-hidden col-span-2 lg:col-span-1">
+           <div class="w-10 h-10 sm:w-12 sm:h-12 bg-zinc-100 text-ibero-dark font-black text-lg sm:text-xl rounded-xl flex items-center justify-center mb-5 border border-zinc-200 shadow-sm group-hover:bg-ibero-purple group-hover:text-white group-hover:border-ibero-purple transition-all">
+             3
+           </div>
+           <h4 class="font-bold text-[14px] sm:text-xl text-ibero-dark mb-2 leading-tight">Entrevista de Admisiones</h4>
+           <p class="text-[11px] sm:text-sm text-zinc-500 leading-relaxed flex-grow">Tendrás una entrevista virtual de <strong class="text-ibero-dark">30 minutos</strong> con uno de nuestros asesores para conocer tu perfil y determinar la viabilidad.</p>
+        </div>
+
+      </div>
+      
+      <div class="text-center mt-10 reveal">
+         <a href="#" class="bg-ibero-purple hover:bg-purple-700 text-white px-8 py-3.5 rounded-xl font-bold text-sm transition-all shadow-md inline-flex items-center gap-2">
+           Llenar Formulario Ahora <i class="fa-solid fa-arrow-right"></i>
+         </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- REQUISITOS DEL CRÉDITO DIRECTO (CON FOTO ACADÉMICA DE FONDO) -->
+  <section id="proceso-credito" class="py-16 lg:py-24 bg-[#050505] relative border-b border-zinc-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+      <div class="flex flex-col md:flex-row bg-zinc-900 border border-zinc-800 rounded-[2rem] overflow-hidden shadow-2xl relative group hover:border-zinc-700 transition-colors">
+        
+        <!-- Photo Background for Credit section: Biblioteca / Libros / Academia -->
+        <div class="absolute inset-0 z-0 pointer-events-none">
+           <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&q=80&w=1200" alt="Entorno Académico" class="w-full h-full object-cover opacity-20 filter grayscale mix-blend-screen transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0 group-hover:opacity-40">
+           <div class="absolute inset-0 bg-gradient-to-r from-zinc-900/95 via-zinc-900/90 to-zinc-900/80"></div>
+        </div>
+
+        <div class="md:w-1/2 p-8 sm:p-12 flex flex-col justify-center relative z-10 border-b md:border-b-0 md:border-r border-zinc-800">
+           <h3 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">Crédito <span class="font-serif italic text-zinc-400 font-medium">Directo IBERO</span></h3>
+           <p class="text-sm sm:text-base text-zinc-400 leading-relaxed mb-6">
+             Evita la burocracia bancaria. Nuestros créditos institucionales te permiten iniciar tu educación hoy y pagar <strong class="text-white">hasta en 6 meses sin intereses</strong>. Se otorgará el crédito directo mediante la firma de un documento de compromiso.
+           </p>
+           <a href="#contacto" class="w-fit bg-white text-ibero-dark hover:bg-zinc-200 px-6 py-3 rounded-xl font-bold text-sm transition-all shadow-md mt-auto">
+             Quiero acceder a este beneficio
+           </a>
+        </div>
+
+        <div class="md:w-1/2 p-8 sm:p-12 relative z-10 flex flex-col justify-center">
+           <h4 class="text-xs font-bold tracking-widest text-zinc-400 uppercase mb-6"><i class="fa-solid fa-clipboard-check mr-2"></i> Requisitos Mínimos</h4>
+           
+           <div class="space-y-4">
+              <div class="bg-black/40 backdrop-blur-md border border-zinc-700 p-4 sm:p-5 rounded-xl flex items-center gap-4">
+                 <div class="w-10 h-10 rounded-lg bg-zinc-800 flex items-center justify-center text-white shrink-0 border border-zinc-600">
+                    <i class="fa-solid fa-id-card"></i>
+                 </div>
+                 <div>
+                    <h5 class="text-white font-bold text-sm sm:text-base">Copia de Identidad</h5>
+                    <p class="text-[11px] sm:text-xs text-zinc-400 mt-1">Documento de identidad oficial (Cédula) escaneado de forma legible.</p>
+                 </div>
+              </div>
+
+              <div class="bg-black/40 backdrop-blur-md border border-zinc-700 p-4 sm:p-5 rounded-xl flex items-center gap-4">
+                 <div class="w-10 h-10 rounded-lg bg-zinc-800 flex items-center justify-center text-white shrink-0 border border-zinc-600">
+                    <i class="fa-solid fa-file-signature"></i>
+                 </div>
+                 <div>
+                    <h5 class="text-white font-bold text-sm sm:text-base">Firma de Pagaré</h5>
+                    <p class="text-[11px] sm:text-xs text-zinc-400 mt-1">Documento formal que respalda el financiamiento de los meses sin intereses.</p>
+                 </div>
+              </div>
+           </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO DE ADMISIONES (CTA FINAL) -->
+  <section id="contacto" class="py-16 lg:py-24 relative overflow-hidden bg-[#022c22] border-b border-teal-900/50">
+    <div class="absolute inset-0 z-0">
+      <video autoplay loop muted playsinline preload="auto" class="absolute inset-0 w-full h-full object-cover pointer-events-none opacity-30 mix-blend-luminosity grayscale">
+          <source src="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/c5441036666eabf17beca05e22852761e9ae4cdd/fotos/1.mp4" type="video/mp4">
+      </video>
+      <div class="absolute inset-0 bg-gradient-to-b from-[#022c22] via-[#022c22]/80 to-[#022c22]"></div>
+    </div>
+    
+    <div class="max-w-4xl mx-auto px-4 text-center reveal relative z-10">
+      <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-[0_0_30px_rgba(20,184,166,0.3)] border border-teal-100">
+         <i class="fa-solid fa-headset text-2xl text-[#022c22]"></i>
+      </div>
+      <h2 class="text-3xl sm:text-4xl font-extrabold mb-4 text-white tracking-tighter">
+        ¿Tienes dudas sobre tu <span class="font-serif italic text-teal-200 font-medium">inversión?</span>
+      </h2>
+      <p class="text-[13px] sm:text-base text-teal-100/70 mb-8 font-medium max-w-xl mx-auto leading-relaxed">
+        Nuestro equipo de admisiones está listo para guiarte, evaluar tu perfil y encontrar la ruta financiera perfecta para ti.
+      </p>
+      
+      <a href="mailto:programas@ibero.education" class="bg-white hover:bg-teal-50 text-[#022c22] px-8 py-4 sm:py-5 rounded-xl font-bold text-sm sm:text-base transition-all shadow-[0_0_20px_rgba(20,184,166,0.2)] inline-flex items-center gap-3">
+        <i class="fa-solid fa-envelope"></i> programas@ibero.education
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER PREMIUM EXACTO (CON LOGO) -->
+  <footer class="bg-[#050505] text-zinc-400 py-12 border-t border-zinc-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+       <!-- Grid ampliado a 5 columnas -->
+       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-8 border-b border-zinc-900 pb-12">
+          
+          <!-- Col 1: Brand -->
+          <div class="lg:col-span-1">
+             <div class="mb-5">
+                <img src="https://raw.githubusercontent.com/danielortegac/GOATIA/3da5106c0b4208293b67981cdf116fb11045c5ff/portafolio/apps-logos/Logo%20nuevo.png" alt="Logo IBERO" class="h-12 w-auto object-contain filter contrast-125">
+             </div>
+             <p class="text-xs sm:text-sm leading-relaxed mb-4">Educación Executive impulsada por Inteligencia Artificial. Formamos a los creadores de los negocios del mañana.</p>
+             <div class="flex gap-4">
+                <a href="#" class="w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center hover:bg-ibero-reddark hover:text-white transition-colors"><i class="fa-brands fa-linkedin-in text-sm"></i></a>
+                <a href="#" class="w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center hover:bg-ibero-reddark hover:text-white transition-colors"><i class="fa-brands fa-instagram text-sm"></i></a>
+                <a href="#" class="w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center hover:bg-ibero-reddark hover:text-white transition-colors"><i class="fa-brands fa-facebook-f text-sm"></i></a>
+             </div>
+          </div>
+          
+          <!-- Col 2: Programas -->
+          <div>
+             <h4 class="text-white font-bold mb-4 text-sm">Programas</h4>
+             <ul class="space-y-2 text-xs sm:text-sm">
+                <li><a href="oferta-academica.html" class="hover:text-white transition-colors">Oferta Académica</a></li>
+                <li><a href="certificaciones.html" class="hover:text-white transition-colors">Calendario Cursos</a></li>
+                <li><a href="#" class="hover:text-white transition-colors">Certificaciones en IA</a></li>
+                <li><a href="diplomados-ejecutivos.html" class="hover:text-white transition-colors">Diplomados Ejecutivos</a></li>
+                <li><a href="executive-masters.html" class="hover:text-white transition-colors">Executive Masters</a></li>
+                <li><a href="ingles-continuo.html" class="hover:text-white transition-colors">Programas de Inglés</a></li>
+             </ul>
+          </div>
+
+          <!-- Col 3: Ecosistema IBERO -->
+          <div>
+             <h4 class="text-white font-bold mb-4 text-sm">Ecosistema</h4>
+             <ul class="space-y-2 text-xs sm:text-sm">
+                <li><a href="https://qlase.goatify.app/" target="_blank" class="hover:text-white transition-colors">Campus Virtual</a></li>
+                <li><a href="#" class="hover:text-white transition-colors">IBERO Academy</a></li>
+                <li><a href="#" class="hover:text-white transition-colors">IBERO Labs</a></li>
+                <li><a href="#" class="hover:text-white transition-colors">Artes liberales</a></li>
+                <li><a href="#" class="hover:text-white transition-colors">Consultoría en educación</a></li>
+                <li><a href="https://ia.goatify.app/#discovery" target="_blank" class="hover:text-white transition-colors">Blog</a></li>
+             </ul>
+          </div>
+
+          <!-- Col 4: Nosotros -->
+          <div>
+             <h4 class="text-white font-bold mb-4 text-sm">Nosotros</h4>
+             <ul class="space-y-2 text-xs sm:text-sm">
+                <li><a href="index.html" class="hover:text-white transition-colors">Inicio</a></li>
+                <li><a href="metodologia.html" class="hover:text-white transition-colors">Metodología 360°</a></li>
+                <li><a href="#" class="hover:text-white transition-colors">Alianzas</a></li>
+                <li><a href="#" class="hover:text-white transition-colors">Docentes</a></li>
+                <li><a href="#" class="hover:text-white transition-colors">Trabaja con nosotros</a></li>
+                <li><a href="#" class="hover:text-white transition-colors">Contactos</a></li>
+             </ul>
+          </div>
+
+          <!-- Col 5: Legal & Soporte -->
+          <div>
+             <h4 class="text-white font-bold mb-4 text-sm">Legal & Soporte</h4>
+             <ul class="space-y-2 text-xs sm:text-sm">
+                <li><a href="proceso-inscripcion.html" class="hover:text-white transition-colors">Registro y admisiones</a></li>
+                <li><a href="ayuda-financiera.html" class="hover:text-white transition-colors">Ayuda Financiera</a></li>
+                <li><a href="#" class="hover:text-white transition-colors">Soporte al Estudiante</a></li>
+                <li><a href="#" class="hover:text-white transition-colors">Verificar Certificado QR</a></li>
+                <li><a href="#" class="hover:text-white transition-colors">Términos y Condiciones</a></li>
+                <li><a href="#" class="hover:text-white transition-colors">Políticas de Privacidad</a></li>
+             </ul>
+          </div>
+
+       </div>
+
+       <div class="flex flex-col md:flex-row justify-between items-center text-[10px] sm:text-xs">
+          <p>&copy; 2026 Centro Iberoamericano (IBERO). Todos los derechos reservados.</p>
+          <p class="mt-2 md:mt-0 flex items-center gap-1">Diseñado para la <span class="text-white font-bold border-b border-ibero-reddark">Élite Digital</span></p>
+       </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script>
+    // Menu Mobile Toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+    const navbar = document.getElementById('navbar');
+
+    if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+          if(mobileMenuBtn.innerHTML.includes('bars')){
+             mobileMenuBtn.innerHTML = '<i class="fa-solid fa-xmark text-2xl"></i>';
+          } else {
+             mobileMenuBtn.innerHTML = '<i class="fa-solid fa-bars text-2xl"></i>';
+          }
+        });
+    }
+
+    mobileLinks.forEach(link => {
+       link.addEventListener('click', () => {
+          if (mobileMenu) mobileMenu.classList.add('hidden');
+          if (mobileMenuBtn) mobileMenuBtn.innerHTML = '<i class="fa-solid fa-bars text-2xl"></i>';
+       });
+    });
+
+    // Scroll Navbar effect
+    window.addEventListener('scroll', () => {
+       if (navbar) {
+           if (window.scrollY > 20) {
+              navbar.classList.add('shadow-md');
+              navbar.classList.remove('shadow-sm');
+           } else {
+              navbar.classList.remove('shadow-md');
+              navbar.classList.add('shadow-sm');
+           }
+       }
+    });
+
+    // Animaciones Reveal
+    function reveal() {
+      var reveals = document.querySelectorAll(".reveal");
+      for (var i = 0; i < reveals.length; i++) {
+        var windowHeight = window.innerHeight;
+        var elementTop = reveals[i].getBoundingClientRect().top;
+        var elementVisible = 50;
+        
+        if(reveals[i].classList.contains('active') && window.scrollY < 100) continue;
+
+        if (elementTop < windowHeight - elementVisible) {
+          reveals[i].classList.add("active");
+        }
+      }
+    }
+
+    window.addEventListener("scroll", reveal);
+    window.addEventListener("resize", reveal);
+    window.addEventListener("load", reveal);
+    setTimeout(reveal, 100);
+  </script>
+</body>
+</html>
