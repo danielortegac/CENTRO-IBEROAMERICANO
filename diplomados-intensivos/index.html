@@ -3,9 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <meta name="description" content="Diplomado Intensivo en IA Aplicada a Negocios, Marketing y Comunicación. Educación de élite.">
-  <title>Diplomados Intensivos | IBERO Educación de Élite</title>
   
+  <!-- SEO PREMIUM OPTIMIZADO -->
+  <title>Diplomados Intensivos en IA y Negocios | IBERO Educación de Élite</title>
+  <meta name="description" content="Diplomado Intensivo en IA Aplicada a Negocios, Marketing y Comunicación. 5 semanas de inmersión ejecutiva para transformar y escalar tu empresa.">
+  <meta name="keywords" content="diplomados, diplomado en inteligencia artificial, IA aplicada a negocios, marketing con IA, educación executive, IBERO, crecimiento corporativo">
+  <meta name="author" content="Centro Iberoamericano (IBERO)">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph / Facebook / WhatsApp -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ibero.education/diplomados-intensivos/">
+  <meta property="og:title" content="Diplomados Intensivos en IA y Negocios | IBERO">
+  <meta property="og:description" content="5 semanas de inmersión ejecutiva total. Integra la IA en tu estrategia y escala tus resultados corporativos.">
+  <meta property="og:image" content="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/c5441036666eabf17beca05e22852761e9ae4cdd/fotos/AI_Business_Education_Hero_Video_poster.jpg">
+
   <!-- FAVICON OFICIAL -->
   <link rel="icon" type="image/svg+xml" href="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/3339294f71590eeeaa7f0b0b0591f5e09156ed96/fotos/logos%20ibero/ibero-favicon.svg">
   
@@ -89,12 +101,10 @@
 <body class="bg-white text-ibero-dark font-sans antialiased overflow-x-hidden selection:bg-ibero-dark selection:text-white pt-[144px] md:pt-[152px]">
 
   <!-- Botones Flotantes -->
-  <!-- Scroll to Top (Izquierda) -->
   <button id="scroll-top-btn" class="w-10 h-10 bg-white border border-zinc-200 shadow-md text-zinc-500 rounded-full flex items-center justify-center hover:bg-zinc-50 hover:text-ibero-dark focus:outline-none focus:ring-2 focus:ring-ibero-dark focus:ring-offset-2 group" onclick="window.scrollTo({top:0, behavior:'smooth'})" aria-label="Volver arriba">
     <i class="fa-solid fa-arrow-up group-hover:-translate-y-1 transition-transform text-sm"></i>
   </button>
 
-  <!-- WhatsApp 24/7 (Derecha) -->
   <a href="https://wa.me/19152854778" target="_blank" class="floating-wa-btn flex items-center gap-3 group" aria-label="Asistencia 24/7 en WhatsApp">
     <span class="bg-white border border-zinc-200 text-zinc-800 text-[11px] font-bold px-3 py-1.5 rounded-full shadow-sm opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-4 group-hover:translate-x-0 hidden sm:block">
       Asistencia 24/7
@@ -108,23 +118,24 @@
   <!-- HEADER / NAVEGACIÓN ESTANDARIZADO -->
   <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 shadow-sm flex flex-col">
     
-    <!-- Fila 1: Navegación Interna Principal y Logo (Ultra-Delgado) -->
+    <!-- Fila 1: Logo y Navegación Interna (Ultra-Delgado y Scroll en Móvil) -->
     <div class="w-full nav-glass border-b border-zinc-200">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between items-center h-14 md:h-16">
+        <div class="flex justify-between items-center h-14 md:h-16 gap-2 sm:gap-4">
           <!-- Logo Oficial Actualizado -->
           <a href="https://ibero.education/" target="_blank" class="flex-shrink-0 flex items-center cursor-pointer">
             <img src="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/1557a79470d9c26d1ad0f0b00243f9f03e55cf2f/fotos/svg/ibero-logo-black-redE.svg" alt="Logo IBERO" class="h-8 sm:h-10 md:h-10 w-auto object-contain">
           </a>
           
-          <!-- Desktop Menu Interno (Anclas locales) -->
-          <div class="hidden md:flex space-x-10 items-center">
-            <a href="#metodologia" class="text-[13px] font-bold text-zinc-600 hover:text-ibero-dark transition-colors">Metodología</a>
-            <a href="#diplomados" class="text-[13px] font-bold text-zinc-600 hover:text-ibero-dark transition-colors">Programa Oficial</a>
-            <a href="#certificacion" class="text-[13px] font-bold text-zinc-600 hover:text-ibero-dark transition-colors">Certificación</a>
+          <!-- Menu Interno (Alineado siempre a la derecha cerca de la hamburguesa) -->
+          <div class="flex flex-1 items-center justify-end gap-4 md:gap-10 overflow-x-auto hide-scrollbar px-2 sm:px-4">
+            <a href="#diplomado" class="text-[11px] md:text-[13px] font-bold text-zinc-600 hover:text-ibero-dark transition-colors whitespace-nowrap">Programa Oficial</a>
+            <a href="#ibero-labs" class="text-[11px] md:text-[13px] font-bold text-zinc-600 hover:text-ibero-dark transition-colors whitespace-nowrap">Incubadora</a>
+            <a href="#metodologia" class="text-[11px] md:text-[13px] font-bold text-zinc-600 hover:text-ibero-dark transition-colors whitespace-nowrap">Metodología</a>
+            <a href="#certificacion" class="text-[11px] md:text-[13px] font-bold text-zinc-600 hover:text-ibero-dark transition-colors whitespace-nowrap">Aval Oficial</a>
             
-            <!-- Botón de Matrículas (Urgencia) -->
-            <a href="https://ibero.education/registro-y-admisiones/" target="_blank" class="bg-black text-white px-6 py-2 md:py-2.5 rounded-lg text-[13px] font-bold hover:bg-zinc-800 border border-zinc-700 shadow-lg hover:shadow-xl transition-all flex items-center gap-2 group relative overflow-hidden">
+            <!-- Botón de Matrículas (OCULTO EN CELULAR para no estorbar, visible en PC) -->
+            <a href="https://ibero.education/registro-y-admisiones/" target="_blank" class="hidden md:flex bg-black text-white px-6 py-2.5 rounded-lg text-[13px] font-bold hover:bg-zinc-800 border border-zinc-700 shadow-lg hover:shadow-xl transition-all items-center gap-2 group relative overflow-hidden shrink-0">
               <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-[textShine_1.5s_ease-in-out_infinite]"></span>
               <span>Postular Admisión</span>
               <span class="relative flex h-2 w-2">
@@ -135,7 +146,7 @@
           </div>
 
           <!-- Mobile Menu Button -->
-          <div class="md:hidden flex items-center">
+          <div class="md:hidden flex items-center shrink-0 border-l border-zinc-200 pl-2 ml-1">
             <button id="mobile-menu-btn" class="text-zinc-600 hover:text-ibero-dark focus:outline-none p-2 transition-colors">
               <i class="fa-solid fa-bars text-xl"></i>
             </button>
@@ -146,14 +157,14 @@
 
     <!-- Fila 2: Enlaces Institucionales -->
     <div class="flex w-full bg-[#050505] text-white border-b border-zinc-900">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex justify-start md:justify-end items-center h-10 text-[10px] md:text-[11px] font-semibold tracking-wider uppercase overflow-x-auto hide-scrollbar">
-        <div class="flex items-center gap-5 md:gap-7 min-w-max pr-4 md:pr-0">
+      <div class="max-w-7xl mx-auto w-full flex justify-start lg:justify-end items-center h-10 text-[10px] md:text-[11px] font-semibold tracking-wider uppercase overflow-x-auto hide-scrollbar">
+        <div class="flex items-center gap-5 md:gap-7 min-w-max px-4 sm:px-6 lg:px-8">
           <a href="https://ibero.education/" target="_blank" class="text-white hover:text-zinc-300 transition-colors">Inicio</a>
           <a href="https://qlase.goatify.app/" target="_blank" class="text-white hover:text-zinc-300 transition-colors">Campus Virtual</a>
           <a href="https://ibero.education/trabaja-con-nosotros/" target="_blank" class="text-white hover:text-zinc-300 transition-colors">Docentes</a>
+          <a href="https://ia.goatify.app/#discovery" target="_blank" class="text-white hover:text-zinc-300 transition-colors">Blog</a>
           <a href="https://ibero.education/trabaja-con-nosotros/" target="_blank" class="text-white hover:text-zinc-300 transition-colors">Trabaja con nosotros</a>
           <a href="https://ibero.education/ayuda-financiera/" target="_blank" class="text-white hover:text-zinc-300 transition-colors">Ayuda Financiera</a>
-          <a href="https://ia.goatify.app/#discovery" target="_blank" class="text-white hover:text-zinc-300 transition-colors">Blog</a>
           <a href="https://ibero.education/contacto/" target="_blank" class="text-white hover:text-zinc-300 transition-colors">Contactos</a>
         </div>
       </div>
@@ -161,10 +172,10 @@
 
     <!-- Fila 3: Ecosistema y Programas Académicos Externos -->
     <div class="flex w-full bg-zinc-50/90 border-b border-zinc-200 backdrop-blur-md">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex justify-start md:justify-center items-center h-12 text-[11px] md:text-[12px] font-medium text-zinc-600 overflow-x-auto hide-scrollbar">
-        <div class="flex items-center gap-6 lg:gap-12 min-w-max pr-4 md:pr-0">
-          <a href="https://ibero.education/oferta-academica/" target="_blank" class="hover:text-ibero-dark hover:font-bold transition-all">Catálogo Oferta</a>
-          <a href="https://ibero.education/calendario-academico/" target="_blank" class="hover:text-ibero-dark hover:font-bold transition-all">Calendario 2026</a>
+      <div class="max-w-7xl mx-auto w-full flex justify-start items-center h-12 text-[11px] md:text-[12px] font-medium text-zinc-600 overflow-x-auto hide-scrollbar">
+        <div class="flex items-center gap-6 lg:gap-12 min-w-max px-4 sm:px-6 lg:px-8">
+          <a href="https://ibero.education/oferta-academica/" target="_blank" class="hover:text-ibero-dark hover:font-bold transition-all">Programas</a>
+          <a href="https://ibero.education/calendario-academico/" target="_blank" class="hover:text-ibero-dark hover:font-bold transition-all">Calendario Cursos</a>
           <a href="https://ibero.education/certificaciones-intensivas/" target="_blank" class="hover:text-ibero-dark hover:font-bold transition-all">Certificaciones</a>
           <a href="#" class="text-ibero-dark font-bold border-b-2 border-ibero-dark pb-0.5">Diplomados</a>
           <a href="https://ibero.education/executive-master/" target="_blank" class="hover:text-ibero-dark hover:font-bold transition-all">Executive Master</a>
@@ -184,15 +195,16 @@
         <div class="mb-2 px-3 pt-2">
           <span class="text-[10px] font-bold tracking-widest text-zinc-400 uppercase">Navegación de Página</span>
         </div>
+        <a href="#diplomado" class="mobile-link block px-3 py-3 text-base font-medium text-zinc-800 border-b border-zinc-50 hover:text-ibero-reddark">Programa Oficial</a>
+        <a href="#ibero-labs" class="mobile-link block px-3 py-3 text-base font-medium text-zinc-800 border-b border-zinc-50 hover:text-ibero-reddark">Incubadora IBERO Labs</a>
         <a href="#metodologia" class="mobile-link block px-3 py-3 text-base font-medium text-zinc-800 border-b border-zinc-50 hover:text-ibero-reddark">Metodología</a>
-        <a href="#diplomados" class="mobile-link block px-3 py-3 text-base font-medium text-zinc-800 border-b border-zinc-50 hover:text-ibero-reddark">Programa Oficial</a>
-        <a href="#certificacion" class="mobile-link block px-3 py-3 text-base font-medium text-zinc-800 border-b border-zinc-50 hover:text-ibero-reddark">Certificación</a>
+        <a href="#certificacion" class="mobile-link block px-3 py-3 text-base font-medium text-zinc-800 border-b border-zinc-50 hover:text-ibero-reddark">Aval Oficial</a>
 
         <!-- Portales Externos -->
         <div class="mt-4 mb-2 px-3 border-t border-zinc-100 pt-4">
           <span class="text-[10px] font-bold tracking-widest text-ibero-reddark uppercase">Ecosistema & Programas</span>
         </div>
-        <a href="https://ibero.education/oferta-academica/" target="_blank" class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 border-b border-zinc-50 hover:text-ibero-reddark">Oferta Académica</a>
+        <a href="https://ibero.education/oferta-academica/" target="_blank" class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 border-b border-zinc-50 hover:text-ibero-reddark">Programas</a>
         <a href="https://ibero.education/calendario-academico/" target="_blank" class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 border-b border-zinc-50 hover:text-ibero-reddark">Calendario Cursos</a>
         <a href="https://ibero.education/certificaciones-intensivas/" target="_blank" class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 border-b border-zinc-50 hover:text-ibero-reddark">Certificaciones</a>
         <a href="https://ibero.education/executive-master/" target="_blank" class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 border-b border-zinc-50 hover:text-ibero-reddark">Executive Master</a>
@@ -229,7 +241,7 @@
     
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 reveal">
       <div class="inline-block px-4 py-1.5 rounded-full border border-zinc-200 bg-white/80 shadow-sm text-[10px] sm:text-xs text-zinc-800 font-bold tracking-widest uppercase mb-6 backdrop-blur-md">
-        <span class="w-2 h-2 rounded-full bg-ibero-dark inline-block mr-2 animate-pulse"></span> Educación de Largo Plazo
+        <span class="w-2 h-2 rounded-full bg-emerald-500 inline-block mr-2 animate-pulse"></span> Aceleración Ejecutiva
       </div>
       <h1 class="text-[2.5rem] sm:text-5xl md:text-6xl font-sans font-extrabold text-ibero-dark tracking-tighter mb-4 hero-shine-dark">
         Diplomados <span class="font-serif italic text-zinc-500 font-medium">Intensivos</span>
@@ -238,13 +250,13 @@
         Programa de formación avanzada que integra inteligencia artificial aplicada a negocios, marketing y comunicación, con visión práctica, enfoque comercial y orientación a la implementación.
       </p>
       
-      <!-- CTA Hero Buttons añadidos -->
+      <!-- CTA Hero Buttons -->
       <div class="flex flex-col sm:flex-row flex-wrap gap-4 pt-8 justify-center w-full">
         <a href="https://ibero.education/registro-y-admisiones/" target="_blank" class="w-full sm:w-auto whitespace-nowrap bg-ibero-dark text-white px-8 py-4 rounded-xl font-bold text-sm lg:text-base hover:bg-black transition-all shadow-xl text-center flex items-center justify-center gap-2 group border border-zinc-800">
           <span>Postular Admisión</span>
           <i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
         </a>
-        <a href="#diplomados" class="w-full sm:w-auto whitespace-nowrap bg-white/90 backdrop-blur-md border border-zinc-300 hover:border-ibero-dark hover:text-ibero-dark text-zinc-800 px-8 py-4 rounded-xl font-bold text-sm lg:text-base transition-all shadow-md text-center flex items-center justify-center gap-2 group">
+        <a href="#diplomado" class="w-full sm:w-auto whitespace-nowrap bg-white/90 backdrop-blur-md border border-zinc-300 hover:border-ibero-dark hover:text-ibero-dark text-zinc-800 px-8 py-4 rounded-xl font-bold text-sm lg:text-base transition-all shadow-md text-center flex items-center justify-center gap-2 group">
           <i class="fa-solid fa-briefcase text-zinc-500 group-hover:text-ibero-dark"></i>
           <span>Ver Programa Oficial</span>
         </a>
@@ -252,7 +264,166 @@
     </div>
   </section>
 
-  <!-- ENFOQUE GENERAL Y METODOLOGÍA (SECCIÓN PRO) -->
+  <!-- PROGRAMA OFICIAL (DISEÑO FLAGSHIP) AHORA ARRIBA -->
+  <section id="diplomado" class="py-16 lg:py-24 bg-white relative border-b border-zinc-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Conversor de Monedas (Control de Precios) -->
+      <div class="flex flex-col items-center mb-10 sm:mb-16 reveal">
+        <div class="bg-zinc-50 border border-zinc-200 p-1.5 rounded-full inline-flex gap-1 shadow-sm overflow-x-auto max-w-full hide-scrollbar">
+          <button class="currency-btn bg-ibero-dark text-white px-4 sm:px-6 py-2.5 rounded-full text-[10px] sm:text-xs font-bold transition-all whitespace-nowrap" data-currency="usd">🇪🇨 USD (Ecuador)</button>
+          <button class="currency-btn text-zinc-500 hover:text-ibero-dark px-4 sm:px-6 py-2.5 rounded-full text-[10px] sm:text-xs font-bold transition-all whitespace-nowrap" data-currency="mxn">🇲🇽 MXN (México)</button>
+          <button class="currency-btn text-zinc-500 hover:text-ibero-dark px-4 sm:px-6 py-2.5 rounded-full text-[10px] sm:text-xs font-bold transition-all whitespace-nowrap" data-currency="cop">🇨🇴 COP (Colombia)</button>
+          <button class="currency-btn text-zinc-500 hover:text-ibero-dark px-4 sm:px-6 py-2.5 rounded-full text-[10px] sm:text-xs font-bold transition-all whitespace-nowrap" data-currency="pen">🇵🇪 PEN (Perú)</button>
+        </div>
+      </div>
+
+      <!-- Tarjeta Flagship del Diplomado -->
+      <div class="reveal">
+        <div class="bg-white rounded-2xl sm:rounded-[2rem] overflow-hidden shadow-xl border border-zinc-200 hover:shadow-2xl hover:border-zinc-300 transition-all flex flex-col md:flex-row max-w-5xl mx-auto group">
+          
+          <!-- Image Side -->
+          <div class="md:w-5/12 relative overflow-hidden bg-zinc-100 border-b md:border-b-0 md:border-r border-zinc-100">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="IA Aplicada">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-80 group-hover:opacity-100 transition-opacity"></div>
+            <span class="absolute top-4 left-4 bg-zinc-900/95 text-white border border-zinc-700 text-[10px] px-3 py-1 rounded-sm font-bold uppercase tracking-widest shadow-md backdrop-blur-sm flex items-center gap-1.5">
+              <span class="w-1.5 h-1.5 bg-green-500 rounded-full inline-block animate-pulse"></span>5 Semanas
+            </span>
+          </div>
+          
+          <!-- Content Side -->
+          <div class="md:w-7/12 p-6 sm:p-10 flex flex-col">
+            <h4 class="text-[18px] sm:text-3xl font-extrabold tracking-tight text-ibero-dark leading-tight mb-3 sm:mb-4">Diplomado en IA Aplicada a Negocios, Marketing y Comunicación</h4>
+            <p class="text-zinc-500 text-[12px] sm:text-[14px] leading-relaxed mb-6">Programa intensivo de formación aplicada que integra inteligencia artificial, negocios, marketing y comunicación con una visión práctica, comercial y orientada a la monetización de proyectos y marcas.</p>
+            
+            <!-- Lista de Beneficios Labs Integrada -->
+            <div class="mb-6">
+               <p class="text-[10px] sm:text-[11px] text-zinc-500 font-bold uppercase tracking-widest mb-3">¿Qué incluye el programa?</p>
+               <ul class="space-y-3">
+                 <li class="flex items-start gap-3 text-[13px] sm:text-sm text-zinc-600"><i class="fa-solid fa-bolt text-emerald-500 mt-0.5"></i> <span class="leading-snug">Prototipado rápido y validación de MVP con IA</span></li>
+                 <li class="flex items-start gap-3 text-[13px] sm:text-sm text-zinc-600"><i class="fa-solid fa-code text-emerald-500 mt-0.5"></i> <span class="leading-snug">Desarrollo de Web App PWA Transaccional</span></li>
+                 <li class="flex items-start gap-3 text-[13px] sm:text-sm text-zinc-600"><i class="fa-solid fa-robot text-emerald-500 mt-0.5"></i> <span class="leading-snug">IA configurada como asistente operativo 24/7</span></li>
+                 <li class="flex items-start gap-3 text-[13px] sm:text-sm text-zinc-600"><i class="fa-solid fa-pen-nib text-emerald-500 mt-0.5"></i> <span class="leading-snug">Diseño de marca, branding y activos digitales</span></li>
+                 <li class="flex items-start gap-3 text-[13px] sm:text-sm text-zinc-600"><i class="fa-solid fa-user-astronaut text-emerald-500 mt-0.5"></i> <span class="leading-snug">Mentoría técnica y estratégica 1 a 1</span></li>
+                 <li class="flex items-start gap-3 text-[13px] sm:text-sm text-zinc-600"><i class="fa-solid fa-certificate text-emerald-500 mt-0.5"></i> <span class="leading-snug">Certificado digital oficial con validación QR</span></li>
+               </ul>
+            </div>
+
+            <!-- Fechas de Inicio (Cohortes) -->
+            <div class="bg-ibero-purple/5 border border-ibero-purple/20 p-4 rounded-xl mb-6">
+               <p class="text-[10px] sm:text-[11px] text-ibero-purple font-bold uppercase tracking-widest mb-2"><i class="fa-regular fa-calendar-check mr-1"></i> Fechas de Inicio (Elige tu cohorte)</p>
+               <div class="flex flex-wrap gap-2">
+                  <span class="bg-white border border-ibero-purple/20 text-ibero-dark px-3 py-1.5 rounded-lg text-xs font-bold shadow-sm">📅 Abril 2026</span>
+                  <span class="bg-white border border-ibero-purple/20 text-ibero-dark px-3 py-1.5 rounded-lg text-xs font-bold shadow-sm">📅 Junio 2026</span>
+               </div>
+            </div>
+
+            <!-- Detalles de Carga Horaria -->
+            <div class="bg-zinc-50 p-3 sm:p-4 rounded-xl border border-zinc-100 mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+               <div class="space-y-1">
+                 <div class="text-[10px] sm:text-[11px] text-zinc-500 font-bold uppercase">Carga Total: <span class="text-ibero-dark">60 Horas</span></div>
+                 <div class="text-[10px] sm:text-[11px] text-zinc-500">40h Sincrónicas | 20h Asincrónicas</div>
+                 <div class="text-[10px] sm:text-[11px] text-zinc-600 mt-2"><i class="fa-regular fa-clock"></i> Lun a Jue - 7:00 PM (EC/CO/PE) | 6:00 PM (MX)</div>
+               </div>
+            </div>
+
+            <!-- Pricing y CTAs -->
+            <div class="flex flex-col mt-auto border-t border-zinc-100 pt-6">
+              <div class="flex justify-between items-end mb-5">
+                 <div>
+                    <p class="text-[11px] sm:text-xs text-zinc-400 line-through price-display-normal" data-usd="USD $281" data-mxn="MXN $5.000" data-cop="COP $1.128.571" data-pen="PEN S/ 1.071">USD $281</p>
+                    <p class="text-[20px] sm:text-3xl font-black text-emerald-600 leading-none mt-1 price-display-discount" data-usd="USD $197" data-mxn="MXN $3.500" data-cop="COP $790.000" data-pen="PEN S/ 750">USD $197</p>
+                 </div>
+              </div>
+              <div class="flex flex-col sm:flex-row gap-3 w-full">
+                <a href="https://ibero.education/registro-y-admisiones/" target="_blank" class="w-full sm:w-1/2 text-center bg-ibero-dark hover:bg-black text-white text-sm sm:text-base font-bold py-3 sm:py-4 px-2 rounded-xl transition-all shadow-lg flex items-center justify-center gap-2 group">
+                  Inscribirme <i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
+                </a>
+                <a href="#ibero-labs" class="w-full sm:w-1/2 text-center bg-white border border-zinc-200 hover:border-zinc-800 text-zinc-800 hover:text-zinc-900 text-sm sm:text-base font-bold py-3 sm:py-4 px-2 rounded-xl transition-all shadow-sm flex items-center justify-center gap-2">
+                  Ver Detalles (Labs)
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      
+      <!-- Notas y Disclaimers Oficiales -->
+      <div class="mt-12 sm:mt-16 border-t border-zinc-200 pt-8 reveal max-w-5xl mx-auto">
+         <div class="flex flex-col md:flex-row gap-6 justify-between bg-zinc-50 rounded-2xl p-6 sm:p-8 border border-zinc-100 text-xs sm:text-sm text-zinc-500">
+            <div class="flex gap-4 items-start md:w-1/2">
+               <i class="fa-regular fa-clock text-lg text-zinc-400 mt-0.5"></i>
+               <p class="leading-relaxed"><strong>Información de Horarios:</strong> Los horarios indicados corresponden a la jornada regular de formación. Las fechas exactas de inicio se definirán con tu asesor académico al momento de elegir la cohorte de Abril o Junio.</p>
+            </div>
+            <div class="flex gap-4 items-start md:w-1/2">
+               <i class="fa-solid fa-tags text-lg text-zinc-400 mt-0.5"></i>
+               <p class="leading-relaxed"><strong>Nota de Precios:</strong> El valor promocional resaltado en verde ya incluye el <strong class="text-ibero-reddark">30% de descuento</strong> aplicado sobre la tarifa regular, disponible por tiempo limitado.</p>
+            </div>
+         </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- IBERO LABS (LA ACELERADORA DE 5 SEMANAS) -->
+  <section id="ibero-labs" class="py-16 lg:py-24 bg-[#09090b] relative border-b border-zinc-900 overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(16,185,129,0.1)_0%,transparent_50%)] pointer-events-none"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 reveal">
+      
+      <div class="text-center mb-12 lg:mb-16">
+         <div class="inline-flex items-center justify-center gap-2 border border-zinc-800 bg-zinc-900/80 px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest text-zinc-400 mb-6 shadow-sm backdrop-blur-md">
+           <i class="fa-solid fa-flask text-emerald-500"></i> Metodología IBERO Labs
+         </div>
+         <h2 class="text-3xl sm:text-5xl font-black text-white tracking-tight mb-4">No es solo un curso. <br><span class="font-serif italic text-emerald-400 font-medium">Es una Incubadora.</span></h2>
+         <p class="text-zinc-400 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+           El Diplomado Intensivo de 5 semanas opera bajo el ecosistema de <strong>IBERO Labs</strong>. Aquí no vienes a presentar exámenes teóricos; vienes a construir, validar y lanzar un negocio real.
+         </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        
+        <!-- Pilar 1: MVP -->
+        <div class="bg-zinc-900/60 border border-zinc-800 p-6 rounded-[1.5rem] hover:border-emerald-500/50 transition-colors group">
+          <div class="w-12 h-12 bg-black border border-zinc-700 rounded-xl flex items-center justify-center text-emerald-500 mb-5 group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-bolt text-xl"></i>
+          </div>
+          <h4 class="font-bold text-white mb-2">Validación MVP</h4>
+          <p class="text-[11px] sm:text-sm text-zinc-400 leading-relaxed">Prototipado rápido y validación en el mercado real usando herramientas No-Code e Inteligencia Artificial.</p>
+        </div>
+
+        <!-- Pilar 2: Web App -->
+        <div class="bg-zinc-900/60 border border-zinc-800 p-6 rounded-[1.5rem] hover:border-emerald-500/50 transition-colors group">
+          <div class="w-12 h-12 bg-black border border-zinc-700 rounded-xl flex items-center justify-center text-emerald-500 mb-5 group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-code text-xl"></i>
+          </div>
+          <h4 class="font-bold text-white mb-2">Web Transaccional</h4>
+          <p class="text-[11px] sm:text-sm text-zinc-400 leading-relaxed">Desarrollo e implementación de tu propia Web App (PWA) con integración de pasarelas de pago operativas.</p>
+        </div>
+
+        <!-- Pilar 3: IA Asistente -->
+        <div class="bg-zinc-900/60 border border-zinc-800 p-6 rounded-[1.5rem] hover:border-emerald-500/50 transition-colors group">
+          <div class="w-12 h-12 bg-black border border-zinc-700 rounded-xl flex items-center justify-center text-emerald-500 mb-5 group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-robot text-xl"></i>
+          </div>
+          <h4 class="font-bold text-white mb-2">IA Operativa 24/7</h4>
+          <p class="text-[11px] sm:text-sm text-zinc-400 leading-relaxed">Configuración de agentes de IA para funcionar como tus asistentes estratégicos y operativos para bajar costos.</p>
+        </div>
+
+        <!-- Pilar 4: Marca -->
+        <div class="bg-zinc-900/60 border border-zinc-800 p-6 rounded-[1.5rem] hover:border-emerald-500/50 transition-colors group">
+          <div class="w-12 h-12 bg-black border border-zinc-700 rounded-xl flex items-center justify-center text-emerald-500 mb-5 group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-pen-nib text-xl"></i>
+          </div>
+          <h4 class="font-bold text-white mb-2">Diseño de Marca</h4>
+          <p class="text-[11px] sm:text-sm text-zinc-400 leading-relaxed">Estructuración visual y conceptual. Sales con identidad base, branding y activos digitales listos para vender.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ENFOQUE GENERAL Y METODOLOGÍA (SECCIÓN PRO ABAJO DEL DIPLOMADO) -->
   <section id="metodologia" class="py-16 lg:py-20 bg-zinc-50 border-b border-zinc-200 relative overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
        <div class="flex flex-col lg:flex-row gap-10 lg:gap-16">
@@ -271,7 +442,7 @@
                 </div>
                 <div>
                    <h5 class="text-xs font-bold text-ibero-dark uppercase tracking-widest">Aprobación y Certificación</h5>
-                   <p class="text-[11px] text-zinc-500 mt-1 leading-tight">Se requiere cumplir con al menos el <strong>70% de asistencia, participación y actividades</strong> para recibir el certificado oficial.</p>
+                   <p class="text-[11px] text-zinc-500 mt-1 leading-tight">Se requiere cumplir con al menos el <strong>70% de asistencia, participación y actividades prácticas</strong> para recibir el certificado oficial.</p>
                 </div>
              </div>
           </div>
@@ -318,97 +489,54 @@
     </div>
   </section>
 
-  <!-- PROGRAMA OFICIAL (DISEÑO FLAGSHIP) -->
-  <section id="diplomados" class="py-16 lg:py-24 bg-white relative">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <!-- Conversor de Monedas (Control de Precios) -->
-      <div class="flex flex-col items-center mb-10 sm:mb-16 reveal">
-        <div class="bg-zinc-50 border border-zinc-200 p-1.5 rounded-full inline-flex gap-1 shadow-sm overflow-x-auto max-w-full hide-scrollbar">
-          <button class="currency-btn bg-ibero-dark text-white px-4 sm:px-6 py-2.5 rounded-full text-[10px] sm:text-xs font-bold transition-all whitespace-nowrap" data-currency="usd">🇪🇨 USD (Ecuador)</button>
-          <button class="currency-btn text-zinc-500 hover:text-ibero-dark px-4 sm:px-6 py-2.5 rounded-full text-[10px] sm:text-xs font-bold transition-all whitespace-nowrap" data-currency="mxn">🇲🇽 MXN (México)</button>
-          <button class="currency-btn text-zinc-500 hover:text-ibero-dark px-4 sm:px-6 py-2.5 rounded-full text-[10px] sm:text-xs font-bold transition-all whitespace-nowrap" data-currency="cop">🇨🇴 COP (Colombia)</button>
-          <button class="currency-btn text-zinc-500 hover:text-ibero-dark px-4 sm:px-6 py-2.5 rounded-full text-[10px] sm:text-xs font-bold transition-all whitespace-nowrap" data-currency="pen">🇵🇪 PEN (Perú)</button>
+  <!-- CTA SECUNDARIO (Certificación Blockchain Premium) -->
+  <section id="certificacion" class="py-20 lg:py-32 bg-[#050505] relative border-y border-zinc-900 overflow-hidden">
+    <!-- Background effect -->
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.05)_0%,transparent_50%)] pointer-events-none"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+        
+        <div class="lg:w-1/2 reveal">
+           <div class="inline-flex items-center justify-center gap-2 border border-zinc-700 bg-zinc-800/80 px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest text-zinc-300 mb-6 shadow-sm">
+             <i class="fa-solid fa-shield-halved text-emerald-400"></i> Aval Internacional
+           </div>
+           <h2 class="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight mb-6 leading-tight">Certificación <br><span class="font-serif italic text-zinc-400 font-medium">Blockchain & QR Inmutable</span></h2>
+           <p class="text-zinc-400 text-base sm:text-lg leading-relaxed mb-6 font-medium">
+              No entregamos un simple papel. Al aprobar tu Diplomado, recibes una credencial digital infalsificable respaldada por tecnología Blockchain.
+           </p>
+           <ul class="space-y-4 mb-8">
+              <li class="flex items-start gap-3">
+                 <i class="fa-solid fa-check text-emerald-500 mt-1"></i>
+                 <span class="text-sm text-zinc-300"><strong>Verificación en Tiempo Real:</strong> Tus futuros empleadores o socios pueden escanear tu QR para validar tus competencias al instante en nuestra plataforma segura.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                 <i class="fa-solid fa-check text-emerald-500 mt-1"></i>
+                 <span class="text-sm text-zinc-300"><strong>Respaldo Corporativo:</strong> Añade un peso y autoridad masiva a tu perfil de LinkedIn, tu currículum y tus propuestas comerciales.</span>
+              </li>
+           </ul>
+           <a href="https://ibero.education/registro-y-admisiones/" target="_blank" class="bg-white hover:bg-zinc-200 text-ibero-dark font-bold py-3.5 px-8 rounded-xl transition-all shadow-md inline-flex items-center gap-2">
+             Obtener mi Certificación <i class="fa-solid fa-arrow-right"></i>
+           </a>
         </div>
-      </div>
 
-      <!-- Tarjeta Flagship del Diplomado -->
-      <div class="reveal">
-        <div class="bg-white rounded-2xl sm:rounded-[2rem] overflow-hidden shadow-xl border border-zinc-200 hover:shadow-2xl hover:border-zinc-300 transition-all flex flex-col md:flex-row max-w-5xl mx-auto group">
-          
-          <!-- Image Side -->
-          <div class="md:w-5/12 relative overflow-hidden bg-zinc-100 border-b md:border-b-0 md:border-r border-zinc-100">
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="IA Aplicada">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-80 group-hover:opacity-100 transition-opacity"></div>
-            <span class="absolute top-4 left-4 bg-zinc-900/95 text-white border border-zinc-700 text-[10px] px-3 py-1 rounded-sm font-bold uppercase tracking-widest shadow-md backdrop-blur-sm flex items-center gap-1.5">
-              <span class="w-1.5 h-1.5 bg-green-500 rounded-full inline-block animate-pulse"></span>5 Semanas
-            </span>
-          </div>
-          
-          <!-- Content Side -->
-          <div class="md:w-7/12 p-6 sm:p-10 flex flex-col">
-            <h4 class="text-[18px] sm:text-3xl font-extrabold tracking-tight text-ibero-dark leading-tight mb-3 sm:mb-4">Diplomado en IA Aplicada a Negocios, Marketing y Comunicación</h4>
-            <p class="text-zinc-500 text-[12px] sm:text-[14px] leading-relaxed mb-6">Programa intensivo de formación aplicada que integra inteligencia artificial, negocios, marketing y comunicación con una visión práctica, comercial y orientada a la monetización de proyectos y marcas.</p>
-            
-            <!-- Fechas de Inicio (Cohortes) -->
-            <div class="bg-ibero-purple/5 border border-ibero-purple/20 p-4 rounded-xl mb-6">
-               <p class="text-[10px] sm:text-[11px] text-ibero-purple font-bold uppercase tracking-widest mb-2"><i class="fa-regular fa-calendar-check mr-1"></i> Fechas de Inicio (Elige tu cohorte)</p>
-               <div class="flex flex-wrap gap-2">
-                  <span class="bg-white border border-ibero-purple/20 text-ibero-dark px-3 py-1.5 rounded-lg text-xs font-bold shadow-sm">📅 Abril 2026</span>
-                  <span class="bg-white border border-ibero-purple/20 text-ibero-dark px-3 py-1.5 rounded-lg text-xs font-bold shadow-sm">📅 Junio 2026</span>
-               </div>
-            </div>
-
-            <!-- Detalles de Carga Horaria -->
-            <div class="bg-zinc-50 p-3 sm:p-4 rounded-xl border border-zinc-100 mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-               <div class="space-y-1">
-                 <div class="text-[10px] sm:text-[11px] text-zinc-500 font-bold uppercase">Carga Total: <span class="text-ibero-dark">60 Horas</span></div>
-                 <div class="text-[10px] sm:text-[11px] text-zinc-500">40h Sincrónicas | 20h Asincrónicas</div>
-                 <div class="text-[10px] sm:text-[11px] text-zinc-600 mt-2"><i class="fa-regular fa-clock"></i> Lun a Jue - 7:00 PM (EC/CO/PE) | 6:00 PM (MX)</div>
-               </div>
-            </div>
-
-            <!-- Pricing y CTA -->
-            <div class="flex flex-col sm:flex-row justify-between items-center sm:items-end mt-auto border-t border-zinc-100 pt-6 gap-4">
-              <div class="w-full sm:w-auto text-center sm:text-left">
-                 <p class="text-[11px] sm:text-xs text-zinc-400 line-through price-display-normal" data-usd="USD $281" data-mxn="MXN $5.000" data-cop="COP $1.128.571" data-pen="PEN S/ 1.071">USD $281</p>
-                 <p class="text-[20px] sm:text-3xl font-black text-emerald-600 leading-none mt-1 price-display-discount" data-usd="USD $197" data-mxn="MXN $3.500" data-cop="COP $790.000" data-pen="PEN S/ 750">USD $197</p>
+        <div class="lg:w-1/2 w-full reveal" style="transition-delay: 0.2s;">
+           <div class="aspect-square sm:aspect-video lg:aspect-square relative rounded-[2rem] overflow-hidden border border-zinc-800 shadow-[0_20px_50px_rgba(0,0,0,0.5)] group">
+              <img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 opacity-60 mix-blend-luminosity" alt="Tecnología Blockchain QR">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
+              <div class="absolute bottom-8 left-8 right-8 flex items-center gap-4 bg-zinc-900/80 backdrop-blur-md p-4 rounded-xl border border-zinc-700">
+                 <div class="w-12 h-12 bg-white rounded-lg p-1 flex items-center justify-center shrink-0">
+                    <i class="fa-solid fa-qrcode text-3xl text-ibero-dark"></i>
+                 </div>
+                 <div>
+                    <p class="text-white font-bold text-sm">Escaneo Seguro Activo</p>
+                    <p class="text-[10px] text-emerald-400 mt-0.5">Credencial verificada en la red Blockchain.</p>
+                 </div>
               </div>
-              <a href="https://ibero.education/registro-y-admisiones/" target="_blank" class="w-full sm:w-auto text-center bg-ibero-dark hover:bg-black text-white text-sm sm:text-base font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-xl transition-all shadow-lg flex items-center justify-center gap-2 group">
-                Inscribirme <i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
-              </a>
-            </div>
-          </div>
+           </div>
         </div>
-      </div>
-      
-      <!-- Notas y Disclaimers Oficiales -->
-      <div class="mt-12 sm:mt-16 border-t border-zinc-200 pt-8 reveal max-w-5xl mx-auto">
-         <div class="flex flex-col md:flex-row gap-6 justify-between bg-zinc-50 rounded-2xl p-6 sm:p-8 border border-zinc-100 text-xs sm:text-sm text-zinc-500">
-            <div class="flex gap-4 items-start md:w-1/2">
-               <i class="fa-regular fa-clock text-lg text-zinc-400 mt-0.5"></i>
-               <p class="leading-relaxed"><strong>Información de Horarios:</strong> Los horarios indicados corresponden a la jornada regular de formación. Las fechas exactas de inicio se definirán con tu asesor académico al momento de elegir la cohorte de Abril o Junio.</p>
-            </div>
-            <div class="flex gap-4 items-start md:w-1/2">
-               <i class="fa-solid fa-tags text-lg text-zinc-400 mt-0.5"></i>
-               <p class="leading-relaxed"><strong>Nota de Precios:</strong> El valor promocional resaltado en verde ya incluye el <strong class="text-ibero-reddark">30% de descuento</strong> aplicado sobre la tarifa regular, disponible por tiempo limitado.</p>
-            </div>
-         </div>
-      </div>
 
-    </div>
-  </section>
-
-  <!-- CTA SECUNDARIO (Confianza) -->
-  <section id="certificacion" class="py-12 bg-white border-t border-zinc-200">
-    <div class="max-w-4xl mx-auto px-4 text-center reveal">
-      <div class="w-16 h-16 bg-zinc-50 border border-zinc-200 rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm">
-        <i class="fa-solid fa-qrcode text-2xl text-ibero-dark"></i>
       </div>
-      <h3 class="text-xl font-bold text-ibero-dark mb-2">Certificación Blockchain Inmutable</h3>
-      <p class="text-sm text-zinc-500 leading-relaxed max-w-xl mx-auto">
-        Todos nuestros programas de certificación y diplomados emiten un diploma avalado con un código QR único, que tus futuros empleadores o socios pueden verificar en tiempo real en nuestra plataforma segura.
-      </p>
     </div>
   </section>
 
@@ -451,9 +579,9 @@
                 <li><a href="https://ibero.education/oferta-academica/" target="_blank" class="hover:text-white transition-colors">Oferta Académica</a></li>
                 <li><a href="https://ibero.education/calendario-academico/" target="_blank" class="hover:text-white transition-colors">Calendario Cursos</a></li>
                 <li><a href="https://ibero.education/certificaciones-intensivas/" target="_blank" class="hover:text-white transition-colors">Cursos Intensivos</a></li>
-                <li><a href="#" class="text-white font-bold transition-colors">Diplomados Ejecutivos</a></li>
+                <li><a href="https://ibero.education/diplomados-intensivos/" target="_blank" class="hover:text-white transition-colors">Diplomados Ejecutivos</a></li>
                 <li><a href="https://ibero.education/executive-master/" target="_blank" class="hover:text-white transition-colors">Executive Masters</a></li>
-                <li><a href="https://ibero.education/ingles-continuo/" target="_blank" class="hover:text-white transition-colors">Programas de Inglés</a></li>
+                <li><a href="https://ibero.education/english-courses/" target="_blank" class="hover:text-white transition-colors">Programas de Inglés</a></li>
              </ul>
           </div>
 
@@ -501,7 +629,7 @@
        <div class="flex flex-col md:flex-row justify-between items-center text-[10px] sm:text-xs pt-6 pb-24 md:pb-4 md:px-16 border-t border-zinc-900/50">
           <p class="text-zinc-500 mb-4 md:mb-0 text-center">&copy; 2026 Centro Iberoamericano (IBERO). Todos los derechos reservados.</p>
           <div class="flex flex-col items-center md:items-end gap-1.5 text-center md:text-right">
-             <p class="text-zinc-500">Sitio desarrollado y diseñado por <a href="https://www.goatify.app" target="_blank" class="text-ibero-purple hover:text-white font-bold transition-colors">GOATIFY</a></p>
+             <p class="text-zinc-500">Sitio desarrollado y diseñado por <a href="https://www.goatify.app" target="_blank" class="text-emerald-500 hover:text-white font-bold transition-colors">GOATIFY</a></p>
           </div>
        </div>
     </div>
