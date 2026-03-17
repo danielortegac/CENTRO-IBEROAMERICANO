@@ -148,20 +148,20 @@
     <!-- Fila 1: Navegación Interna Principal y Logo (Ultra-Delgado) -->
     <div class="w-full nav-glass border-b border-zinc-200">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between items-center h-14 md:h-16">
+        <div class="flex justify-between items-center h-14 md:h-16 gap-2 sm:gap-4">
           <!-- Logo Oficial Actualizado -->
           <a href="https://ibero.education/" target="_blank" class="flex-shrink-0 flex items-center cursor-pointer">
             <img src="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/1557a79470d9c26d1ad0f0b00243f9f03e55cf2f/fotos/svg/ibero-logo-black-redE.svg" alt="Logo IBERO" class="h-8 sm:h-10 md:h-10 w-auto object-contain">
           </a>
           
-          <!-- Desktop Menu Interno (Anclas locales) -->
-          <div class="hidden md:flex space-x-10 items-center">
-            <a href="#proceso" class="text-[13px] font-bold text-zinc-600 hover:text-ibero-dark transition-colors">El Proceso</a>
-            <a href="#requerimientos" class="text-[13px] font-bold text-zinc-600 hover:text-ibero-dark transition-colors">Requerimientos</a>
-            <a href="#inversion" class="text-[13px] font-bold text-zinc-600 hover:text-ibero-dark transition-colors">Inversión y Ayuda</a>
+          <!-- Menu Interno (Alineado siempre a la derecha cerca de la hamburguesa) -->
+          <div class="flex flex-1 items-center justify-start lg:justify-end gap-4 md:gap-10 overflow-x-auto hide-scrollbar px-2 sm:px-4">
+            <a href="#proceso" class="text-[11px] md:text-[13px] font-bold text-zinc-600 hover:text-ibero-dark transition-colors whitespace-nowrap">El Proceso</a>
+            <a href="#requerimientos" class="text-[11px] md:text-[13px] font-bold text-zinc-600 hover:text-ibero-dark transition-colors whitespace-nowrap">Requerimientos</a>
+            <a href="#inversion" class="text-[11px] md:text-[13px] font-bold text-zinc-600 hover:text-ibero-dark transition-colors whitespace-nowrap">Inversión y Ayuda</a>
             
-            <!-- Botón de Matrículas (Urgencia) -->
-            <a href="#inversion" class="bg-black text-white px-6 py-2 md:py-2.5 rounded-lg text-[13px] font-bold hover:bg-zinc-800 border border-zinc-700 shadow-lg hover:shadow-xl transition-all flex items-center gap-2 group relative overflow-hidden">
+            <!-- Botón de Matrículas (OCULTO EN CELULAR para no estorbar, visible en PC) -->
+            <a href="#inversion" class="hidden md:flex bg-black text-white px-6 py-2.5 rounded-lg text-[13px] font-bold hover:bg-zinc-800 border border-zinc-700 shadow-lg hover:shadow-xl transition-all items-center gap-2 group relative overflow-hidden shrink-0">
               <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-[textShine_1.5s_ease-in-out_infinite]"></span>
               <span>Inscribirse Ahora</span>
               <span class="relative flex h-2 w-2">
@@ -172,7 +172,7 @@
           </div>
 
           <!-- Mobile Menu Button -->
-          <div class="md:hidden flex items-center">
+          <div class="md:hidden flex items-center shrink-0 border-l border-zinc-200 pl-2 ml-1">
             <button id="mobile-menu-btn" class="text-zinc-600 hover:text-ibero-dark focus:outline-none p-2 transition-colors">
               <i class="fa-solid fa-bars text-xl"></i>
             </button>
@@ -183,14 +183,14 @@
 
     <!-- Fila 2: Enlaces Institucionales -->
     <div class="flex w-full bg-[#050505] text-white border-b border-zinc-900">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex justify-start md:justify-end items-center h-10 text-[10px] md:text-[11px] font-semibold tracking-wider uppercase overflow-x-auto hide-scrollbar">
-        <div class="flex items-center gap-5 md:gap-7 min-w-max pr-4 md:pr-0">
+      <div class="max-w-7xl mx-auto w-full flex justify-start lg:justify-end items-center h-10 text-[10px] md:text-[11px] font-semibold tracking-wider uppercase overflow-x-auto hide-scrollbar">
+        <div class="flex items-center gap-5 md:gap-7 min-w-max px-4 sm:px-6 lg:px-8">
           <a href="https://ibero.education/" target="_blank" class="text-white hover:text-zinc-300 transition-colors">Inicio</a>
           <a href="https://qlase.goatify.app/" target="_blank" class="text-white hover:text-zinc-300 transition-colors">Campus Virtual</a>
           <a href="https://ibero.education/trabaja-con-nosotros/" target="_blank" class="text-white hover:text-zinc-300 transition-colors">Docentes</a>
           <a href="https://ibero.education/trabaja-con-nosotros/" target="_blank" class="text-white hover:text-zinc-300 transition-colors">Trabaja con nosotros</a>
           <a href="https://ibero.education/ayuda-financiera/" target="_blank" class="text-white hover:text-zinc-300 transition-colors">Ayuda Financiera</a>
-          <a href="https://ia.goatify.app/#discovery" target="_blank" class="text-white hover:text-zinc-300 transition-colors">Blog</a>
+          <a href="https://ibero.education/publicaciones" target="_blank" class="text-white hover:text-zinc-300 transition-colors">Publicaciones</a>
           <a href="https://ibero.education/contacto/" target="_blank" class="text-white hover:text-zinc-300 transition-colors">Contactos</a>
         </div>
       </div>
@@ -198,10 +198,10 @@
 
     <!-- Fila 3: Ecosistema y Programas Académicos Externos -->
     <div class="flex w-full bg-zinc-50/90 border-b border-zinc-200 backdrop-blur-md">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex justify-start md:justify-center items-center h-12 text-[11px] md:text-[12px] font-medium text-zinc-600 overflow-x-auto hide-scrollbar">
-        <div class="flex items-center gap-6 lg:gap-12 min-w-max pr-4 md:pr-0">
-          <a href="https://ibero.education/oferta-academica/" target="_blank" class="hover:text-ibero-dark hover:font-bold transition-all">Catálogo Oferta</a>
-          <a href="https://ibero.education/calendario-academico/" target="_blank" class="hover:text-ibero-dark hover:font-bold transition-all">Calendario 2026</a>
+      <div class="max-w-7xl mx-auto w-full flex justify-start items-center h-12 text-[11px] md:text-[12px] font-medium text-zinc-600 overflow-x-auto hide-scrollbar">
+        <div class="flex items-center gap-6 lg:gap-12 min-w-max px-4 sm:px-6 lg:px-8">
+          <a href="https://ibero.education/oferta-academica/" target="_blank" class="hover:text-ibero-dark hover:font-bold transition-all">Programas</a>
+          <a href="https://ibero.education/calendario-academico/" target="_blank" class="hover:text-ibero-dark hover:font-bold transition-all">Calendario Cursos</a>
           <a href="https://ibero.education/certificaciones-intensivas/" target="_blank" class="hover:text-ibero-dark hover:font-bold transition-all">Certificaciones</a>
           <a href="https://ibero.education/diplomados-intensivos/" target="_blank" class="hover:text-ibero-dark hover:font-bold transition-all">Diplomados</a>
           <a href="https://ibero.education/executive-master/" target="_blank" class="hover:text-ibero-dark hover:font-bold transition-all">Executive Master</a>
@@ -228,7 +228,7 @@
         <div class="mt-4 mb-2 px-3 border-t border-zinc-100 pt-4">
           <span class="text-[10px] font-bold tracking-widest text-ibero-reddark uppercase">Ecosistema & Programas</span>
         </div>
-        <a href="https://ibero.education/oferta-academica/" target="_blank" class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 border-b border-zinc-50 hover:text-ibero-reddark">Oferta Académica</a>
+        <a href="https://ibero.education/oferta-academica/" target="_blank" class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 border-b border-zinc-50 hover:text-ibero-reddark">Programas</a>
         <a href="https://ibero.education/calendario-academico/" target="_blank" class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 border-b border-zinc-50 hover:text-ibero-reddark">Calendario Cursos</a>
         <a href="https://ibero.education/certificaciones-intensivas/" target="_blank" class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 border-b border-zinc-50 hover:text-ibero-reddark">Certificaciones</a>
         <a href="https://ibero.education/diplomados-intensivos/" target="_blank" class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 border-b border-zinc-50 hover:text-ibero-reddark">Diplomados</a>
@@ -238,6 +238,7 @@
         <a href="https://ibero.education/artes-liberales/" target="_blank" class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 border-b border-zinc-50 hover:text-ibero-reddark">Artes liberales</a>
         <a href="https://ibero.education/registro-y-admisiones/" target="_blank" class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 border-b border-zinc-50 hover:text-ibero-reddark">Registro y admisiones</a>
         <a href="https://ibero.education/consultoria-en-educacion/" target="_blank" class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 border-b border-zinc-50 hover:text-ibero-reddark">Consultoría en educación</a>
+        <a href="https://ibero.education/ingles-continuo/" target="_blank" class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 border-b border-zinc-50 hover:text-ibero-reddark">Inglés Continuo</a>
 
         <div class="mt-4 mb-2 px-3">
           <span class="text-[10px] font-bold tracking-widest text-ibero-reddark uppercase">Institucional & Contacto</span>
@@ -246,7 +247,7 @@
         <a href="https://qlase.goatify.app/" target="_blank" class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 border-b border-zinc-50 hover:text-ibero-reddark">Campus Virtual</a>
         <a href="https://ibero.education/trabaja-con-nosotros/" target="_blank" class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 border-b border-zinc-50 hover:text-ibero-reddark">Docentes</a>
         <a href="https://ibero.education/ayuda-financiera/" target="_blank" class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 border-b border-zinc-50 hover:text-ibero-reddark">Ayuda Financiera</a>
-        <a href="https://ia.goatify.app/#discovery" target="_blank" class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 hover:text-ibero-reddark">Blog</a>
+        <a href="https://ibero.education/publicaciones" target="_blank" class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 hover:text-ibero-reddark">Publicaciones</a>
         <a href="https://ibero.education/contacto/" target="_blank" class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 hover:text-ibero-reddark">Contactos</a>
       </div>
     </div>
@@ -466,9 +467,26 @@
                <ul class="space-y-6 mb-8 flex-grow">
                   <li class="flex gap-4 items-start">
                      <div class="w-8 h-8 rounded-full bg-zinc-800/80 backdrop-blur-md text-white font-black text-xs flex items-center justify-center shrink-0 border border-zinc-600 mt-1 shadow-md">1</div>
-                     <div>
+                     <div class="w-full">
                         <p class="text-white font-bold text-sm sm:text-base">Realiza la inversión en tu futuro.</p>
-                        <p class="text-zinc-300 text-xs sm:text-sm mt-1 leading-relaxed">Revisa nuestros métodos oficiales (Transferencia bancaria, Tarjetas de Crédito/Débito o Servipagos).</p>
+                        <p class="text-zinc-300 text-xs sm:text-sm mt-1 leading-relaxed mb-3">
+                          Aceptamos <strong>todas las tarjetas de crédito o débito</strong>. El link de pago directo lo encuentras en el botón "Inscribirse" dentro de la página de cada programa. También puedes realizar transferencia a nuestra cuenta oficial:
+                        </p>
+                        
+                        <!-- NUEVO BLOQUE DE CUENTA BANCARIA -->
+                        <div class="bg-black/50 border border-zinc-700 rounded-xl p-4 shadow-inner relative overflow-hidden group">
+                            <div class="absolute top-0 right-0 w-24 h-24 bg-emerald-500/10 blur-2xl rounded-full pointer-events-none"></div>
+                            <div class="flex items-center gap-2 mb-3 border-b border-zinc-700/50 pb-2">
+                                <i class="fa-solid fa-building-columns text-emerald-500"></i>
+                                <p class="text-xs font-bold text-zinc-300 uppercase tracking-widest">Banco Bolivariano</p>
+                            </div>
+                            <div class="space-y-2 text-xs sm:text-sm text-zinc-400">
+                                <p><strong class="text-white">Cuenta Corriente:</strong> <span class="font-mono text-emerald-400 font-bold tracking-wider">501 5025433</span></p>
+                                <p><strong class="text-white">Razón Social:</strong> CENTRO IBEROAMERICANO DE EDUCACIÓN S.A.S.</p>
+                                <p><strong class="text-white">RUC:</strong> 1793199203001</p>
+                            </div>
+                        </div>
+
                      </div>
                   </li>
                   <li class="flex gap-4 items-start">
@@ -491,11 +509,13 @@
                </ul>
 
                <div class="border-t border-zinc-700/50 pt-6">
-                  <p class="text-[11px] text-zinc-400 font-bold uppercase tracking-widest mb-4">Métodos Aceptados</p>
+                  <p class="text-[11px] text-emerald-400 font-bold uppercase tracking-widest mb-2"><i class="fa-solid fa-lock mr-1"></i> Pagos 100% Seguros</p>
+                  <p class="text-[12px] text-zinc-400 mb-4 leading-relaxed">Aceptamos todas las tarjetas (Visa, Mastercard, Amex, Discover). Podrás pagar al contado o diferir tu inversión usando el <strong class="text-white">link de pago seguro</strong> que se encuentra dentro de la información de cada programa.</p>
                   <div class="flex gap-4 items-center">
                      <i class="fa-brands fa-cc-visa text-3xl text-zinc-300 hover:text-white transition-colors cursor-pointer drop-shadow-md"></i>
                      <i class="fa-brands fa-cc-mastercard text-3xl text-zinc-300 hover:text-white transition-colors cursor-pointer drop-shadow-md"></i>
                      <i class="fa-brands fa-cc-amex text-3xl text-zinc-300 hover:text-white transition-colors cursor-pointer drop-shadow-md"></i>
+                     <i class="fa-brands fa-cc-discover text-3xl text-zinc-300 hover:text-white transition-colors cursor-pointer drop-shadow-md"></i>
                      <i class="fa-solid fa-building-columns text-2xl text-zinc-300 hover:text-white transition-colors cursor-pointer ml-2 drop-shadow-md"></i>
                   </div>
                </div>
@@ -589,7 +609,7 @@
   <!-- FOOTER PREMIUM EXACTO -->
   <footer class="bg-[#050505] text-zinc-400 py-12 border-t border-zinc-900">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-       <!-- Grid ampliado a 5 columnas -->
+       <!-- Grid ampliado a 6 columnas para consistencia -->
        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 mb-8 border-b border-zinc-900 pb-12">
           
           <!-- Col 1: Brand & Socials -->
@@ -622,7 +642,7 @@
           <div>
              <h4 class="text-white font-bold mb-4 text-sm">Programas</h4>
              <ul class="space-y-2 text-xs sm:text-sm">
-                <li><a href="https://ibero.education/oferta-academica/" target="_blank" class="hover:text-white transition-colors">Oferta Académica</a></li>
+                <li><a href="https://ibero.education/oferta-academica/" target="_blank" class="hover:text-white transition-colors">Programas</a></li>
                 <li><a href="https://ibero.education/calendario-academico/" target="_blank" class="hover:text-white transition-colors">Calendario Cursos</a></li>
                 <li><a href="https://ibero.education/certificaciones-intensivas/" target="_blank" class="hover:text-white transition-colors">Cursos Intensivos</a></li>
                 <li><a href="https://ibero.education/diplomados-intensivos/" target="_blank" class="hover:text-white transition-colors">Diplomados Ejecutivos</a></li>
@@ -640,7 +660,7 @@
                 <li><a href="https://ibero.education/ibero-labs/" target="_blank" class="hover:text-white transition-colors">IBERO Labs</a></li>
                 <li><a href="https://ibero.education/artes-liberales/" target="_blank" class="hover:text-white transition-colors">Artes liberales</a></li>
                 <li><a href="https://ibero.education/consultoria-en-educacion/" target="_blank" class="hover:text-white transition-colors">Consultoría B2B</a></li>
-                <li><a href="https://ia.goatify.app/#discovery" target="_blank" class="hover:text-white transition-colors">Portal de Blog</a></li>
+                <li><a href="https://ibero.education/publicaciones" target="_blank" class="hover:text-white transition-colors">Portal de Publicaciones</a></li>
              </ul>
           </div>
 
@@ -672,11 +692,10 @@
 
        </div>
 
-       <!-- Ajuste para que las burbujas no tapen los créditos -->
        <div class="flex flex-col md:flex-row justify-between items-center text-[10px] sm:text-xs pt-6 pb-24 md:pb-4 md:px-16 border-t border-zinc-900/50">
           <p class="text-zinc-500 mb-4 md:mb-0 text-center">&copy; 2026 Centro Iberoamericano (IBERO). Todos los derechos reservados.</p>
           <div class="flex flex-col items-center md:items-end gap-1.5 text-center md:text-right">
-             <p class="text-zinc-500">Sitio desarrollado y diseñado por <a href="https://www.goatify.app" target="_blank" class="text-ibero-purplelight hover:text-white font-bold transition-colors">GOATIFY</a></p>
+             <p class="text-zinc-500">Sitio desarrollado y diseñado por <a href="https://www.goatify.app" target="_blank" class="text-ibero-purple hover:text-white font-bold transition-colors">GOATIFY</a></p>
           </div>
        </div>
     </div>
@@ -712,7 +731,6 @@
     const scrollTopBtn = document.getElementById('scroll-top-btn');
 
     window.addEventListener('scroll', () => {
-       // Navbar
        if (navbar) {
            if (window.scrollY > 20) {
               navbar.classList.add('shadow-md');
@@ -723,7 +741,6 @@
            }
        }
        
-       // Scroll to Top Botón Sutil
        if (scrollTopBtn) {
            if (window.scrollY > 300) {
                scrollTopBtn.classList.add('visible');
